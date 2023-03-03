@@ -4,13 +4,11 @@ Then you have to import your components to index.js
 */
 import logo from './logo.svg';
 import './App.css';
-
 import AppRouter from './AppRouter';
 
 function App() {
   return (
     <div class ="flex" className='App'>
-
 
     <ul id ="nav-list">
     <li class='mr-6'>
