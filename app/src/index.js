@@ -1,6 +1,7 @@
 /*
 This is where your components or javascript gets rendered to the webpage
 */
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';

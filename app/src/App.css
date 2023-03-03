@@ -1,9 +1,6 @@
 /*
 This is to style your webpage
 */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 .App {
   text-align: center;
