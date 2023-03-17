@@ -17,6 +17,7 @@ function AboutPage(){
              completely comprehensive resource demanded by hospital systems and 
              providers alike, in order to make an informed decision based on facts, 
              not marketing, for best practices and patient specific needs.</p>
+             <p>Hello world</p>
         </div>
         
         </div>
