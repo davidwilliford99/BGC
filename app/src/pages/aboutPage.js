@@ -17,7 +17,19 @@ function AboutPage(){
              completely comprehensive resource demanded by hospital systems and 
              providers alike, in order to make an informed decision based on facts, 
              not marketing, for best practices and patient specific needs.</p>
-             <p>Hello world</p>
+
+             <h1>Statements</h1>
+             <p>Not all bone graft is created equally, nor should it have to be. </p>
+             <p>At the Bone Graft Consortium(BGC) we help to take the guess work(and marketing 
+                confusion) out of the crowded bone grafting space</p>
+             
+             <h1>Hospital Facing Statement</h1>
+             <p>The fact based information provided by the BGC allows your hospital or ASC to make 
+                an informed decision, in a reasonable amount of time, as to the most relevant bone 
+                grafts for your institution’s requirements. This not only helps the hospital, provider, 
+                and patient workflow but it also allows companies to know their place in the queue, without 
+                waiting an undetermined amount of time for a possible approval or denial based on non factual 
+                vetting processes(current value analysis systems across our country)</p>
         </div>
         
         </div>
