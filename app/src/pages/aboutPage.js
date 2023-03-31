@@ -11,7 +11,7 @@ function AboutPage(){
             <footer class="blockquote-footer">Mike Weddington</footer>
             </blockquote>
                 
-            <div class="container p-5 my-5 bg-dark text-white">
+            <div class="container p-5 my-5 bg-light">
                 <h2>Our Story</h2>
                 <p>Something about the story of BGC. Have a picture here as well.</p> 
             </div>
@@ -32,7 +32,7 @@ function AboutPage(){
                     not marketing, for best practices and patient specific needs.</p>
             </div>
                 
-            <div class="container p-5 my-5 bg-dark text-white">
+            <div class="container p-5 my-5 bg-light">
                 <h2>Marketing Statements</h2>
                 <p>Not all bone graft is created equally, nor should it have to be. 
                     At the Bone Graft Consortium(BGC) we help to take the guess work(and marketing 
