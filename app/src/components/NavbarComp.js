@@ -7,10 +7,12 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavScrollExample() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="white" expand="lg">
       <Container fluid>
         <Navbar.Brand href="/home">
-          <img src = ''></img>
+          <img 
+          classname='img-fluid'
+          src = 'images/MicrosoftTeams-image (1).png' width='150' height='100'></img>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
