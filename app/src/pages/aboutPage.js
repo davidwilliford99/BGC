@@ -48,11 +48,6 @@ function AboutPage(){
                     waiting an undetermined amount of time for a possible approval or denial based on non factual 
                     vetting processes(current value analysis systems across our country).</p>
             </div>
-
-            <button type="button" class="btn btn-primary btn-md">Browse Products</button> 
-            <br></br>
-            <button type="button" class="btn btn-primary btn-md">Add Your Product</button> 
-
         </div>
     )
 }
