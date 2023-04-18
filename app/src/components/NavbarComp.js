@@ -10,9 +10,9 @@ function NavScrollExample() {
     <Navbar bg="white" expand="lg">
       <Container fluid>
         <Navbar.Brand href="/home">
-          <img 
-          classname='img-fluid'
-          src = 'images/MicrosoftTeams-image (1).png' width='150' height='100'></img>
+          <img
+            classname='img-fluid'
+            src='images/MicrosoftTeams-image (1).png' width='150' height='100'></img>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -24,6 +24,8 @@ function NavScrollExample() {
             <Nav.Link href="/home">Home</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href='/pricing'>Pricing</Nav.Link>
+            <Nav.Link href='/contact'>Contact</Nav.Link>
+
           </Nav>
           <Form className="d-flex">
             <Form.Control
