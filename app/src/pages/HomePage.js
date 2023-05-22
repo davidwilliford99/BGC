@@ -94,6 +94,8 @@ function HomePage() {
         Of course! We’re happy to offer a free plan to anyone who wants to try our service.
       </p>
     </div>
+  
+
   </div>
 </section>
     </div>
