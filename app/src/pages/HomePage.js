@@ -2,23 +2,22 @@ import React from 'react';
 
 function HomePage() {
   return (
-    <div className='card-wrapper'>
-      <div className='card'>
-        <img
-          className='card-img-top img-thumbnail'
-          src='images/tim-kilby-x2qzLL3vdBs-unsplash.jpg'
-          alt='alt text'
-        />
-        <div className='card-img-overlay d-flex flex-column justify-content-center align-items-center'>
-          <h1 className='text-light text-center'>
-            "Lifting the veil of mismanaged information of{' '}
-            <small className='text-muted'>Bone Grafting"</small>
-          </h1>
-          <h1 className='text-light text-center'>- Mike Weddington</h1>
-          <a href='#' className='btn btn-primary btn-lg btn-get-started'>
-            Get Started
-          </a>
-        </div>
+
+    <div className='overflow-x-hidden w-full'>
+      <img
+        className='w-full'
+        src='images/tim-kilby-x2qzLL3vdBs-unsplash.jpg'
+        alt='main-background'
+      />
+      <div className='card-img-overlay d-flex flex-column justify-content-center align-items-center'>
+        <h1 className='text-light text-center'>
+          "Lifting the veil of mismanaged information of{' '}
+          <small className='text-muted'>Bone Grafting"</small>
+        </h1>
+        <h1 className='text-light text-center'>- Mike Weddington</h1>
+        <a href='#' className='btn btn-primary btn-lg btn-get-started'>
+          Get Started
+        </a>
       </div>
 
       <div className='py-5'>

@@ -3,15 +3,14 @@ import React from 'react'
 function AboutPage(){
     return(
         <div className='about-wrapper'>
-            <br></br>
-            <h1>About Us</h1>
 
-            <blockquote class="blockquote">
-            <p>BGC is an important company.</p>
-            <footer class="blockquote-footer">Mike Weddington</footer>
-            </blockquote>
+            <div className='container p-5'>
+                <h1 className='text-4xl'>About Us</h1>
+                <p className='mt-2'>BGC is an important company.</p>
+                <footer class="blockquote-footer mt-2">Mike Weddington</footer>
+            </div>
                 
-            <div class="container p-5 my-5 bg-light">
+            <div class="container p-5 mt-5 bg-light">
                 <h2>Our Story</h2>
                 <p>Something about the story of BGC. Have a picture here as well.</p> 
             </div>
