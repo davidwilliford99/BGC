@@ -13,7 +13,6 @@ import ProductsPage from './pages/ProductsPage'
 
 function AppRouter(){
     return(
-        <BrowserRouter>
             <Routes>
 
                 <Route path="/home" element={<HomePage/>} />
@@ -26,8 +25,8 @@ function AppRouter(){
 
                 <Route path="/products" element={<ProductsPage/>}/>
 
+
             </Routes>
-        </BrowserRouter>
     )
 }
 

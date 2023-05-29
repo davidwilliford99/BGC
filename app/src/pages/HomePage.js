@@ -1,22 +1,19 @@
 import React from 'react';
+import './HomePage.css';
+
 
 function HomePage() {
   return (
 
     <div className='overflow-x-hidden w-full'>
-      <img
-        className='w-full'
-        src='images/tim-kilby-x2qzLL3vdBs-unsplash.jpg'
-        alt='main-background'
-      />
-      <div className='card-img-overlay d-flex flex-column justify-content-center align-items-center'>
-        <h1 className='text-light text-center'>
-          "Lifting the veil of mismanaged information of{' '}
-          <small className='text-muted'>Bone Grafting"</small>
+
+
+      <div className='h-screen d-flex flex-column justify-content-center align-items-center' id='hero-section'>
+        <h1 className='text-light text-center text-7xl px-40 py-20 font-["Lato"] font-bold leading-snug'>
+          Lifting the veil of mismanaged information of Bone Grafting
         </h1>
-        <h1 className='text-light text-center'>- Mike Weddington</h1>
-        <a href='#' className='btn btn-primary btn-lg btn-get-started'>
-          Get Started
+        <a href='/products' className='btn btn-primary btn-lg btn-get-started px-5 rounded-xl font-["Montserrat"] font-medium'>
+          See Products
         </a>
       </div>
 

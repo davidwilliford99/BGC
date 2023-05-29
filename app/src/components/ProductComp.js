@@ -7,7 +7,16 @@ import React from "react";
  * 
  */
 
-function ProductComp() {
+function ProductComp(props) {
+
+
+
+  // props
+  const title = props.title;
+  const category = props.category;
+  const description = props.description;
+
+
 
 
   return (
@@ -17,9 +26,9 @@ function ProductComp() {
 
         <div id="product-details" className="m-2">
             <img src="https://wp04-media.cdn.ihealthspot.com/wp-content/uploads/sites/115/2021/08/What-are-the-Different-Types-of-Orthopedic-Doctors-768x512.jpg.webp" alt="product"/>
-            <h1 className="text-xl my-2">Product Title</h1>
-            <h1 className="text-sm">Product Category</h1>
-            <h1 className="text-sm">Regulation pathway</h1>
+            <h1 className="text-xl my-2">{title}</h1>
+            <h1 className="text-sm">{category}</h1>
+            <h1 className="text-sm">{description}</h1>
         </div>
 
 

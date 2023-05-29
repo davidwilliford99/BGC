@@ -12,6 +12,7 @@ module.exports = {
         "BGC4": "#acbcd4",
         "BGC5": "#e1e8ed",
       }
+
     },
   },
   plugins: [],
