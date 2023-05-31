@@ -14,7 +14,7 @@ function HomePage() {
         <h1 className='text-light text-7xl py-20 font-["Lato"] font-bold leading-snug'>
           Lifting the veil of mismanaged information of Bone Grafting
         </h1>
-        <a href='/products' className='btn btn-primary btn-lg btn-get-started px-5 rounded-xl font-["Montserrat"] font-medium w-1/4 text-2xl'>
+        <a href='/products' className='btn btn-primary btn-lg btn-get-started px-5 rounded-xl font-["Montserrat"] font-medium xl:w-1/4 text-2xl'>
           See Products
         </a>
       </div>
