@@ -11,7 +11,7 @@ function NavScrollExample() {
   return (
 
 
-    <Navbar expand="lg" className='border-bottom'>
+    <Navbar expand="lg" className='border-bottom' color='white'>
       <Container fluid>
         <Navbar.Brand href="/home">
           <img
