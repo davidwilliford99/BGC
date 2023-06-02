@@ -12,7 +12,7 @@ function HomePage() {
 
       <div className='h-screen px-40 d-flex flex-column justify-center' id='hero-section'>
         <h1 className='text-light text-7xl py-20 font-["Lato"] font-bold leading-snug'>
-          Lifting the veil of mismanaged information of Bone Grafting
+          Lifting the veil of mismanaged information on Bone Grafting
         </h1>
         <a href='/products' className='btn btn-primary btn-lg btn-get-started px-5 rounded-xl font-["Montserrat"] font-medium xl:w-1/4 text-2xl'>
           See Products
@@ -52,7 +52,7 @@ function HomePage() {
 
 
 
-          <div class="col-md-6 col-lg-4 mb-4 bg-blue-300 p-5 rounded-sm">
+          <div class="col-md-6 col-lg-4 mb-4 bg-blue-200 p-5 rounded-sm">
             <h6 class="mb-5 text-blue-600 text-3xl">What does the BGC do that’s not currently being done in the industry</h6>
             <p>
               <strong><u>Absolutely!</u></strong> The Bone Graft Consortium is a platform that provides easily accessible, unbiased information about bone grafts for healthcare providers. It consolidates all bone grafts in a single website and app, allowing healthcare providers to make informed decisions based on facts. Manufacturers can register with the BGC and provide a comprehensive overview of their products, eliminating misinformation and misleading marketing claims. Hospitals and surgery centers can partner with the BGC to require manufacturers to join and gain entry into their facilities. The BGC provides a clear and concise pathway for manufacturers to gain visibility in facilities across the country.
@@ -61,7 +61,7 @@ function HomePage() {
 
 
 
-          <div class="col-md-6 col-lg-4 mb-4 bg-blue-200 p-5 rounded-sm">
+          <div class="col-md-6 col-lg-4 mb-4 bg-blue-100 p-5 rounded-sm">
             <h6 class="mb-5 text-blue-600 text-3xl">Why would spine/orthopedic or small biologic companies join the BGC?</h6>
             <p>
               <strong><u>Yes, it is possible!</u></strong> The Bone Graft Consortium will be funded by the industry and will be a non-profit entity. Manufacturers who are not listed and reviewed by the BGC may be perceived as less relevant or unwilling to provide unbiased information, risking their acceptance by reviewing hospital/ASC committees. Hospitals will require manufacturers to join the BGC for efficiency and to keep unscrupulous vendors out of their system. The non-profit entity gives confidence and legitimacy to the bone grafting marketplace and allows for complete financial transparency.
@@ -70,7 +70,7 @@ function HomePage() {
 
 
 
-          <div class="col-md-6 col-lg-4 mb-4 bg-blue-300 p-5 rounded-sm">
+          <div class="col-md-6 col-lg-4 mb-4 bg-blue-200 p-5 rounded-sm">
             <h6 class="mb-5 text-blue-600 text-3xl">Who will the BGC consist of and how will it help “level the playing field”?
             </h6>
             <p>
@@ -80,7 +80,7 @@ function HomePage() {
 
 
 
-          <div class="col-md-6 col-lg-4 mb-4 bg-blue-200 p-5 rounded-sm">
+          <div class="col-md-6 col-lg-4 mb-4 bg-blue-100 p-5 rounded-sm">
             <h6 class="mb-5 text-blue-600 text-3xl">A simple
               question?
             </h6>
@@ -91,7 +91,7 @@ function HomePage() {
 
 
 
-          <div class="col-md-6 col-lg-4 mb-4 bg-blue-300 p-5 rounded-sm">
+          <div class="col-md-6 col-lg-4 mb-4 bg-blue-200 p-5 rounded-sm">
             <h6 class="mb-5 text-blue-600 text-3xl">A simple
               question?
             </h6>
@@ -101,7 +101,7 @@ function HomePage() {
 
 
 
-          <div class="col-md-6 col-lg-4 mb-4 bg-blue-200 p-5 rounded-sm">
+          <div class="col-md-6 col-lg-4 mb-4 bg-blue-100 p-5 rounded-sm">
             <h6 class="mb-5 text-blue-600 text-3xl"> Another
               question that is longer than usual</h6>
             <p>

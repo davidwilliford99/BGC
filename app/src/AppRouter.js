@@ -25,6 +25,7 @@ function AppRouter(){
 
                 <Route path="/products" element={<ProductsPage/>}/>
 
+                <Route path="/" element={<HomePage/>} />
 
             </Routes>
     )
