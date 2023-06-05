@@ -15,7 +15,7 @@ function AboutPage(){
                 </div>
 
                 <div id='image' className='flex flex-col justify-center'>
-                    <img src='images/undraw_doctors.png' className='h-40'/>
+                    <img src='images/undraw_doctors.png' className='h-60'/>
                 </div>
 
             </div>

@@ -4,67 +4,63 @@ function PricingPage(){
     return (
       <>
 
+
+        <div id='img-container' className='flex justify-center pt-5'>
+          <img src='images/undraw_payment.png' className='h-40'/>
+        </div>
+
+
+
         <div id='title-container' className='px-20 mt-10 '>
-          <h1 className='text-5xl font-["Lato"] font-normal leading-snug tracking-tight'>Pricing Options</h1>
-          <p className='py-2 font-["Montserrat"] tracking-tight'>Breif reasoning on why spending your money at BGC is worth it. Explain the exact process of how they will receive a return on their investment.</p>
+          <h1 className='text-5xl font-["Lato"] font-normal leading-snug tracking-tight text-center'>Pricing Options</h1>
+          <p className='py-2 font-["Montserrat"] tracking-tight text-center'>Breif reasoning on why spending your money at BGC is worth it. Explain the exact process of how they will receive a return on their investment.</p>
         </div>
 
 
 
-        <div class="row justify-content-center p-20" id='price-options-container'>
+
+        <div class="flex justify-content-center p-20" id='price-options-container'>
 
 
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <div class="card-header bg-blue-400">
-                <h4 class="my-0 font-semibold text-3xl text-center text-white">Single Product</h4>
-              </div>
-              <div class="card-body">
-                <h1 class="card-title pricing-card-title">$5,000<small class="text-muted">/per submission</small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li>10 users included</li>
-                  <li>2 GB of storage</li>
-                </ul>
-                <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
-              </div>
+          <div class="border-1 border-black">
+            <h4 class="my-0 font-semibold text-3xl text-center text-white bg-blue-400 px-5 py-2 font-['Lato']">Single Product</h4>
+            <div class="card-body flex items-center justify-center flex-col">
+              <h1 class="card-title pricing-card-title py-5 font-medium text-2xl">$5,000<small class="text-muted"> /per graft</small></h1>
+              <ul class="list-unstyled mt-3 mb-4 text-center pb-5 font-['Montserrat'] leading-loose font-medium">
+                <li>10 users included</li>
+                <li>2 GB of storage</li>
+              </ul>
+              <button type="button" class="btn btn-lg btn-block btn-outline-primary rounded-xl border-2 font-semibold mb-5">Sign up for free</button>
             </div>
           </div>
 
 
 
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <div class="card-header bg-blue-600">
-                <h4 class="my-0 font-semibold text-3xl text-center text-white">Multiple Products</h4>
-              </div>
-              <div class="card-body">
-                <h1 class="card-title pricing-card-title">$20,000<small class="text-muted">/flat fee</small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li>Provides 5-8 Bone offerings</li>
-                  <li>The more products the higher the savings</li>
-                </ul>
-                <button type="button" class="btn btn-lg btn-block btn-outline-primary">Get started</button>
-              </div>
+          <div class="border-1 border-black">
+            <h4 class="my-0 font-semibold text-3xl text-center text-white bg-blue-600 px-5 py-2 font-['Lato']">Multiple Products</h4>
+            <div class="card-body flex items-center justify-center flex-col">
+              <h1 class="card-title pricing-card-title py-5 font-medium text-2xl">$25,000<small class="text-muted"> flat fee</small></h1>
+              <ul class="list-unstyled mt-3 mb-4 text-center pb-5 font-['Montserrat'] leading-loose font-medium">
+                <li>Provides 5-8 bone offerings</li>
+                <li>The more products uploaded, the higher the savings!</li>
+              </ul>
+              <button type="button" class="btn btn-lg btn-block btn-outline-primary rounded-xl border-2 font-semibold mb-5">Sign up for free</button>
             </div>
           </div>
 
 
-
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <div class="card-header bg-blue-800">
-                <h4 class="my-0 font-semibold text-3xl text-center text-white">Unlimited Products</h4>
-              </div>
-              <div class="card-body">
-                <h1 class="card-title pricing-card-title">$35,000<small class="text-muted">/flat fee</small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li>8 or more bone offerings</li>
-                  <li>30 GB of storage</li>
-                  <li>Phone and email support</li>
-                  <li>Help center access</li>
-                </ul>
-                <button type="button" class="btn btn-lg btn-block btn-outline-primary">Contact us</button>
-              </div>
+          
+          <div class="border-1 border-black">
+            <h4 class="my-0 font-semibold text-3xl text-center text-white bg-blue-800 px-5 py-2 font-['Lato']">Unlimited Products</h4>
+            <div class="card-body flex items-center justify-center flex-col">
+              <h1 class="card-title pricing-card-title py-5 font-medium text-2xl">$35,000<small class="text-muted"> flat fee</small></h1>
+              <ul class="list-unstyled mt-3 mb-4 text-center pb-5 font-['Montserrat'] leading-loose font-medium">
+                <li>Unlimited bone offerings</li>
+                <li>30 GB of storage</li>
+                <li>Direct phone and email support</li>
+                <li>help-center access</li>
+              </ul>
+              <button type="button" class="btn btn-lg btn-block btn-outline-primary rounded-xl border-2 font-semibold mb-5">Sign up for free</button>
             </div>
           </div>
 
@@ -72,11 +68,6 @@ function PricingPage(){
         </div>
 
 
-
-
-        <div id='img-container' className='flex justify-center'>
-          <img src='images/undraw_payment.png' className='h-60'/>
-        </div>
       
       </>
     )
