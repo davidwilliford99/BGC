@@ -6,38 +6,55 @@ function ContactForm() {
         {
             name: "Michael Weddington",
             role: "Owner",
-            email: "Michael@weddconsulting.com"
+            email: "Michael@weddconsulting.com",
+            img: "images/owner.png"
+
         },
         {
             name: "David Williford",
             role: "Developer",
-            email: "d9899w@gmail.com"
+            email: "d9899w@gmail.com",
+            img: "images/developer.png"
+
         },
         {
             name: "Matthew Miranda",
             role: "Developer",
-            email: "MattMiranda55@gmail.com"
+            email: "MattMiranda55@gmail.com",
+            img: "images/developer.png"
+
         },
     ]
 
     return (
 
-        <div className='flex gap-5 items-center justify-center py-32'>
+        <>
+        
+            <div id='title section'>
+                <h1 className='text-center text-5xl mt-20 font-["Lato"] font-semibold leading-snug tracking-tight'>Contact Us</h1>
+            </div>
 
-            {
-                people.map((person) => {
-                return  <div className='border-2 rounded-xl p-5 text-center'>
-                            <h1 className='text-2xl'>{person.name}</h1>
-                            <h1 className='py-2 font-bold'>{person.role}</h1>
-                            <h1 className='text-blue-500'>{person.email}</h1>
-                        </div>
-
-                })
-            }
+            <div className='flex gap-5 items-center justify-center py-20'>
 
 
-            
-        </div>
+                {
+                    people.map((person) => {
+                    return  <div className='border-2 rounded-xl p-5 text-center'>
+                                <h1 className='text-2xl'>{person.name}</h1>
+                                <h1 className='py-2 font-bold'>{person.role}</h1>
+                                <h1 className='text-blue-500'>{person.email}</h1>
+                                <img src={person.img} alt='role' className='h-60 mt-5'/>
+                            </div>
+
+                    })
+                }
+
+
+                
+            </div>
+        
+        </>
+
 
 
 
