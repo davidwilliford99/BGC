@@ -39,7 +39,7 @@ function NavScrollExample() {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success" className='hover:bg-BGC1'>Search</Button>
+            <Button variant="outline-success" className='hover:bg-blue-600'>Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>

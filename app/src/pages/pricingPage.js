@@ -42,7 +42,7 @@ function PricingPage(){
               <h1 class="card-title pricing-card-title py-5 font-medium text-2xl">$25,000<small class="text-muted"> flat fee</small></h1>
               <ul class="list-unstyled mt-3 mb-4 text-center pb-5 font-['Montserrat'] leading-loose font-medium">
                 <li>Provides 5-8 bone offerings</li>
-                <li>The more products uploaded, the higher the savings!</li>
+                <li>More products, more savings!!</li>
               </ul>
               <button type="button" class="btn btn-lg btn-block btn-outline-primary rounded-xl border-2 font-semibold mb-5">Sign up for free</button>
             </div>
