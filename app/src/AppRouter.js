@@ -10,6 +10,7 @@ import ContactPage from './pages/ContactPage'
 import HomePage from './pages/HomePage'
 import PricingPage from './pages/pricingPage'
 import ProductsPage from './pages/ProductsPage'
+import AccountPage from './pages/AccountPage'
 
 function AppRouter(){
     return(
@@ -24,6 +25,8 @@ function AppRouter(){
                 <Route path="/pricing" element={<PricingPage/>}/>
 
                 <Route path="/products" element={<ProductsPage/>}/>
+
+                <Route path="/myaccount" element={<AccountPage/>}/>
 
                 <Route path="/" element={<HomePage/>} />
 

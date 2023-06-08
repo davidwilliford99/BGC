@@ -41,6 +41,17 @@ function NavScrollExample() {
             />
             <Button variant="outline-success" className='hover:bg-blue-600'>Search</Button>
           </Form>
+
+
+          {/* This section is for the user image */}
+          <a href='/myaccount'>
+            <div id='user-img' className='rounded-full mr-4 ml-8 overflow-hidden'>
+              <img src='images/user-img.png' className='h-10'/>
+            </div>
+          </a>
+
+
+
         </Navbar.Collapse>
       </Container>
     </Navbar>
