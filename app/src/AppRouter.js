@@ -11,6 +11,8 @@ import HomePage from './pages/HomePage'
 import PricingPage from './pages/pricingPage'
 import ProductsPage from './pages/ProductsPage'
 import AccountPage from './pages/AccountPage'
+import LoginPage from './pages/LoginPage'
+
 
 function AppRouter(){
     return(
@@ -27,6 +29,8 @@ function AppRouter(){
                 <Route path="/products" element={<ProductsPage/>}/>
 
                 <Route path="/myaccount" element={<AccountPage/>}/>
+
+                <Route path="/login" element={<LoginPage/>} />
 
                 <Route path="/" element={<HomePage/>} />
 

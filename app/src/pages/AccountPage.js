@@ -13,7 +13,7 @@ import React from 'react';
 export default function AccountPage(props) {
     return (
 
-        <div id='container' className='flex items-center justify-center gap-5 mt-20'>
+        <div id='container' className='flex items-center justify-center gap-5 mt-20 font-["Lato"]'>
 
 
 

@@ -5,7 +5,10 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 
-function NavScrollExample() {
+function NavScrollExample(props) {
+
+
+  const signedIn = false;
 
 
   return (
@@ -39,16 +42,31 @@ function NavScrollExample() {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success" className='hover:bg-blue-600'>Search</Button>
+            <Button className='hover:bg-blue-800 text-blue-600'>Search</Button>
           </Form>
 
 
-          {/* This section is for the user image */}
-          <a href='/myaccount'>
-            <div id='user-img' className='rounded-full mr-4 ml-8 overflow-hidden'>
-              <img src='images/user-img.png' className='h-10'/>
-            </div>
-          </a>
+          {/* This section is for the user image. Only shows up when user is signed in */}
+          {
+            signedIn && (
+              <a href='/myaccount'>
+                <div id='user-img' className='rounded-full mr-4 ml-8 overflow-hidden'>
+                  <img src='images/user-img.png' className='h-10'/>
+                </div>
+              </a>
+            )
+          }
+
+          
+          {/* Log in button. Shows when user is not signed in */}
+          {
+            !signedIn && (
+              <a href='/login'>
+                <Button className='bg-blue-600 px-4 font-semibold text-white ml-4 mr-1 rounded-2xl'>Login or Sign Up</Button>
+              </a>
+            )
+          }
+
 
 
 
