@@ -12,13 +12,13 @@ function ProductsPage() {
     /**
      * 
      * Fetching product list from api
-     * Endpoint for all products : localhost:8000/grafts/
+     * Endpoint for all products : 
      * 
      */
     const [products, setProducts] = useState([]);
 
     const getProducts = () => {
-        fetch(`http://localhost:8000/grafts/`, {})
+        fetch(`http://44.204.149.217:8000/grafts/`, {})
         .then((response) => response.json())
         .then((data) => setProducts(data))
     }
