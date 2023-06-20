@@ -12,6 +12,7 @@ import PricingPage from './pages/pricingPage'
 import ProductsPage from './pages/ProductsPage'
 import AccountPage from './pages/AccountPage'
 import LoginPage from './pages/LoginPage'
+import CartPage from './pages/CartPage'
 
 
 function AppRouter(){
@@ -31,6 +32,8 @@ function AppRouter(){
                 <Route path="/myaccount" element={<AccountPage/>}/>
 
                 <Route path="/login" element={<LoginPage/>} />
+
+                <Route path="/cart" element={<CartPage/>} />
 
                 <Route path="/" element={<HomePage/>} />
 

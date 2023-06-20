@@ -8,13 +8,13 @@ import Navbar from 'react-bootstrap/Navbar';
 function NavScrollExample(props) {
 
 
-  const signedIn = false;
+  const signedIn = true;
 
 
   return (
 
 
-    <Navbar expand="lg" className='border-bottom' color='white'>
+    <Navbar expand="lg" className='border-b-2' color='white'>
       <Container fluid>
         <Navbar.Brand href="/home">
           <img
@@ -46,14 +46,25 @@ function NavScrollExample(props) {
           </Form>
 
 
-          {/* This section is for the user image. Only shows up when user is signed in */}
+          {/* This section is for the user image and cart. Only shows up when user is signed in */}
           {
             signedIn && (
+              <>
               <a href='/myaccount'>
-                <div id='user-img' className='rounded-full mr-4 ml-8 overflow-hidden'>
-                  <img src='images/user-img.png' className='h-10'/>
+                <div id='user-img' className='rounded-full mr-4 ml-8 p-1 overflow-hidden'>
+                  <img src='images/user-img.png' className='h-8'/>
                 </div>
               </a>
+
+
+              {/* Cart image */}
+              <a href='/cart'>
+                <div id='user-img' className='rounded-full mr-4 p-1 overflow-hidden'>
+                  <img src='images/cart.png' className='h-8'/>
+                </div>
+              </a>
+              
+              </>
             )
           }
 

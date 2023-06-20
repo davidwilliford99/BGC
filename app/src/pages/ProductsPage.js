@@ -33,7 +33,7 @@ function ProductsPage() {
             <div className='flex items-center justify-center gap-5 m-5'>
                 <h1 className='font-["Lato"] font-normal tracking-wide'>Sort By:</h1>
 
-                <select name="dog-names" id="dog-names" className='border p-2 rounded-xl font-["Lato"]'> 
+                <select name="dog-names" id="dog-names" className='border-2 p-2 rounded-xl font-["Lato"]'> 
                     <option value="all" selected="selected">All Categories</option> 
                     <option value="donor">Allograft</option> 
                     <option value="dbm">DBM (demineralized bone matrix)</option> 
@@ -42,7 +42,7 @@ function ProductsPage() {
                     <option value="proteins">Proteins</option> 
                 </select>
 
-                <select name="dog-names" id="dog-names" className='border p-2 rounded-xl font-["Lato"]'> 
+                <select name="dog-names" id="dog-names" className='border-2 p-2 rounded-xl font-["Lato"]'> 
                     <option value="all" selected="selected">All Regulatory Pathways</option> 
                     <option value="aatb">AATB</option> 
                     <option value="501(k)">510(k)</option> 
@@ -53,7 +53,7 @@ function ProductsPage() {
 
 
             {/* Product List */}
-            <div className='flex flex-wrap mx-20'> 
+            <div className='flex flex-wrap m-20 justify-center'> 
 
                 {
                     products.map((product) => {
