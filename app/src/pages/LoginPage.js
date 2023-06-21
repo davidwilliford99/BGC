@@ -5,10 +5,10 @@ export default function LoginPage(props) {
     return (
 
 
-        <div id='container' className='flex items-center justify-center'>
+        <div id='container' className='flex fitems-center justify-center'>
             
 
-            <div id='login card' className='flex w-1/2 my-20 rounded-xl overflow-hidden border-2 border-black'>
+            <div id='login card' className='flex xl:w-1/2 my-20 rounded-xl overflow-hidden border-2 border-black'>
 
 
                 <div id='left-side' className='w-1/2'>

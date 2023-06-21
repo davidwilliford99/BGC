@@ -48,6 +48,8 @@ function ProductsPage() {
                     <option value="501(k)">510(k)</option> 
                     <option value="drug/device">Drug/Device Combination</option> 
                 </select>
+
+
                 
             </div>
 
@@ -61,6 +63,7 @@ function ProductsPage() {
                                     title = {product.name}
                                     category = {product.category}
                                     description = {product.description}
+                                    regulation = {product.regulation}
                                 />
                     })
                     

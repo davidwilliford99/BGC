@@ -8,7 +8,7 @@ import Navbar from 'react-bootstrap/Navbar';
 function NavScrollExample(props) {
 
 
-  const signedIn = true;
+  const signedIn = false;
 
 
   return (
@@ -33,17 +33,7 @@ function NavScrollExample(props) {
             <Nav.Link href='/products'>Products</Nav.Link>
             <Nav.Link href='/contact'>Contact</Nav.Link>
             <Nav.Link href='/pricing'>Pricing</Nav.Link>
-
           </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button className='hover:bg-blue-800 text-blue-600'>Search</Button>
-          </Form>
 
 
           {/* This section is for the user image and cart. Only shows up when user is signed in */}
@@ -53,14 +43,6 @@ function NavScrollExample(props) {
               <a href='/myaccount'>
                 <div id='user-img' className='rounded-full mr-4 ml-8 p-1 overflow-hidden'>
                   <img src='images/user-img.png' className='h-8'/>
-                </div>
-              </a>
-
-
-              {/* Cart image */}
-              <a href='/cart'>
-                <div id='user-img' className='rounded-full mr-4 p-1 overflow-hidden'>
-                  <img src='images/cart.png' className='h-8'/>
                 </div>
               </a>
               
@@ -73,7 +55,7 @@ function NavScrollExample(props) {
           {
             !signedIn && (
               <a href='/login'>
-                <Button className='bg-blue-600 px-4 font-semibold text-white ml-4 mr-1 rounded-2xl'>Login or Sign Up</Button>
+                <Button className='bg-blue-600 px-4 font-semibold text-white ml-4 mr-8 rounded-2xl'>Login or Sign Up</Button>
               </a>
             )
           }

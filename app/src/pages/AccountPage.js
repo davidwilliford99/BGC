@@ -41,22 +41,13 @@ export default function AccountPage(props) {
                     <p className=''>0</p>
                 </div>
 
-                <div className='flex flex-wrap justify-between'>
-                    <p className=''>Products Purchased: </p>
-                    <p className=''>0</p>
-                </div>
-
-                <div className='flex flex-wrap justify-between'>
-                    <p className=''>Products Sold:  </p>
-                    <p className=''>0</p>
-                </div>
-
                 <div className='flex flex-wrap justify-between mb-4'>
                     <p className=''>Product Credits:  </p>
                     <p className=''>0</p>
                 </div>
 
-                <a href='/' className='underline text-blue-600'><p className='text-center'>Change Password</p></a>
+                <a href='/' className='underline text-blue-600'><p className='text-center'>Add new product</p></a>
+                <a href='/' className='underline text-blue-600'><p className='text-center'>Delete product</p></a>
             </div>
 
 
@@ -73,8 +64,7 @@ export default function AccountPage(props) {
 
                     <h1 className='text-4xl mb-10 text-center'>Account Options</h1>
 
-                    <a href='/' className='underline text-blue-600'><p className='text-center'>Add new product</p></a>
-                    <a href='/' className='underline text-blue-600'><p className='text-center'>Delete product</p></a>
+                    <a href='/' className='underline text-blue-600'><p className='text-center'>Change Password</p></a>
                     <a href='/' className='underline text-blue-600'><p className='text-center'>Change Username</p></a>
     
                     <div className='flex items-center justify-center'>

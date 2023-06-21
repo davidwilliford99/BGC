@@ -29,8 +29,9 @@ function PricingPage(){
               <ul class="list-unstyled mt-3 mb-4 text-center pb-5 font-['Montserrat'] leading-loose font-medium">
                 <li>10 users included</li>
                 <li>2 GB of storage</li>
+                <li>Customer support</li>
               </ul>
-              <button type="button" class="btn btn-lg btn-block btn-outline-primary rounded-xl border-2 font-semibold mb-5">Sign up for free</button>
+              <button type="button" class="btn btn-lg btn-block btn-outline-primary rounded-xl border-2 font-semibold mb-5">Purchase Today</button>
             </div>
           </div>
 
@@ -41,10 +42,11 @@ function PricingPage(){
             <div class="card-body flex items-center justify-center flex-col">
               <h1 class="card-title pricing-card-title py-5 font-medium text-2xl">$25,000<small class="text-muted"> flat fee</small></h1>
               <ul class="list-unstyled mt-3 mb-4 text-center pb-5 font-['Montserrat'] leading-loose font-medium">
-                <li>Provides 5-8 bone offerings</li>
+                <li>Provides 8 bone offerings</li>
                 <li>More products, more savings!!</li>
+                <li>Customer support</li>
               </ul>
-              <button type="button" class="btn btn-lg btn-block btn-outline-primary rounded-xl border-2 font-semibold mb-5">Sign up for free</button>
+              <button type="button" class="btn btn-lg btn-block btn-outline-primary rounded-xl border-2 font-semibold mb-5">Purchase Today</button>
             </div>
           </div>
 
@@ -57,10 +59,9 @@ function PricingPage(){
               <ul class="list-unstyled mt-3 mb-4 text-center pb-5 font-['Montserrat'] leading-loose font-medium">
                 <li>Unlimited bone offerings</li>
                 <li>30 GB of storage</li>
-                <li>Direct phone and email support</li>
-                <li>help-center access</li>
+                <li>Direct owner support</li>
               </ul>
-              <button type="button" class="btn btn-lg btn-block btn-outline-primary rounded-xl border-2 font-semibold mb-5">Sign up for free</button>
+              <button type="button" class="btn btn-lg btn-block btn-outline-primary rounded-xl border-2 font-semibold mb-5">Purchase Today</button>
             </div>
           </div>
 
