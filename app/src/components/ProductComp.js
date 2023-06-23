@@ -16,6 +16,8 @@ function ProductComp(props) {
   const categoryId = props.category;
   const description = props.description;
   const regulationId = props.regulation;
+  const image = props.image;
+  const link = props.link;
 
 
   
@@ -73,7 +75,7 @@ function ProductComp(props) {
             <h1 className="text-sm h-12 mt-2 font-semibold">{description}</h1>
 
             <div className="flex mt-5 items-center justify-between">
-              <a href=""><button className="bg-blue-500 text-white px-3 py-1 rounded-xl hover:bg-blue-800 transition">Purchase Here</button></a>
+              <a target="_blank" href={link}><button className="bg-blue-500 text-white px-3 py-1 rounded-xl hover:bg-blue-800 transition">Purchase Here</button></a>
               <p className="font-semibold">$3500.00</p>
             </div>
             

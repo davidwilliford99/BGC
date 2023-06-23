@@ -1,14 +1,20 @@
+import { useState } from "react";
 import React from 'react';
 
 
 export default function LoginPage(props) {
-    return (
 
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+
+    return (
 
         <div id='container' className='flex fitems-center justify-center'>
             
 
-            <div id='login card' className='flex xl:w-1/2 my-20 rounded-xl overflow-hidden border-2 border-black'>
+            <div id='login card' className='flex xl:w-1/2 my-20 rounded-xl overflow-hidden border-2'>
 
 
                 <div id='left-side' className='w-1/2'>
@@ -21,11 +27,27 @@ export default function LoginPage(props) {
                     <h1 className='text-center text-7xl font-["Lato"] font-semibold leading-snug mb-7'>Login</h1>
 
                     <div className='flex mb-2'>
-                        <input type="email" name="name" required placeholder='Email' className='border-1 border-black rounded-md p-1 w-80'></input>
+                        <input 
+                            type="email" 
+                            name="name" 
+                            required 
+                            placeholder='Email' 
+                            className='border-1 border-black rounded-md p-1 w-80'
+                            value = {email}
+                            onChange = {(e) => setEmail(e.target.value)}
+                        ></input>
                     </div>
 
                     <div className='flex  mb-7'>
-                        <input type="password" name="password" required placeholder='Password' className='border-1 border-black rounded-md p-1 w-80'></input>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            required 
+                            placeholder='Password' 
+                            className='border-1 border-black rounded-md p-1 w-80'
+                            value = {password}
+                            onChange = {(e) => setPassword(e.target.value)}
+                        ></input>
                     </div>
 
                     <a><button className='border-1 bg-blue-600 w-80 py-1 rounded-xl text-white font-semibold mb-2 text-2xl'>Login</button></a>

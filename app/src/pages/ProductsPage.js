@@ -27,8 +27,18 @@ function ProductsPage() {
         }, []); 
 
 
+    
+
+    // console log products json
+    console.log(products)
+
+
+
+    
+
     return (
         <>
+
             {/* SORT BY section */}
             <div className='flex items-center justify-center gap-5 m-5'>
                 <h1 className='font-["Lato"] font-normal tracking-wide'>Sort By:</h1>
@@ -64,6 +74,8 @@ function ProductsPage() {
                                     category = {product.category}
                                     description = {product.description}
                                     regulation = {product.regulation}
+                                    image = {product.image}
+                                    link = {product.purchase_link}
                                 />
                     })
                     
