@@ -46,6 +46,9 @@ export default function CreateAccountPage(props) {
         const userResponse = await fetch('http://54.174.140.152:8000/users/', userRequestOptions)
             .then(response => response.json());
 
+        
+        console.log(userResponse.json());
+
 
         const profileRequestOptions = {
             method: 'PUT',
@@ -59,21 +62,20 @@ export default function CreateAccountPage(props) {
         };
 
 
+        /**
+         * TODO: Get UserId from User POST response
+         */
+
+
+
         const profileResponse = await fetch(`http://54.174.140.152:8000/profiles/${userId}/`, profileRequestOptions)
             .then((response) => response.json());
         
-
-        console.log(userResponse);
+        
         console.log(profileResponse);
     }
 
 
-
-
-
-    /**
-     * TODO: add First name and Last name input 
-     */
 
 
     return (
