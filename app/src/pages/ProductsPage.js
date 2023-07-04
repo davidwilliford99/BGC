@@ -18,7 +18,7 @@ function ProductsPage() {
     const [products, setProducts] = useState([]);
 
     const getProducts = () => {
-        fetch(`http://44.204.149.217:8000/grafts/`, {})
+        fetch(`http://54.174.140.152:8000/grafts/`, {})
         .then((response) => response.json())
         .then((data) => setProducts(data))
     }

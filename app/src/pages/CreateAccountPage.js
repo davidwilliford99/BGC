@@ -16,14 +16,68 @@ export default function CreateAccountPage(props) {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [userId, setUserId] = useState("");
 
 
     
+    /**
+     * Function to submit the user to the database using POST 
+     */
+    async function submitUser() 
+    {
+
+        const userRequestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                "username": `${username}`, 
+                "email": `${email}`,
+                "password": `${password}`
+            })
+        };
 
 
+        /**
+         * We need to make 3 API calls
+         * - One to POST user 
+         * - One to GET new Users ID
+         * - One to PUT additional profile info using the ID 
+         */
+        const userResponse = await fetch('http://54.174.140.152:8000/users/', userRequestOptions)
+            .then(response => response.json());
+
+
+        const profileRequestOptions = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                "user_id": `${userId}`,
+                "num_credits": 0,
+                "phone_number": `${phoneNumber}`,
+                "business_name": `${BusinessName}`
+            })
+        };
+
+
+        const profileResponse = await fetch(`http://54.174.140.152:8000/profiles/${userId}/`, profileRequestOptions)
+            .then((response) => response.json());
+        
+
+        console.log(userResponse);
+        console.log(profileResponse);
+    }
+
+
+
+
+
+    /**
+     * TODO: add First name and Last name input 
+     */
 
 
     return (
+
 
         <div id='create-account-container' className="flex items-center justify-center">
             <div className='flex items-center justify-center font-["Lato"] rounded-xl my-20 border-2 xl:w-2/3 overflow-hidden'>
@@ -38,7 +92,7 @@ export default function CreateAccountPage(props) {
 
 
 
-            <form id='create-account-form' className='p-5 w-1/2'>
+            <form id='create-account-form' className='p-5 w-1/2' onSubmit={submitUser}>
 
                 <h1 className='text-center text-4xl mb-5 font-bold'>Create an Account</h1>
 
@@ -80,7 +134,6 @@ export default function CreateAccountPage(props) {
                     <input 
                         required 
                         type='tel' 
-                        pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" 
                         className='border-1 border-black rounded-md px-1 w-72 ml-5'
                         value = {phoneNumber}
                         onChange = {(e) => setPhoneNumber(e.target.value)}
@@ -111,7 +164,14 @@ export default function CreateAccountPage(props) {
 
                 <div className='flex flex-col items-center justify-center mt-5'>
                     <p className='text-center font-bold'>To prevent spam and security risk, your account<br/>will need to be reviewed before you can post any products</p>
-                    <a><button className='bg-blue-500 mt-4 text-white text-xl font-semibold px-5 py-2 rounded-xl'>Create Account</button></a>
+                    <a>
+                        <button 
+                            type="submit"
+                            className='bg-blue-600 mt-4 text-white text-xl font-semibold px-5 py-2 rounded-xl'
+                            >
+                                Create Account
+                        </button>
+                    </a>
                 </div>
                 
 
