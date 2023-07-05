@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from 'react';
+import axios from 'axios';
 
 
 
@@ -16,63 +17,37 @@ export default function CreateAccountPage(props) {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [userId, setUserId] = useState("");
+
 
 
     
     /**
      * Function to submit the user to the database using POST 
+     * 
+     * 1. Submit user via POST
+     * 2. Get user ID from user POST response
+     * 3. Submit profile details via PUT
      */
     async function submitUser() 
     {
 
-        const userRequestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                "username": `${username}`, 
-                "email": `${email}`,
-                "password": `${password}`
-            })
-        };
-
-
-        /**
-         * We need to make 3 API calls
-         * - One to POST user 
-         * - One to GET new Users ID
-         * - One to PUT additional profile info using the ID 
-         */
-        const userResponse = await fetch('http://54.174.140.152:8000/users/', userRequestOptions)
-            .then(response => response.json());
-
+        const userRequest = await axios.post("http://54.174.140.152:8000/users/" , {
+            username: username,
+            email: email,
+            password: password
+        });
         
-        console.log(userResponse.json());
+        console.log(userRequest.data);
 
+        const profileRequest = await axios.put(`http://54.174.140.152:8000/profiles/${userRequest.data.id}`, {
+            user_id: userRequest.data.id,
+            num_credits: 0,
+            business_name: BusinessName,
+            phone_number: phoneNumber
+        })
 
-        const profileRequestOptions = {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                "user_id": `${userId}`,
-                "num_credits": 0,
-                "phone_number": `${phoneNumber}`,
-                "business_name": `${BusinessName}`
-            })
-        };
+        console.log(profileRequest.data);
 
-
-        /**
-         * TODO: Get UserId from User POST response
-         */
-
-
-
-        const profileResponse = await fetch(`http://54.174.140.152:8000/profiles/${userId}/`, profileRequestOptions)
-            .then((response) => response.json());
-        
-        
-        console.log(profileResponse);
     }
 
 
