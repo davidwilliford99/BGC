@@ -33,7 +33,7 @@ export default function LoginPage(props) {
             })
         });   
 
-        navigate('/products/');
+        navigate('/myaccount/');
     }
 
 

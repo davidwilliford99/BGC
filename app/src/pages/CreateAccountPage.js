@@ -18,7 +18,11 @@ export default function CreateAccountPage(props) {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+
     let navigate = useNavigate();
+
+    const [emailTaken, setEmailTaken] = useState(false);
+    const [usernameTaken, setUsernameTaken] = useState(false);
 
 
     
@@ -39,7 +43,14 @@ export default function CreateAccountPage(props) {
             password: password
         });
 
-        console.log(userRequest.data)
+        console.log(userRequest.data.message)
+
+        if(userRequest.data.message === 'Email is already taken') {
+            setEmailTaken(true);
+        }
+        else if (userRequest.data.message === 'Username is already taken') {
+            setUsernameTaken(true);
+        }
 
         await axios.put(`http://54.174.140.152:8000/profiles/${userRequest.data.id}`, {
             user_id: userRequest.data.id,
@@ -66,12 +77,17 @@ export default function CreateAccountPage(props) {
             </div>
 
 
-
-
-
             <form id='create-account-form' className='p-5 w-1/2' onSubmit={submitUser}>
 
                 <h1 className='text-center text-4xl mb-5 font-bold'>Create an Account</h1>
+
+
+                {/* Conditionally Rendering Error Messages */}
+                <div id="error messages">
+                    {emailTaken ? <p className="text-red-500 text-center mb-2">The email you entered is already in use</p> : null}
+                    {usernameTaken ? <p className="text-red-500 text-center mb-2">The username you entered is not available</p> : null}
+                </div>
+
 
                 <div className='flex justify-between mb-3'>
                     <label>Business Name </label>
