@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import axios from 'axios';
 
@@ -17,7 +18,7 @@ export default function CreateAccountPage(props) {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-
+    let navigate = useNavigate();
 
 
     
@@ -28,28 +29,27 @@ export default function CreateAccountPage(props) {
      * 2. Get user ID from user POST response
      * 3. Submit profile details via PUT
      */
-    async function submitUser() 
-    {
+    const submitUser = async (event) => {
+
+        event.preventDefault();
 
         const userRequest = await axios.post("http://54.174.140.152:8000/users/" , {
             username: username,
             email: email,
             password: password
         });
-        
-        console.log(userRequest.data);
 
-        const profileRequest = await axios.put(`http://54.174.140.152:8000/profiles/${userRequest.data.id}`, {
+        console.log(userRequest.data)
+
+        await axios.put(`http://54.174.140.152:8000/profiles/${userRequest.data.id}`, {
             user_id: userRequest.data.id,
             num_credits: 0,
             business_name: BusinessName,
             phone_number: phoneNumber
         })
 
-        console.log(profileRequest.data);
-
+        navigate('/login/');
     }
-
 
 
 
