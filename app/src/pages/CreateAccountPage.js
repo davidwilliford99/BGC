@@ -23,6 +23,7 @@ export default function CreateAccountPage(props) {
 
     const [emailTaken, setEmailTaken] = useState(false);
     const [usernameTaken, setUsernameTaken] = useState(false);
+    const [passwordMatch, setPasswordMatch] = useState(true);
 
 
     
@@ -31,35 +32,51 @@ export default function CreateAccountPage(props) {
      * 
      * 1. Submit user via POST
      * 2. Get user ID from user POST response
-     * 3. Submit profile details via PUT
+     * 3. Handle errors
+     * 4. Submit profile details via PUT
      */
     const submitUser = async (event) => {
 
         event.preventDefault();
 
-        const userRequest = await axios.post("http://54.174.140.152:8000/users/" , {
-            username: username,
-            email: email,
-            password: password
-        });
-
-        console.log(userRequest.data.message)
-
-        if(userRequest.data.message === 'Email is already taken') {
-            setEmailTaken(true);
+        if (password != confirmPassword) {
+            setPasswordMatch(false);
         }
-        else if (userRequest.data.message === 'Username is already taken') {
-            setUsernameTaken(true);
+        else {
+
+            const userRequest = await axios.post("http://54.174.140.152:8000/users/" , {
+                username: username,
+                email: email,
+                password: password
+            });
+
+            console.log(userRequest.data.message)
+
+
+            /**
+             * Handling errors from API response 
+             */
+            if(userRequest.data.message === 'Email is already taken') {
+                setEmailTaken(true);
+            }
+            else if (userRequest.data.message === 'Username is already taken') {
+                setUsernameTaken(true);
+            }
+
+        
+
+            await axios.put(`http://54.174.140.152:8000/profiles/${userRequest.data.id}`, {
+                user_id: userRequest.data.id,
+                num_credits: 0,
+                business_name: BusinessName,
+                phone_number: phoneNumber
+            })
+
+            navigate('/login/');
+
         }
 
-        await axios.put(`http://54.174.140.152:8000/profiles/${userRequest.data.id}`, {
-            user_id: userRequest.data.id,
-            num_credits: 0,
-            business_name: BusinessName,
-            phone_number: phoneNumber
-        })
 
-        navigate('/login/');
     }
 
 
@@ -77,7 +94,7 @@ export default function CreateAccountPage(props) {
             </div>
 
 
-            <form id='create-account-form' className='p-5 w-1/2' onSubmit={submitUser}>
+            <form id='create-account-form' className='p-5 w-1/2 flex flex-col items-center' onSubmit={submitUser}>
 
                 <h1 className='text-center text-4xl mb-5 font-bold'>Create an Account</h1>
 
@@ -86,13 +103,14 @@ export default function CreateAccountPage(props) {
                 <div id="error messages">
                     {emailTaken ? <p className="text-red-500 text-center mb-2">The email you entered is already in use</p> : null}
                     {usernameTaken ? <p className="text-red-500 text-center mb-2">The username you entered is not available</p> : null}
+                    {!passwordMatch ? <p className="text-red-500 text-center mb-2">Passwords do not match!</p> : null}
                 </div>
 
 
                 <div className='flex justify-between mb-3'>
-                    <label>Business Name </label>
                     <input 
                         required 
+                        placeholder="Business Name"
                         type='text' 
                         className='border-1 border-black rounded-md px-1 w-72 ml-5'
                         value = {BusinessName}
@@ -101,9 +119,9 @@ export default function CreateAccountPage(props) {
                 </div>
 
                 <div className='flex justify-between mb-3'>
-                    <label>Username </label>
                     <input 
                         required 
+                        placeholder="Username"
                         type='text' 
                         className='border-1 border-black rounded-md px-1 w-72 ml-5'
                         value = {username}
@@ -112,9 +130,9 @@ export default function CreateAccountPage(props) {
                 </div>
 
                 <div className='flex justify-between mb-3'>
-                    <label>Email</label>
                     <input 
                         required 
+                        placeholder="Email"
                         type='text' 
                         className='border-1 border-black rounded-md px-1 w-72 ml-5'
                         value = {email}
@@ -123,9 +141,9 @@ export default function CreateAccountPage(props) {
                 </div>
 
                 <div className='flex justify-between mb-3'>
-                    <label>Phone Number</label>
                     <input 
                         required 
+                        placeholder="Phone Number"
                         type='tel' 
                         className='border-1 border-black rounded-md px-1 w-72 ml-5'
                         value = {phoneNumber}
@@ -134,9 +152,9 @@ export default function CreateAccountPage(props) {
                 </div>
                 
                 <div className='flex justify-between mb-3'>
-                    <label>Password</label>
                     <input 
                         required 
+                        placeholder="Password"
                         type='password' 
                         className='border-1 border-black rounded-md px-1 w-72 ml-5'
                         value = {password}
@@ -145,9 +163,9 @@ export default function CreateAccountPage(props) {
                 </div>
 
                 <div className='flex justify-between mb-3'>
-                    <label>Confirm Password</label>
                     <input 
                         required 
+                        placeholder="Confirm Password"
                         type='password' 
                         className='border-1 border-black rounded-md px-1 w-72 ml-5'
                         value = {confirmPassword}

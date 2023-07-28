@@ -11,6 +11,13 @@ function NavScrollExample(props) {
   const signedIn = false;
 
 
+  /**
+   * Get user info from auth request to display username etc
+   */
+  
+
+
+
   return (
 
 

@@ -15,23 +15,36 @@ export default function LoginPage(props) {
      * Logs in user 
      * 
      * Sends post request to auth endpoint,
-     * and receives jwt cookie in return 
-     * 
-     * Not using axios due to cookie issues 
+     * and receives jwt in return 
      */
     const loginUser = async (event) => {
 
         event.preventDefault();
 
-        await fetch("http://54.174.140.152:8000/users/login/" , {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            credentials: 'include',
-            body: JSON.stringify({
-                email,
-                password
-            })
-        });   
+        const apiUrl = "http://54.174.140.152:8000/users/login/";
+        const loginData = {
+            email: email,
+            password: password,
+          };
+          
+        const requestOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginData),
+        };
+
+        const loginRequest = await fetch(apiUrl, requestOptions)
+            .then((response) => response.json())
+            .then((data) => {
+                const jwtToken = data.jwt; // Assuming the response contains a field named "jwt" with the JWT token.
+                localStorage.setItem("jwt", jwtToken); // Store the JWT token in the localStorage.
+                console.log("JWT token stored in localStorage:", jwtToken);
+              })
+              .catch((error) => console.error("Error:", error));
+        
+        
 
         navigate('/myaccount/');
     }
