@@ -40,7 +40,6 @@ export default function LoginPage(props) {
             .then((data) => {
                 const jwtToken = data.jwt; // Assuming the response contains a field named "jwt" with the JWT token.
                 localStorage.setItem("jwt", jwtToken); // Store the JWT token in the localStorage.
-                console.log("JWT token stored in localStorage:", jwtToken);
               })
               .catch((error) => console.error("Error:", error));
         

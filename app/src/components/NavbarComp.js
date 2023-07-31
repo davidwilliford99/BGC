@@ -3,17 +3,35 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { useEffect, useState } from 'react';
 
 
 function NavScrollExample(props) {
 
 
-  const signedIn = false;
+  const [signedIn, setSignedIn] = useState(false);
+
 
 
   /**
    * Get user info from auth request to display username etc
-   */
+   * Runs once every 500ms
+   */    
+  useEffect(() => { 
+    const interval = setInterval(() => { 
+
+      const token = localStorage.getItem("jwt");
+      if(token !== null) {
+        setSignedIn(true);
+      }
+      else {
+        setSignedIn(false);
+      }
+
+    }, 100); 
+
+    return () => clearInterval(interval); 
+  }, [])
   
 
 

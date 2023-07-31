@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import { useNavigate } from "react-router-dom";
 
 
 /**
@@ -11,6 +11,9 @@ import React, { useEffect, useState } from 'react';
 export default function AccountPage(props) {
 
     const [userInfo, setUserInfo] = useState([]);
+    const [infoLoaded, setInfoLoaded] = useState(false);
+    const navigate = useNavigate();
+
 
     /**
      * Gets user info when signed in 
@@ -25,27 +28,36 @@ export default function AccountPage(props) {
 
                 // Data to be sent in the request body
                 const requestData = {
-                    jwtToken: jwtToken,
+                    jwt: jwtToken
                 };
 
                 const requestOptions = {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                    body: JSON.stringify(requestData),
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                        body: JSON.stringify(requestData),
                 };
 
                 await fetch(apiUrl, requestOptions)
                     .then((response) => response.json())
                     .then((data) => setUserInfo(data))
                     .catch((error) => console.error("Error:", error));
+
+                setInfoLoaded(true);
             }
-        )();
+        )([]);
     })
 
 
-    console.log(userInfo)
+    /**
+     * Logs out user by deleting jwt token 
+     */
+    const logoutUser = async () => {
+        localStorage.removeItem("jwt");
+        navigate("/");
+    }
+
 
 
     return (
@@ -65,17 +77,17 @@ export default function AccountPage(props) {
 
                 <div className='flex flex-wrap justify-between'>
                     <p className=''>Username</p>
-                    <p className='ml-20'>{userInfo[0].username}</p>
+                    {infoLoaded && <p className='ml-20'>{userInfo[0].username}</p>}
                 </div>
 
                 <div className='flex flex-wrap justify-between'>
                     <p className=''>Email: </p>
-                    <p className=''>{userInfo[0].email}</p>
+                    {infoLoaded && <p className=''>{userInfo[0].email}</p>}
                 </div>
 
                 <div className='flex flex-wrap justify-between mb-4'>
                     <p className=''>Product Credits:  </p>
-                    <p className=''>{userInfo[1].num_credits}</p>
+                    {infoLoaded && <p className=''>{userInfo[1].num_credits}</p>}
                 </div>
                 
 
@@ -103,7 +115,16 @@ export default function AccountPage(props) {
                     <a href='/' className='underline text-blue-600'><p className='text-center'>Change Username</p></a>
     
                     <div className='flex flex-col items-center justify-center'>
-                        <button className='bg-blue-600 px-4 font-semibold text-white ml-4 mr-8 rounded-2xl'>Logout</button>
+
+
+                        <button  
+                            onClick={logoutUser}
+                            className='bg-blue-600 px-4 py-1 font-semibold text-white mt-3 rounded-2xl'
+                            >
+                                Logout
+                        </button>
+
+
                         <img src='images/settings.gif' className='h-20 mt-10 mb-5'/>
                     </div>
 
