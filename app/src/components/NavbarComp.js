@@ -12,7 +12,6 @@ function NavScrollExample(props) {
   const [signedIn, setSignedIn] = useState(false);
 
 
-
   /**
    * Get user info from auth request to display username etc
    * Runs once every 500ms

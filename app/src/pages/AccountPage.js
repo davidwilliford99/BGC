@@ -46,8 +46,8 @@ export default function AccountPage(props) {
 
                 setInfoLoaded(true);
             }
-        )([]);
-    })
+        )();
+    }, [])
 
 
     /**
