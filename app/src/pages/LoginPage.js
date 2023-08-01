@@ -6,9 +6,11 @@ import { useNavigate } from "react-router-dom";
 export default function LoginPage(props) {
 
 
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+
 
 
     /**
@@ -21,12 +23,14 @@ export default function LoginPage(props) {
 
         event.preventDefault();
 
+        
         const apiUrl = "http://54.174.140.152:8000/users/login/";
         const loginData = {
             email: email,
             password: password,
           };
           
+
         const requestOptions = {
         method: "POST",
         headers: {
@@ -35,12 +39,13 @@ export default function LoginPage(props) {
         body: JSON.stringify(loginData),
         };
 
+
         const loginRequest = await fetch(apiUrl, requestOptions)
             .then((response) => response.json())
             .then((data) => {
-                const jwtToken = data.jwt;  // Assuming the response contains a field named "jwt" with the JWT token.
-                localStorage.setItem("jwt", jwtToken);  // Store the JWT token in the localStorage.
-                localStorage.setItem("jwt-exp", Date.now() + 2 * 60 * 60 * 1000);  // expiration is checked in Navbar component
+                const jwtToken = data.jwt;                                          // Assuming the response contains a field named "jwt" with the JWT token.
+                localStorage.setItem("jwt", jwtToken);                              // Store the JWT token in the localStorage.
+                localStorage.setItem("jwt-exp", Date.now() + 2 * 60 * 60 * 1000);   // expiration is checked in Navbar component
               })
               .catch((error) => console.error("Error:", error));
         
