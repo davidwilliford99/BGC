@@ -38,8 +38,9 @@ export default function LoginPage(props) {
         const loginRequest = await fetch(apiUrl, requestOptions)
             .then((response) => response.json())
             .then((data) => {
-                const jwtToken = data.jwt; // Assuming the response contains a field named "jwt" with the JWT token.
-                localStorage.setItem("jwt", jwtToken); // Store the JWT token in the localStorage.
+                const jwtToken = data.jwt;  // Assuming the response contains a field named "jwt" with the JWT token.
+                localStorage.setItem("jwt", jwtToken);  // Store the JWT token in the localStorage.
+                localStorage.setItem("jwt-exp", Date.now() + 2 * 60 * 60 * 1000);  // expiration is checked in Navbar component
               })
               .catch((error) => console.error("Error:", error));
         

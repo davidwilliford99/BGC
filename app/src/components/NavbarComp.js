@@ -9,13 +9,21 @@ import { useEffect, useState } from 'react';
 function NavScrollExample(props) {
 
 
+
+
   const [signedIn, setSignedIn] = useState(false);
+
+
+
 
 
   /**
    * Get user info from auth request to display username etc
    * Runs once every 500ms
+   * 
+   * Since this runs every 500ms, we will handle jwt expiration
    */    
+
   useEffect(() => { 
     const interval = setInterval(() => { 
 
@@ -27,10 +35,32 @@ function NavScrollExample(props) {
         setSignedIn(false);
       }
 
+
+      /**
+      * Checks for expired (jwt) authentication token 
+      */
+      if(localStorage.getItem('jwt-exp')) {
+        const jwtExpiration = localStorage.getItem('jwt-exp');
+        if (Number(jwtExpiration) < Date.now()) {
+          localStorage.removeItem('jwt');
+          localStorage.removeItem('jwt-exp');
+        }
+      }
+      else {
+        return null;
+      }
+
+
+
     }, 100); 
 
     return () => clearInterval(interval); 
   }, [])
+
+
+
+  
+
   
 
 

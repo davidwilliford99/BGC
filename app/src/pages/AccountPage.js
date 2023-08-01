@@ -55,6 +55,7 @@ export default function AccountPage(props) {
      */
     const logoutUser = async () => {
         localStorage.removeItem("jwt");
+        localStorage.removeItem("jwt-exp");
         navigate("/");
     }
 
