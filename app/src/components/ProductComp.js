@@ -63,16 +63,16 @@ function ProductComp(props) {
 
   return (
 
-    <div className="mx-2 my-3 p-4 w-1/6  rounded-sm">
+    <div className="mx-2 my-3 p-4 w-1/3 rounded-sm">
 
       <a href="">
 
-        <div id="product-details" className="m-2 ">
+        <div id="product-details" className="m-2">
             <img src="https://wp04-media.cdn.ihealthspot.com/wp-content/uploads/sites/115/2021/08/What-are-the-Different-Types-of-Orthopedic-Doctors-768x512.jpg.webp" alt="product"/>
             <h1 className="text-xl my-2 font-semibold text-center">{title}</h1>
             <h1 className="text-sm text-center">{category}</h1>
             <h1 className="text-sm text-blue-800 text-center">{regulation}</h1>
-            <h1 className="text-sm h-8 mt-2 font-semibold text-center">{description}</h1>
+            <h1 className="text-sm mt-2 font-semibold text-center">{description}</h1>
 
             <div className="flex flex-col mt-5 items-center justify-between">
               <p className="font-semibold">$3500.00</p>

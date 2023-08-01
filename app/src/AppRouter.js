@@ -14,6 +14,7 @@ import AccountPage from './pages/AccountPage'
 import LoginPage from './pages/LoginPage'
 import CartPage from './pages/CartPage'
 import CreateAccountPage from './pages/CreateAccountPage'
+import NewGraftPage from './pages/NewGraftPage'
 
 
 function AppRouter(){
@@ -37,6 +38,8 @@ function AppRouter(){
                 <Route path="/createaccount" element={<CreateAccountPage/>} />
 
                 <Route path="/" element={<HomePage/>} />
+
+                <Route path="/creategraft" element={<NewGraftPage/>} />
 
             </Routes>
     )
