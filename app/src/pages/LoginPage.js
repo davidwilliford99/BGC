@@ -23,7 +23,7 @@ export default function LoginPage(props) {
 
         event.preventDefault();
 
-        
+
         const apiUrl = "http://54.174.140.152:8000/users/login/";
         const loginData = {
             email: email,
@@ -54,6 +54,10 @@ export default function LoginPage(props) {
         navigate('/myaccount/');
     }
 
+
+
+
+    
 
 
 

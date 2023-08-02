@@ -9,9 +9,10 @@ export default function NewGraftPage(props) {
     const [category, setCategory] = useState(0);
     const [regulation, setRegulation] = useState(0);
     const [image, setImage] = useState();
-    const [price, setPrice] = useState(0);
-    const[link, setLink] = useState("");
-    const[documents, setDocuments] = useState([]);
+    const [price, setPrice] = useState();
+    const [link, setLink] = useState("");
+    const [documents, setDocuments] = useState([]);
+    const [user, setUser] = useState("");
 
 
 
@@ -34,12 +35,74 @@ export default function NewGraftPage(props) {
 
         event.preventDefault();
 
-        console.log(documents);
-        console.log(category);
-        console.log(regulation);
-        console.log(image);
+        if(isLoggedIn) {
+
+            /**
+             * API Request to return username 
+             */
+            const userUrl = "http://54.174.140.152:8000/users/info/";
+            const jwtToken = localStorage.getItem("jwt");
+            const userRequestData = {
+                jwt: jwtToken
+            };
+            const userRequestOptions = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                    body: JSON.stringify(userRequestData),
+            };
+            await fetch(userUrl, userRequestOptions)
+                .then((response) => response.json())
+                .then((data) => setUser(data[0].username))
+                .catch((error) => console.error("Error:", error));
+
+
+            /**
+             * API Request to store graft 
+             */
+            const graftUrl = "http://54.174.140.152:8000/grafts/";
+            const graftRequestData = {
+                name: name,
+                description: description,
+                category: category,
+                regulation: regulation,
+                price: price,
+                purchase_lin: link,
+                created_by: user,
+            };
+            const graftRequestOptions = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                    body: JSON.stringify(graftRequestData),
+            };
+            await fetch(graftUrl, graftRequestOptions)
+                .then((response) => response.json())
+                .then((data) => console.log(data))
+                .catch((error) => console.error("Error:", error));
+        }
 
     }
+
+    
+
+    /**
+     * Checks if a user is logged in
+     * Users that are not logged in can not post grafts
+     */
+    const isLoggedIn = () => {
+        const jwtToken = localStorage.getItem("jwt");
+        if(jwtToken !== null) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+
 
 
     return (
@@ -65,7 +128,7 @@ export default function NewGraftPage(props) {
                         required 
                         placeholder="Product Name"
                         type='text' 
-                        className='border-1 border-black rounded-md px-1 w-1/3 ml-5'
+                        className='border-1 border-black rounded-md p-2 w-1/3 ml-5'
                         value = {name}
                         onChange = {(e) => setName(e.target.value)}
                         ></input>
@@ -77,7 +140,7 @@ export default function NewGraftPage(props) {
                         rows="4"
                         placeholder="Product description"
                         type='text' 
-                        className='border-1 border-black rounded-md px-1 w-1/3 ml-5'
+                        className='border-1 border-black rounded-md p-2 w-1/3 ml-5'
                         value = {description}
                         onChange = {(e) => setDescription(e.target.value)}
                         ></textarea>
@@ -88,7 +151,7 @@ export default function NewGraftPage(props) {
                     <select 
                         required 
                         placeholder="Select Category"
-                        className='border-1 border-black rounded-md px-1 w-1/3 ml-5'
+                        className='border-1 border-black rounded-md p-2 w-1/3 ml-5'
                         value = {category}
                         onChange = {(e) => setCategory(e.target.value)}
                         >
@@ -105,7 +168,7 @@ export default function NewGraftPage(props) {
                     <select 
                         required 
                         placeholder="Select Regulation PAthway"
-                        className='border-1 border-black rounded-md px-1 w-1/3 ml-5'
+                        className='border-1 border-black rounded-md p-2 w-1/3 ml-5'
                         value = {regulation}
                         onChange = {(e) => setRegulation(e.target.value)}
                         >
@@ -121,19 +184,19 @@ export default function NewGraftPage(props) {
                     <input 
                         required 
                         placeholder="Link to product (where customers can buy)"
-                        className='border-1 border-black rounded-md px-1 w-1/3 ml-5'
+                        className='border-1 border-black rounded-md p-2 w-1/3 ml-5'
                         value = {link}
                         onChange = {(e) => setLink(e.target.value)}
                         ></input>
                 </div>
 
-                <div className='flex justify-center mb-3 w-full' >
+                <div className='flex justify-center mb-3 w-full items-center' >
                     <p>$</p>
                     <input 
                         required 
                         placeholder="Price (in USD)"
                         type='text' 
-                        className='border-1 border-black rounded-md px-1 w-1/3 ml-1'
+                        className='border-1 border-black rounded-md p-2 w-1/3 ml-1'
                         value = {price}
                         onChange = {(e) => setPrice(e.target.value)}
                     ></input>
@@ -142,7 +205,7 @@ export default function NewGraftPage(props) {
 
                 <div id='file-uploads' className='flex gap-14'>
 
-                    <div className='flex flex-col items-center mt-5 w-full bg-neutral-100 rounded-lg p-2'>
+                    <div className='flex flex-col items-center mt-5 w-full bg-blue-100 rounded-lg p-2'>
                         <p className='font-semibold'>Upload an image for your product</p>
                         <input type="file" accept="image/*" name="image" className="my-4" 
                             onChange={(e) => {
@@ -153,7 +216,7 @@ export default function NewGraftPage(props) {
 
 
                     {/* Notice the difference in the function when adding multiple files to an array */}
-                    <div className='flex flex-col items-center mt-5 w-full bg-neutral-100 rounded-lg p-2'>
+                    <div className='flex flex-col items-center mt-5 w-full bg-blue-100 rounded-lg p-2'>
                         <p className='font-semibold'>Documents (can add multiple files):</p>
                         <input type="file" multiple name="documents" className="my-4"  
                             onChange={(e) => {

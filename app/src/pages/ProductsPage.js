@@ -76,6 +76,7 @@ function ProductsPage() {
                                     regulation = {product.regulation}
                                     image = {product.image}
                                     link = {product.purchase_link}
+                                    price = {product.price}
                                 />
                     })
                     

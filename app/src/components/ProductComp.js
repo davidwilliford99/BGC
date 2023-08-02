@@ -18,6 +18,7 @@ function ProductComp(props) {
   const regulationId = props.regulation;
   const image = props.image;
   const link = props.link;
+  const price = props.price;
 
 
   
@@ -75,7 +76,7 @@ function ProductComp(props) {
             <h1 className="text-sm mt-2 font-semibold text-center">{description}</h1>
 
             <div className="flex flex-col mt-5 items-center justify-between">
-              <p className="font-semibold">$3500.00</p>
+              <p className="font-semibold">${price}</p>
               <a target="_blank" href={link}><button className="bg-blue-500 text-white px-3 py-1 rounded-xl hover:bg-blue-800 transition mt-2">Purchase Here</button></a>
             </div>
             
