@@ -15,7 +15,7 @@ export default function PricingPage() {
 
   /**
   * Checks if a user is logged in
-  * Users that are not logged in can not post grafts
+  * Users that are not logged in can not buy credits
   */
   useEffect(() => {
     const jwtToken = localStorage.getItem("jwt");
