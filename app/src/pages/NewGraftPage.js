@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
 
 export default function NewGraftPage(props) {
 
@@ -14,6 +16,11 @@ export default function NewGraftPage(props) {
     const [documents, setDocuments] = useState([]);
     const [user, setUser] = useState("");
 
+    const [postedSuccesfully, setPostedSuccesfully] = useState(false);
+    const [notLoggedIn, setNotLoggedIn] = useState(false);
+    const [userCredits, setUserCredits] = useState();
+    const [hasEnoughCredits, setHasEnoughCredits] = useState(true);
+    const navigate = useNavigate();
 
 
     /**
@@ -54,34 +61,78 @@ export default function NewGraftPage(props) {
             };
             await fetch(userUrl, userRequestOptions)
                 .then((response) => response.json())
-                .then((data) => setUser(data[0].username))
+                .then((data) => {
+                    setUser(data[0].username);
+                    setUserCredits(data[1].num_credits);
+                })
                 .catch((error) => console.error("Error:", error));
 
 
-            /**
-             * API Request to store graft 
-             */
-            const graftUrl = "http://54.174.140.152:8000/grafts/";
-            const graftRequestData = {
-                name: name,
-                description: description,
-                category: category,
-                regulation: regulation,
-                price: price,
-                purchase_lin: link,
-                created_by: user,
-            };
-            const graftRequestOptions = {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+
+
+            
+            if(userCredits > 0) {
+
+                /**
+                 * API Request to store graft 
+                 */
+                const graftUrl = "http://54.174.140.152:8000/grafts/";
+                const graftRequestData = {
+                    name: name,
+                    description: description,
+                    category: category,
+                    regulation: regulation,
+                    image: null,
+                    price: price,
+                    purchase_link: link,
+                    created_by: user,
+                    documents: null,
+                    validated: false
+                };
+                const graftRequestOptions = {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
                     body: JSON.stringify(graftRequestData),
-            };
-            await fetch(graftUrl, graftRequestOptions)
-                .then((response) => response.json())
-                .then((data) => console.log(data))
-                .catch((error) => console.error("Error:", error));
+                };
+                await fetch(graftUrl, graftRequestOptions)
+                    .then((response) => response.json())
+                    .then((data) => console.log(data))
+                    .catch((error) => console.error("Error:", error));
+
+                
+                
+                /**
+                 * Third API call to decrease user's credits by 1
+                 */
+                const decreaseUrl = "http://54.174.140.152:8000/users/postgraft/";
+                const decreaseRequestData = {
+                    jwt: jwtToken
+                };
+                const decreaseRequestOptions = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                        body: JSON.stringify(decreaseRequestData),
+                };
+                await fetch(decreaseUrl, decreaseRequestOptions)
+                    .then((response) => response.json())
+                    .then((data) => console.log(data))
+                    .catch((error) => console.error("Error:", error));
+
+
+                // navigate after a few seconds to show upload success 
+                setPostedSuccesfully(true);
+                // setTimeout(() => navigate("/myaccount"), 2000);
+            }
+            else {
+                setHasEnoughCredits(false);
+            }
+
+        }
+
+        else {
+            setNotLoggedIn(true);
         }
 
     }
@@ -108,11 +159,41 @@ export default function NewGraftPage(props) {
     return (
 
 
-        <div>
+        <div className='font-[Lato]'>
             
             <form id='create-account-form' className='p-5 w-full flex flex-col items-center' onSubmit={submitGraft}>
 
                 <h1 className='text-center text-4xl mb-5 font-bold'>Add a New Product</h1>
+
+
+
+
+                { postedSuccesfully && 
+                    <h1
+                        className='p-3 mb-4 rounded-xl bg-green-300 font-semibold'
+                        >
+                            Product Posted Successfully! You will now be redirected back to your account page
+                    </h1>
+                }
+
+                { notLoggedIn && 
+                    <h1
+                        className='p-3 mb-4 rounded-xl bg-red-300 font-semibold'
+                        >
+                            Please log in to submit grafts !
+                    </h1>
+                }
+
+
+                { !hasEnoughCredits && 
+                    <h1
+                        className='p-3 mb-4 rounded-xl bg-red-300 font-semibold'
+                        >
+                            You do not have any credits to post items. Please purchase credits on the Pricing page
+                    </h1>
+                }
+
+
 
 
                 {/* Conditionally Rendering Error Messages */}
@@ -183,6 +264,7 @@ export default function NewGraftPage(props) {
                 <div className='flex justify-center mb-3 w-full'>
                     <input 
                         required 
+                        type='text'
                         placeholder="Link to product (where customers can buy)"
                         className='border-1 border-black rounded-md p-2 w-1/3 ml-5'
                         value = {link}
@@ -195,7 +277,7 @@ export default function NewGraftPage(props) {
                     <input 
                         required 
                         placeholder="Price (in USD)"
-                        type='text' 
+                        type='number' 
                         className='border-1 border-black rounded-md p-2 w-1/3 ml-1'
                         value = {price}
                         onChange = {(e) => setPrice(e.target.value)}
