@@ -14,18 +14,16 @@ export default function NewGraftPage(props) {
     const [price, setPrice] = useState();
     const [link, setLink] = useState("");
     const [documents, setDocuments] = useState([]);
-    const [user, setUser] = useState("");
 
     const [postedSuccesfully, setPostedSuccesfully] = useState(false);
     const [notLoggedIn, setNotLoggedIn] = useState(false);
-    const [userCredits, setUserCredits] = useState();
     const [hasEnoughCredits, setHasEnoughCredits] = useState(true);
     const navigate = useNavigate();
 
 
+
     /**
-     * This is the page for adding new grafts 
-     * 
+     * Function for adding new grafts 
      * 
      * Requirements
      * ------------------------------
@@ -37,7 +35,6 @@ export default function NewGraftPage(props) {
      * isSignedIn method will check fro jwtToken and return true or false 
      * 
      */
-
     const submitGraft = async (event) => {
 
         event.preventDefault();
@@ -61,73 +58,69 @@ export default function NewGraftPage(props) {
             };
             await fetch(userUrl, userRequestOptions)
                 .then((response) => response.json())
-                .then((data) => {
-                    setUser(data[0].username);
-                    setUserCredits(data[1].num_credits);
+                .then(async (data) => {
+                    
+                    console.log(data);
+                    if(data[1].num_credits > 0) {
+
+                        /**
+                         * API Request to store graft 
+                         */
+                        const graftUrl = "http://54.174.140.152:8000/grafts/";
+                        const graftRequestData = {
+                            name: name,
+                            description: description,
+                            category: category,
+                            regulation: regulation,
+                            image: null,
+                            price: price,
+                            purchase_link: link,
+                            created_by: data[0].username,
+                            documents: null,
+                            validated: false
+                        };
+                        const graftRequestOptions = {
+                            method: "POST",
+                            headers: {"Content-Type": "application/json"},
+                            body: JSON.stringify(graftRequestData),
+                        };
+                        await fetch(graftUrl, graftRequestOptions)
+                            .then((response) => response.json())
+                            .then((data) => console.log(data))
+                            .catch((error) => console.error("Error:", error));
+
+                        
+                        
+                        /**
+                         * Third API call to decrease user's credits by 1
+                         */
+                        const decreaseUrl = "http://54.174.140.152:8000/users/postgraft/";
+                        const decreaseRequestData = {
+                            jwt: jwtToken
+                        };
+                        const decreaseRequestOptions = {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                                body: JSON.stringify(decreaseRequestData),
+                        };
+                        await fetch(decreaseUrl, decreaseRequestOptions)
+                            .then((response) => response.json())
+                            .then((data) => console.log(data))
+                            .catch((error) => console.error("Error:", error));
+
+
+                        // navigate after a few seconds to show upload success 
+                        setPostedSuccesfully(true);
+                        setTimeout(() => navigate("/myaccount"), 2000);
+                    }
+                    else {
+                        setHasEnoughCredits(false);
+                    }
+
                 })
                 .catch((error) => console.error("Error:", error));
-
-
-
-
-            
-            if(userCredits > 0) {
-
-                /**
-                 * API Request to store graft 
-                 */
-                const graftUrl = "http://54.174.140.152:8000/grafts/";
-                const graftRequestData = {
-                    name: name,
-                    description: description,
-                    category: category,
-                    regulation: regulation,
-                    image: null,
-                    price: price,
-                    purchase_link: link,
-                    created_by: user,
-                    documents: null,
-                    validated: false
-                };
-                const graftRequestOptions = {
-                    method: "POST",
-                    headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify(graftRequestData),
-                };
-                await fetch(graftUrl, graftRequestOptions)
-                    .then((response) => response.json())
-                    .then((data) => console.log(data))
-                    .catch((error) => console.error("Error:", error));
-
-                
-                
-                /**
-                 * Third API call to decrease user's credits by 1
-                 */
-                const decreaseUrl = "http://54.174.140.152:8000/users/postgraft/";
-                const decreaseRequestData = {
-                    jwt: jwtToken
-                };
-                const decreaseRequestOptions = {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                        body: JSON.stringify(decreaseRequestData),
-                };
-                await fetch(decreaseUrl, decreaseRequestOptions)
-                    .then((response) => response.json())
-                    .then((data) => console.log(data))
-                    .catch((error) => console.error("Error:", error));
-
-
-                // navigate after a few seconds to show upload success 
-                setPostedSuccesfully(true);
-                // setTimeout(() => navigate("/myaccount"), 2000);
-            }
-            else {
-                setHasEnoughCredits(false);
-            }
 
         }
 
