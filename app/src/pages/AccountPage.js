@@ -93,7 +93,7 @@ export default function AccountPage(props) {
                 
 
 
-                <a href='/' className='underline text-blue-600'><p className='text-center'>Your Products</p></a>
+                <a href='/myproducts' className='underline text-blue-600'><p className='text-center'>Your Products</p></a>
                 <a href='/creategraft' className='underline text-blue-600'><p className='text-center'>Add new product</p></a>
             </div>
 

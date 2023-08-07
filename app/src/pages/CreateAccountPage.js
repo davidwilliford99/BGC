@@ -24,6 +24,7 @@ export default function CreateAccountPage(props) {
     const [emailTaken, setEmailTaken] = useState(false);
     const [usernameTaken, setUsernameTaken] = useState(false);
     const [passwordMatch, setPasswordMatch] = useState(true);
+    const [successfulCreation, setSuccessfulCreation] = useState(false);
 
 
     
@@ -72,7 +73,9 @@ export default function CreateAccountPage(props) {
                 phone_number: phoneNumber
             })
 
-            navigate('/login/');
+            
+            setSuccessfulCreation(true);
+            setTimeout(() => navigate("/login"), 2000);
 
         }
 
@@ -97,6 +100,15 @@ export default function CreateAccountPage(props) {
             <form id='create-account-form' className='p-5 w-1/2 flex flex-col items-center' onSubmit={submitUser}>
 
                 <h1 className='text-center text-4xl mb-5 font-bold'>Create an Account</h1>
+
+                {/* If account creation is succesfull */}
+                { successfulCreation && 
+                    <h1
+                        className='p-3 mb-4 rounded-xl bg-green-300 font-semibold'
+                        >
+                            Account Created Successfully! You will now be redirected to the login page
+                    </h1>
+                }
 
 
                 {/* Conditionally Rendering Error Messages */}
