@@ -39,9 +39,25 @@ export default function MyProductsPage(props) {
 
                 await fetch(apiUrl, requestOptions)
                     .then((response) => response.json())
-                    .then((data) => {
+                    .then(async (data) => {
 
-                        // This is where you call the grafts by username endpoint usint data[0].username as user field 
+
+                        const url = "http://54.174.140.152:8000/grafts/search/user";
+                        const graftRequestData = {
+                            username: data[0].username
+                        };
+                        const graftRequestOptions = {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                                body: JSON.stringify(graftRequestData),
+                        };
+        
+                        await fetch(url, graftRequestOptions)
+                            .then((response) => response.json())
+                            .then((data) => setProducts(data))
+                            .catch((error) => console.error("Error:", error));
 
                     })
                     .catch((error) => console.error("Error:", error));
@@ -55,7 +71,7 @@ export default function MyProductsPage(props) {
 
     return (
         <div>
-            <h1>Your Products</h1>
+            <h1 className='font-[Montserrat] text-5xl font-regular text-center my-10'>Your Products</h1>
 
             {
                 products.map((product) => {

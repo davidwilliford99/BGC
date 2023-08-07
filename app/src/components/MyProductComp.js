@@ -64,25 +64,29 @@ export default function MyProductComp(props) {
 
   return (
 
-    <div className="mx-2 my-3 p-4 w-1/3 rounded-sm">
+    <div className="mx-20 my-3 rounded-xl overflow-hidden border-1 border-black">
 
-      <a href="">
+      <div id="product-details" className="flex justify-between items-center">
+          <img 
+            src="https://wp04-media.cdn.ihealthspot.com/wp-content/uploads/sites/115/2021/08/What-are-the-Different-Types-of-Orthopedic-Doctors-768x512.jpg.webp" 
+            alt="product"
+            className="max-h-72"/>
 
-        <div id="product-details" className="m-2">
-            <img src="https://wp04-media.cdn.ihealthspot.com/wp-content/uploads/sites/115/2021/08/What-are-the-Different-Types-of-Orthopedic-Doctors-768x512.jpg.webp" alt="product"/>
+          <div>
             <h1 className="text-xl my-2 font-semibold text-center">{title}</h1>
             <h1 className="text-sm text-center">{category}</h1>
             <h1 className="text-sm text-blue-800 text-center">{regulation}</h1>
             <h1 className="text-sm mt-2 font-semibold text-center">{description}</h1>
+            <p className="font-semibold text-center text-xl mt-3">${price}</p>
+          </div>
 
-            <div className="flex flex-col mt-5 items-center justify-between">
-              <p className="font-semibold">${price}</p>
-              <a target="_blank" href={link}><button className="bg-blue-500 text-white px-3 py-1 rounded-xl hover:bg-blue-800 transition mt-2">Purchase Here</button></a>
-            </div>
-            
-        </div>
 
-      </a>
+          <div className="flex flex-col items-center justify-center">
+            <a target="_blank" href={link}><button className="px-3 py-1 rounded-xl transition mt-2">Edit</button></a>
+            <a target="_blank" href={link}><button className="px-3 py-1 rounded-xl transition mt-2">Delete</button></a>
+          </div>
+          
+      </div>
 
 
 
