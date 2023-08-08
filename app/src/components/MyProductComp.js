@@ -109,6 +109,7 @@ export default function MyProductComp(props) {
             <h1 className="text-sm text-blue-800 text-center">{regulation}</h1>
             <h1 className="text-sm mt-2 mx-5 font-semibold text-center">{description}</h1>
             <p className="font-semibold text-center text-xl my-3">${price}</p>
+            <a href={link}> <p className="text-blue-500 text-center mb-3">{link}</p></a>
           </div>
 
 
