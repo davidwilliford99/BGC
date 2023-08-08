@@ -67,6 +67,13 @@ export default function MyProductsPage(props) {
         )();
     }, [])
 
+    console.log(products[0]);
+
+
+
+    /**
+     * When user deletes a 
+     */
 
 
     return (
@@ -76,10 +83,11 @@ export default function MyProductsPage(props) {
             {
                 products.map((product) => {
                     return  <MyProductComp
+                                id = {product.id}
                                 title = {product.name}
-                                category = {product.category}
+                                category = {product.category_id}
                                 description = {product.description}
-                                regulation = {product.regulation}
+                                regulation = {product.regulation_id}
                                 image = {product.image}
                                 link = {product.purchase_link}
                                 price = {product.price}

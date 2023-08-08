@@ -19,9 +19,40 @@ export default function MyProductComp(props) {
   const image = props.image;
   const link = props.link;
   const price = props.price;
+  const id = props.id
 
 
-  
+
+  /**
+   * If a user deletes a graft 
+   * 
+   * - call DELETE to /grafts/id
+   */
+  const deleteGraft = async () => {
+    
+    const url = `http://54.174.140.152:8000/grafts/${id}`;
+    const jwtToken = localStorage.getItem("jwt");
+    const payload = {
+      jwt: jwtToken 
+    };
+
+    const requestOptions = {
+    method: "DELETE",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+    };
+
+
+    const loginRequest = await fetch(url, requestOptions)
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error("Error:", error));
+    
+    }
+
+
 
   /**
    * 
@@ -31,7 +62,7 @@ export default function MyProductComp(props) {
   const [category, setCategory] = useState("");
 
     const getCategory = () => {
-        fetch(`http://44.204.149.217:8000/grafts/` + categoryId + "/cat", {})
+        fetch(`http://54.174.140.152:8000/grafts/` + categoryId + "/cat", {})
         .then((response) => response.json())
         .then((data) => setCategory(data))
     }
@@ -50,7 +81,7 @@ export default function MyProductComp(props) {
     const [regulation, setRegulation] = useState("");
 
     const getRegulation = () => {
-        fetch(`http://44.204.149.217:8000/grafts/` + regulationId + "/reg", {})
+        fetch(`http://54.174.140.152:8000/grafts/` + regulationId + "/reg", {})
         .then((response) => response.json())
         .then((data) => setRegulation(data))
     }
@@ -73,17 +104,16 @@ export default function MyProductComp(props) {
             className="max-h-72"/>
 
           <div>
-            <h1 className="text-xl my-2 font-semibold text-center">{title}</h1>
-            <h1 className="text-sm text-center">{category}</h1>
+            <h1 className="text-2xl my-2 font-semibold text-center">{title}</h1>
+            <h1 className="text-sm text-blue-800 text-center">{category}</h1>
             <h1 className="text-sm text-blue-800 text-center">{regulation}</h1>
-            <h1 className="text-sm mt-2 font-semibold text-center">{description}</h1>
-            <p className="font-semibold text-center text-xl mt-3">${price}</p>
+            <h1 className="text-sm mt-2 mx-5 font-semibold text-center">{description}</h1>
+            <p className="font-semibold text-center text-xl my-3">${price}</p>
           </div>
 
 
           <div className="flex flex-col items-center justify-center">
-            <a target="_blank" href={link}><button className="px-3 py-1 rounded-xl transition mt-2">Edit</button></a>
-            <a target="_blank" href={link}><button className="px-3 py-1 rounded-xl transition mt-2">Delete</button></a>
+            <button onClick={deleteGraft} className="px-3 py-1 bg-red-500 mr-10 text-white font-semibold rounded-xl transition mt-2">Delete</button>
           </div>
           
       </div>
