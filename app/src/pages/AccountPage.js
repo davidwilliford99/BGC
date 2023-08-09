@@ -12,6 +12,7 @@ export default function AccountPage(props) {
 
     const [userInfo, setUserInfo] = useState([]);
     const [infoLoaded, setInfoLoaded] = useState(false);
+    const [isStaff, setIsStaff] = useState(false);
     const navigate = useNavigate();
 
 
@@ -41,7 +42,10 @@ export default function AccountPage(props) {
 
                 await fetch(apiUrl, requestOptions)
                     .then((response) => response.json())
-                    .then((data) => setUserInfo(data))
+                    .then((data) => {
+                        setUserInfo(data);
+                        setIsStaff(data[0].is_staff);
+                    })
                     .catch((error) => console.error("Error:", error));
 
                 setInfoLoaded(true);
@@ -92,6 +96,11 @@ export default function AccountPage(props) {
                 </div>
                 
 
+                { isStaff &&
+                
+                    <a href='/reviewgrafts' className='underline text-blue-600'><p className='text-center'>Review Products (Staff Only)</p></a>
+
+                }
 
                 <a href='/myproducts' className='underline text-blue-600'><p className='text-center'>Your Products</p></a>
                 <a href='/creategraft' className='underline text-blue-600'><p className='text-center'>Add new product</p></a>
