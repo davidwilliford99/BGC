@@ -9,6 +9,7 @@ export default function LoginPage(props) {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [userInvalid, setUserInvalid] = useState(false);
     const navigate = useNavigate();
 
 
@@ -43,15 +44,19 @@ export default function LoginPage(props) {
         const loginRequest = await fetch(apiUrl, requestOptions)
             .then((response) => response.json())
             .then((data) => {
-                const jwtToken = data.jwt;                                          // Assuming the response contains a field named "jwt" with the JWT token.
-                localStorage.setItem("jwt", jwtToken);                              // Store the JWT token in the localStorage.
-                localStorage.setItem("jwt-exp", Date.now() + 2 * 60 * 60 * 1000);   // expiration is checked in Navbar component
+                console.log(data)
+                if (data.message === "Invalid email" || data.message === "Incorrect Password") {
+                    setUserInvalid(true);
+                }
+                else {
+                    const jwtToken = data.jwt;                                          // Assuming the response contains a field named "jwt" with the JWT token.
+                    localStorage.setItem("jwt", jwtToken);                              // Store the JWT token in the localStorage.
+                    localStorage.setItem("jwt-exp", Date.now() + 2 * 60 * 60 * 1000);   // expiration is checked in Navbar component
+                    navigate('/myaccount/');
+                }
+
               })
               .catch((error) => console.error("Error:", error));
-        
-        
-
-        navigate('/myaccount/');
     }
 
 
@@ -77,6 +82,18 @@ export default function LoginPage(props) {
                 <form id='right-side login-form' className='w-1/2 flex flex-col items-center justify-center font-["Montserrat"]'>
 
                     <h1 className='text-center text-7xl font-["Lato"] font-semibold leading-snug mb-7'>Login</h1>
+
+
+                    { userInvalid && 
+                    <h1
+                        className='p-3 mb-4 rounded-xl bg-red-300 font-semibold'
+                        >
+                            Incorrect username or password
+                    </h1>
+                    }
+
+
+
 
                     <div className='flex mb-2'>
                         <input 
