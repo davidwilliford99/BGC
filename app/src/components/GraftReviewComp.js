@@ -53,7 +53,7 @@ export default function GraftReviewComp(props) {
 
 
    /**
-   * Graph is denied, so we delete
+   * Graph is approved
    */
   const approveGraft = async () => {
     
@@ -142,7 +142,7 @@ export default function GraftReviewComp(props) {
 
 
           <div className="flex flex-col items-center justify-center">
-            <button onClick={deleteGraft} className="px-3 py-1 bg-green-600 mr-10 text-white font-semibold rounded-xl transition mt-2">Approve</button>
+            <button onClick={approveGraft} className="px-3 py-1 bg-green-600 mr-10 text-white font-semibold rounded-xl transition mt-2">Approve</button>
             <button onClick={deleteGraft} className="px-3 py-1 bg-red-500 mr-10 text-white font-semibold rounded-xl transition mt-2">Decline</button>
             <button onClick={deleteGraft} className="px-3 py-1 bg-neutral-500 mr-10 text-white font-semibold rounded-xl transition mt-10">Documents</button>
           </div>

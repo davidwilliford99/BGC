@@ -45,7 +45,7 @@ export default function MyProductComp(props) {
     };
 
 
-    const loginRequest = await fetch(url, requestOptions)
+    const deleteRequest = await fetch(url, requestOptions)
         .then((response) => response.json())
         .then((data) => console.log(data))
         .catch((error) => console.error("Error:", error));
