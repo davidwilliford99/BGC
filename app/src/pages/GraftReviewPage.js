@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MyProductComp from '../components/MyProductComp';
+import GraftReviewComp from '../components/GraftReviewComp';
 
 /**
  * 
@@ -64,20 +65,24 @@ export default function GraftReviewPage(props) {
 
         return (
             <div>
-                <h1 className='font-[Montserrat] text-5xl font-regular text-center my-10'>Your Products</h1>
+                <h1 className='font-[Montserrat] text-5xl font-regular text-center my-14'>Accept / Deny new Grafts</h1>
     
                 {
                     products.map((product) => {
-                        return  <MyProductComp
-                                id = {product.id}
-                                title = {product.name}
-                                category = {product.category_id}
-                                description = {product.description}
-                                regulation = {product.regulation_id}
-                                image = {product.image}
-                                link = {product.purchase_link}
-                                price = {product.price}
-                                />
+                        if(!product.validated) {
+                            return  <GraftReviewComp
+                            id = {product.id}
+                            title = {product.name}
+                            category = {product.category}
+                            description = {product.description}
+                            regulation = {product.regulation}
+                            image = {product.image}
+                            link = {product.purchase_link}
+                            price = {product.price}
+                            documents = {product.documents}
+                            />
+                        }
+
                     })
                     
                 }
