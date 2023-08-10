@@ -120,8 +120,8 @@ export default function AccountPage(props) {
 
                     <h1 className='text-4xl mb-10 text-center'>Account Options</h1>
 
-                    <a href='/' className='underline text-blue-600'><p className='text-center'>Change Password</p></a>
-                    <a href='/' className='underline text-blue-600'><p className='text-center'>Change Username</p></a>
+                    <a href='/changepassword' className='underline text-blue-600'><p className='text-center'>Change Password</p></a>
+                    <a href='/changeusername' className='underline text-blue-600'><p className='text-center'>Change Username</p></a>
     
                     <div className='flex flex-col items-center justify-center'>
 
