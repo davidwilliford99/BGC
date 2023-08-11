@@ -304,7 +304,12 @@ export default function NewGraftPage(props) {
 
                     <div className='flex flex-col items-center mt-5 w-full bg-blue-100 rounded-lg p-2'>
                         <p className='font-semibold'>Upload an image for your product</p>
-                        <input type="file" accept="image/*" name="image" className="my-4" 
+                        <input 
+                            type="file" 
+                            accept="image/*" 
+                            name="image" 
+                            className="my-4"
+                            required
                             onChange={(e) => {
                                 const image = e.target.files;
                                 setImage(image[0]);
