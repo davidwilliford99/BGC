@@ -99,7 +99,7 @@ export default function MyProductComp(props) {
 
       <div id="product-details" className="flex justify-between items-center">
           <img 
-            src="https://wp04-media.cdn.ihealthspot.com/wp-content/uploads/sites/115/2021/08/What-are-the-Different-Types-of-Orthopedic-Doctors-768x512.jpg.webp" 
+            src={image} 
             alt="product"
             className="max-h-72"/>
 

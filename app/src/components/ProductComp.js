@@ -69,7 +69,7 @@ function ProductComp(props) {
       <a href="">
 
         <div id="product-details" className="m-2">
-            <img src="https://wp04-media.cdn.ihealthspot.com/wp-content/uploads/sites/115/2021/08/What-are-the-Different-Types-of-Orthopedic-Doctors-768x512.jpg.webp" alt="product"/>
+            <img src={image} alt="product"/>
             <h1 className="text-xl my-2 font-semibold text-center">{title}</h1>
             <h1 className="text-sm text-center">{category}</h1>
             <h1 className="text-sm text-blue-800 text-center">{regulation}</h1>

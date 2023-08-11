@@ -60,7 +60,7 @@ export default function NewGraftPage(props) {
                 .then((response) => response.json())
                 .then(async (data) => {
                     
-                    console.log(data);
+
                     if(data[1].num_credits > 0) {
 
                         /**
@@ -86,13 +86,35 @@ export default function NewGraftPage(props) {
                         };
                         await fetch(graftUrl, graftRequestOptions)
                             .then((response) => response.json())
-                            .then((data) => console.log(data))
+                            .then(async (data) => {
+
+
+                                /**
+                                 * Third API call to store product image
+                                 * 
+                                 * Uses fromdata instead of JSON so may look different than the others 
+                                 */
+                                const formData = new FormData();
+                                formData.append('graft_id', data.id);
+                                formData.append('image', image);
+
+                                const response = await fetch('http://54.174.140.152:8000/grafts/imageupload', {
+                                    method: 'POST',
+                                    body: formData,
+                                  });
+
+
+
+
+                            })
                             .catch((error) => console.error("Error:", error));
 
+
                         
+
                         
                         /**
-                         * Third API call to decrease user's credits by 1
+                         * Fourth API call to decrease user's credits by 1
                          */
                         const decreaseUrl = "http://54.174.140.152:8000/users/postgraft/";
                         const decreaseRequestData = {
