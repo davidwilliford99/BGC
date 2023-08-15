@@ -94,15 +94,32 @@ export default function NewGraftPage(props) {
                                  * 
                                  * Uses fromdata instead of JSON so may look different than the others 
                                  */
-                                const formData = new FormData();
-                                formData.append('graft_id', data.id);
-                                formData.append('image', image);
+                                const imageFormData = new FormData();
+                                imageFormData.append('graft_id', data.id);
+                                imageFormData.append('image', image);
 
-                                const response = await fetch('http://54.174.140.152:8000/grafts/imageupload', {
+                                const imageResponse = await fetch('http://54.174.140.152:8000/grafts/imageupload', {
                                     method: 'POST',
-                                    body: formData,
+                                    body: imageFormData,
                                   });
+                                
+                                
+                                /**
+                                 * Fourth API request to store product documents
+                                 * 
+                                 * Documents are stored in an array, and you cannot send an array of files 
+                                 */
+                                const documentFormData = new FormData();
+                                documentFormData.append('graft_id', data.id)
 
+                                for(let i = 0; i < documents.length; i++) {
+                                    documentFormData.append('document', documents[i]);
+                                }
+
+                                const documentResponse = await fetch('http://54.174.140.152:8000/grafts/documentupload', {
+                                    method: 'POST',
+                                    body: documentFormData,
+                                  });
 
 
 
@@ -114,7 +131,7 @@ export default function NewGraftPage(props) {
 
                         
                         /**
-                         * Fourth API call to decrease user's credits by 1
+                         * Fifth API call to decrease user's credits by 1
                          */
                         const decreaseUrl = "http://54.174.140.152:8000/users/postgraft/";
                         const decreaseRequestData = {
@@ -320,7 +337,12 @@ export default function NewGraftPage(props) {
                     {/* Notice the difference in the function when adding multiple files to an array */}
                     <div className='flex flex-col items-center mt-5 w-full bg-blue-100 rounded-lg p-2'>
                         <p className='font-semibold'>Documents (can add multiple files):</p>
-                        <input type="file" multiple name="documents" className="my-4"  
+                        <input 
+                            type="file" 
+                            multiple 
+                            required
+                            name="documents" 
+                            className="my-4"  
                             onChange={(e) => {
                                 const fileList = e.target.files;
                                 setDocuments(Array.from(fileList));
