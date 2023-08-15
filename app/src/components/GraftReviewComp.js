@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import DownloadButton from "./DownloadButtonComp";
+
 
 /**
  * 
@@ -23,6 +23,10 @@ export default function GraftReviewComp(props) {
   const id = props.id
   const documents = props.documents;
 
+
+  if (documents == null) {
+    documents = [""];
+  }
 
 
   /**
@@ -130,25 +134,49 @@ export default function GraftReviewComp(props) {
           <img 
             src={image} 
             alt="product"
-            className="max-h-72"/>
+            className="w-72"/>
 
-          <div>
+          <div className="">
             <h1 className="text-2xl my-2 font-semibold text-center">{title}</h1>
             <h1 className="text-sm text-blue-800 text-center">{category}</h1>
             <h1 className="text-sm text-blue-800 text-center">{regulation}</h1>
             <h1 className="text-sm mt-2 mx-5 font-semibold text-center">{description}</h1>
             <p className="font-semibold text-center text-xl my-3">${price}</p>
             <a href={link}> <p className="text-blue-500 text-center mb-3">{link}</p></a>
+
+
+
+            <div id="document buttons" className="flex flex-wrap items-center justify-center my-8 gap-3">
+              {
+                documents.map((docLink, index) => { 
+                  return <a 
+                      href={docLink} 
+                      target="_blank"
+                      >
+                      <button 
+                        className="px-3 py-1 bg-neutral-500 mr-10 text-white font-semibold rounded-xl transition mt-2 w-full">
+                          Document {index + 1}
+                      </button>
+                      
+                    </a>
+                })
+              }
+            </div>
+
+
+
           </div>
 
 
           <div className="flex flex-col items-center justify-center">
             <button onClick={approveGraft} className="px-3 py-1 bg-green-600 mr-10 text-white font-semibold rounded-xl transition mt-2">Approve</button>
             <button onClick={deleteGraft} className="px-3 py-1 bg-red-500 mr-10 text-white font-semibold rounded-xl transition mt-2">Decline</button>
-            <DownloadButton fileLinks={documents}/>
+          
           </div>
           
       </div>
+
+
 
 
 

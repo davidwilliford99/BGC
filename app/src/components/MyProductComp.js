@@ -101,7 +101,7 @@ export default function MyProductComp(props) {
           <img 
             src={image} 
             alt="product"
-            className="max-h-72"/>
+            className="w-72"/>
 
           <div>
             <h1 className="text-2xl my-2 font-semibold text-center">{title}</h1>
