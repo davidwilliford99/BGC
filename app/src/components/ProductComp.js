@@ -68,8 +68,8 @@ function ProductComp(props) {
 
       <a href="">
 
-        <div id="product-details" className="m-2">
-            <img src={image} alt="product"/>
+        <div id="product-details" className="m-2 flex flex-col items-center">
+            <img src={image} className="max-h-96" alt="product"/>
             <h1 className="text-xl my-2 font-semibold text-center">{title}</h1>
             <h1 className="text-sm text-center">{category}</h1>
             <h1 className="text-sm text-blue-800 text-center">{regulation}</h1>
