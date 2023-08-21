@@ -73,7 +73,7 @@ function NavScrollExample(props) {
         <Navbar.Brand href="/home">
           <img
             classname='img-fluid'
-            src='images/MicrosoftTeams-image (1).png' width='150' height='100' alt='navbar-logo'></img>
+            src={require("./../images/MicrosoftTeams-image (1).png")} width='150' height='100' alt='navbar-logo'></img>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -96,7 +96,7 @@ function NavScrollExample(props) {
               <>
               <a href='/myaccount'>
                 <div id='user-img' className='rounded-full mr-4 ml-8 p-1 overflow-hidden'>
-                  <img src='images/user-img.png' className='h-8'/>
+                  <img src={require("./../images/user-img.png")} className='h-8'/>
                 </div>
               </a>
               

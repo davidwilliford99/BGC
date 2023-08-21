@@ -74,7 +74,7 @@ export default function AccountPage(props) {
             <div id='account-info-card' className='border-1 border-black rounded-2xl p-5'>
 
                 <div className='flex items-center justify-center'>
-                    <img src='images/Account-img.png' className='h-60 mb-5'/>
+                    <img src={require('./../images/Account-img.png')} className='h-60 mb-5'/>
                 </div>
 
 
@@ -115,7 +115,7 @@ export default function AccountPage(props) {
                 <div id='account-options-card' className='border-1 border-black rounded-2xl p-5'>
 
                     <div className='flex items-center justify-center'>
-                        <img src='images/account-settings.png' className='h-40 mb-5'/>
+                        <img src={require('./../images/account-settings.png')} className='h-40 mb-5'/>
                     </div>
 
                     <h1 className='text-4xl mb-10 text-center'>Account Options</h1>
@@ -134,7 +134,7 @@ export default function AccountPage(props) {
                         </button>
 
 
-                        <img src='images/settings.gif' className='h-20 mt-10 mb-5'/>
+                        <img src={require("./../images/settings.gif")} className='h-20 mt-10 mb-5'/>
                     </div>
 
                 </div>
