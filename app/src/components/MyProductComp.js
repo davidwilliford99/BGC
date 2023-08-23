@@ -22,6 +22,8 @@ export default function MyProductComp(props) {
   const id = props.id
 
 
+  console.log(image)
+
 
   /**
    * If a user deletes a graft 

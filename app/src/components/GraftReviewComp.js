@@ -23,6 +23,8 @@ export default function GraftReviewComp(props) {
   const id = props.id
   const documents = props.documents;
 
+  console.log(image)
+
 
   if (documents == null) {
     documents = [""];

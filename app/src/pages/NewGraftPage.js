@@ -18,6 +18,8 @@ export default function NewGraftPage(props) {
     const [postedSuccesfully, setPostedSuccesfully] = useState(false);
     const [notLoggedIn, setNotLoggedIn] = useState(false);
     const [hasEnoughCredits, setHasEnoughCredits] = useState(true);
+
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
 
@@ -38,6 +40,8 @@ export default function NewGraftPage(props) {
     const submitGraft = async (event) => {
 
         event.preventDefault();
+
+        setIsLoading(true);
 
         if(isLoggedIn) {
 
@@ -167,6 +171,7 @@ export default function NewGraftPage(props) {
             setNotLoggedIn(true);
         }
 
+        setIsLoading(false);
     }
 
     
@@ -352,16 +357,32 @@ export default function NewGraftPage(props) {
                 </div>
 
 
+                { isLoading && 
+                    <>
+                        <img src={require("./../images/loading.gif")} className='h-20 mt-10 mb-5'/>
+                        <button 
+                        className='bg-neutral-600 mt-4 text-white text-xl font-semibold px-5 py-2 rounded-xl'
+                        >
+                            Submit Product
+                        </button>
+                    </>
+                }
+
+
 
                 <div className='flex flex-col items-center justify-center mt-5'>
                     <p className='text-center font-bold'>To prevent spam and security risk, your product<br/>will be reviewed professionally before showing on the repository</p>
                     <a>
-                        <button 
-                            type="submit"
-                            className='bg-blue-600 mt-4 text-white text-xl font-semibold px-5 py-2 rounded-xl'
+                        { !isLoading && 
+                        <>
+                            <button 
+                                type='submit'
+                                className='bg-blue-600 mt-4 text-white text-xl font-semibold px-5 py-2 rounded-xl'
                             >
                                 Submit Product
-                        </button>
+                            </button>
+                        </>
+                        }
                     </a>
                 </div>
 
