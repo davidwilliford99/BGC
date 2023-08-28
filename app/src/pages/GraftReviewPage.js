@@ -58,7 +58,7 @@ export default function GraftReviewPage(props) {
     }
     useEffect(() => {
         getProducts();
-    }, []); 
+    }, [products]); 
 
 
 

@@ -170,7 +170,7 @@ export default function GraftReviewComp(props) {
           </div>
 
 
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center w-72">
             <button onClick={approveGraft} className="px-3 py-1 bg-green-600 mr-10 text-white font-semibold rounded-xl transition mt-2">Approve</button>
             <button onClick={deleteGraft} className="px-3 py-1 bg-red-500 mr-10 text-white font-semibold rounded-xl transition mt-2">Decline</button>
           

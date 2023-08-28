@@ -65,7 +65,7 @@ export default function MyProductsPage(props) {
     
             }
         )();
-    }, [])
+    }, [products])
 
     console.log(products[0]);
 

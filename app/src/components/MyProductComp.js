@@ -115,7 +115,7 @@ export default function MyProductComp(props) {
           </div>
 
 
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center w-72">
             <button onClick={deleteGraft} className="px-3 py-1 bg-red-500 mr-10 text-white font-semibold rounded-xl transition mt-2">Delete</button>
           </div>
           
