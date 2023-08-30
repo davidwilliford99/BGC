@@ -16,23 +16,9 @@ function ProductsPage() {
 
     const handleCategoryChange = event => {
         setSelectedCategory(event.target.value);
-        if (selectedCategory !== 'all') {
-            const filtered = filteredProducts.filter(prod => prod.category === selectedCategory);
-            setFilteredProducts(filtered);
-        } 
-        else {
-            setFilteredProducts(products);
-        }
       };
     const handleRegulationChange = event => {
         setSelectedRegulation(event.target.value);
-        if (selectedRegulation !== 'all') {
-            const filtered = filteredProducts.filter(prod => prod.regulation === selectedRegulation);
-            setFilteredProducts(filtered);
-        }
-        else {
-            setFilteredProducts(products);
-        }
     }
 
 
@@ -101,7 +87,7 @@ function ProductsPage() {
 
                 {
                     filteredProducts.map((product) => {
-
+                        
                                 return  <ProductComp 
                                     title = {product.name}
                                     category = {product.category}
