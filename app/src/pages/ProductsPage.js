@@ -4,8 +4,37 @@ import ProductComp from '../components/ProductComp';
 
 
 
-
 function ProductsPage() {
+
+
+    /**
+     * Handling the dropdown menus to sort products
+     */
+    const [selectedCategory, setSelectedCategory] = useState('All');
+    const [selectedRegulation, setSelectedRegulation] = useState('All');
+    const [filteredProducts, setFilteredProducts] = useState([]);
+
+    const handleCategoryChange = event => {
+        setSelectedCategory(event.target.value);
+        if (selectedCategory !== 'all') {
+            const filtered = products.filter(prod => prod.category === selectedCategory);
+            setFilteredProducts(filtered);
+        } 
+        else {
+            setFilteredProducts(products);
+        }
+      };
+    const handleRegulationChange = event => {
+        setSelectedRegulation(event.target.value);
+        if (selectedRegulation !== 'all') {
+            const filtered = products.filter(prod => prod.regulation === selectedRegulation);
+            setFilteredProducts(filtered);
+        }
+        else {
+            setFilteredProducts(products);
+        }
+    }
+
 
 
 
@@ -24,13 +53,8 @@ function ProductsPage() {
     }
     useEffect(() => {
         getProducts();
+        setFilteredProducts(products)
         }, []); 
-
-
-
-    console.log(products)
-
-
 
     
 
@@ -39,20 +63,32 @@ function ProductsPage() {
 
             {/* SORT BY section */}
             <div className='flex items-center justify-center gap-5 m-5'>
-                <select name="categories" id="categories" className='border-2 p-2 rounded-xl font-["Lato"]'> 
+                <select 
+                    name="categories" 
+                    id="categories" 
+                    className='border-2 p-2 rounded-xl font-["Lato"]'
+                    value={selectedCategory} 
+                    onChange={handleCategoryChange}
+                > 
                     <option value="all" selected="selected">All Categories</option> 
-                    <option value="donor">Allograft</option> 
-                    <option value="dbm">DBM (demineralized bone matrix)</option> 
-                    <option value="synthetics">Synthetics</option> 
-                    <option value="peptides">Peptides</option> 
-                    <option value="proteins">Proteins</option> 
+                    <option value="1">Allograft</option> 
+                    <option value="2">DBM (demineralized bone matrix)</option> 
+                    <option value="3">Synthetics</option> 
+                    <option value="4">Peptides</option> 
+                    <option value="5">Proteins</option> 
                 </select>
 
-                <select name="regulations" id="regulations" className='border-2 p-2 rounded-xl font-["Lato"]'> 
+                <select 
+                    name="regulations" 
+                    id="regulations" 
+                    className='border-2 p-2 rounded-xl font-["Lato"]'
+                    value={selectedRegulation}
+                    onChange={handleRegulationChange}
+                > 
                     <option value="all" selected="selected">All Regulatory Pathways</option> 
-                    <option value="aatb">AATB</option> 
-                    <option value="501(k)">510(k)</option> 
-                    <option value="drug/device">Drug/Device Combination</option> 
+                    <option value="1">AATB</option> 
+                    <option value="2">510(k)</option> 
+                    <option value="2">Drug/Device Combination</option> 
                 </select>
 
 
@@ -60,12 +96,13 @@ function ProductsPage() {
             </div>
 
 
-            {/* Product List */}
+            {/* Display Product List */}
             <div className='flex flex-wrap m-0 justify-center'> 
 
                 {
-                    products.map((product) => {
-                        return  <ProductComp 
+                    filteredProducts.map((product) => {
+
+                                return  <ProductComp 
                                     title = {product.name}
                                     category = {product.category}
                                     description = {product.description}
@@ -73,7 +110,8 @@ function ProductsPage() {
                                     image = {product.image}
                                     link = {product.purchase_link}
                                     price = {product.price}
-                                />
+                        />
+
                     })
                     
                 }
