@@ -17,7 +17,7 @@ function ProductsPage() {
     const handleCategoryChange = event => {
         setSelectedCategory(event.target.value);
         if (selectedCategory !== 'all') {
-            const filtered = products.filter(prod => prod.category === selectedCategory);
+            const filtered = filteredProducts.filter(prod => prod.category === selectedCategory);
             setFilteredProducts(filtered);
         } 
         else {
@@ -27,7 +27,7 @@ function ProductsPage() {
     const handleRegulationChange = event => {
         setSelectedRegulation(event.target.value);
         if (selectedRegulation !== 'all') {
-            const filtered = products.filter(prod => prod.regulation === selectedRegulation);
+            const filtered = filteredProducts.filter(prod => prod.regulation === selectedRegulation);
             setFilteredProducts(filtered);
         }
         else {
