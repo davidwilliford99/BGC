@@ -7,24 +7,7 @@ import ProductComp from '../components/ProductComp';
 function ProductsPage() {
 
 
-    /**
-     * Handling the dropdown menus to sort products
-     */
-    const [selectedCategory, setSelectedCategory] = useState('All');
-    const [selectedRegulation, setSelectedRegulation] = useState('All');
-    const [filteredProducts, setFilteredProducts] = useState([]);
-
-    const handleCategoryChange = event => {
-        setSelectedCategory(event.target.value);
-      };
-    const handleRegulationChange = event => {
-        setSelectedRegulation(event.target.value);
-    }
-
-
-
-
-    /**
+        /**
      * 
      * Fetching product list from api
      * Endpoint for all products : 
@@ -39,9 +22,37 @@ function ProductsPage() {
     }
     useEffect(() => {
         getProducts();
-        setFilteredProducts(products)
-        }, []); 
+    }, []); 
 
+
+
+    /**
+     * Handling the dropdown menus to sort products
+     */
+    const [category, setCategory] = useState('');
+    // const [regulation, setRegulation] = useState('');
+
+
+    const handleCategoryChange = (e) => {
+        setCategory(e.target.value);
+    };
+
+    // const handleRegulationChange = (e) => {
+    //     setRegulation(e.target.value);
+    // };
+
+    
+
+
+    useEffect(() => {
+        let filteredGrafts = products.filter(graft => graft.category === category );
+        setProducts(filteredGrafts);
+        console.log(filteredGrafts)
+        console.log(category)
+    }, [category]); 
+
+
+    console.log(products);
     
 
     return (
@@ -53,7 +64,7 @@ function ProductsPage() {
                     name="categories" 
                     id="categories" 
                     className='border-2 p-2 rounded-xl font-["Lato"]'
-                    value={selectedCategory} 
+                    value={category} 
                     onChange={handleCategoryChange}
                 > 
                     <option value="all" selected="selected">All Categories</option> 
@@ -64,18 +75,18 @@ function ProductsPage() {
                     <option value="5">Proteins</option> 
                 </select>
 
-                <select 
+                {/* <select 
                     name="regulations" 
                     id="regulations" 
                     className='border-2 p-2 rounded-xl font-["Lato"]'
-                    value={selectedRegulation}
+                    value={regulation}
                     onChange={handleRegulationChange}
                 > 
                     <option value="all" selected="selected">All Regulatory Pathways</option> 
                     <option value="1">AATB</option> 
                     <option value="2">510(k)</option> 
                     <option value="2">Drug/Device Combination</option> 
-                </select>
+                </select> */}
 
 
                 
@@ -86,16 +97,18 @@ function ProductsPage() {
             <div className='flex flex-wrap m-0 justify-center'> 
 
                 {
-                    filteredProducts.map((product) => {
+                    products.map((product) => {
+
+                        console.log("Product category: " + product.category)
                         
-                                return  <ProductComp 
-                                    title = {product.name}
-                                    category = {product.category}
-                                    description = {product.description}
-                                    regulation = {product.regulation}
-                                    image = {product.image}
-                                    link = {product.purchase_link}
-                                    price = {product.price}
+                        return  <ProductComp 
+                            title = {product.name}
+                            category = {product.category}
+                            description = {product.description}
+                            regulation = {product.regulation}
+                            image = {product.image}
+                            link = {product.purchase_link}
+                            price = {product.price}
                         />
 
                     })
