@@ -79,7 +79,7 @@ function NavScrollExample(props) {
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0 text-lg gap-4 font-['Lato']"
-            style={{ maxHeight: '100px' }}
+            // style={{ maxHeight: '100px' }}
             navbarScroll
           >
             <Nav.Link href="/home">Home</Nav.Link>
@@ -95,7 +95,7 @@ function NavScrollExample(props) {
             signedIn && (
               <>
               <a href='/myaccount'>
-                <div id='user-img' className='rounded-full mr-4 ml-8 p-1 overflow-hidden'>
+                <div id='user-img' className='rounded-full lg:mr-4 lg:ml-8 p-1 overflow-hidden'>
                   <img src={require("./../images/user-img.png")} className='h-8'/>
                 </div>
               </a>
@@ -109,7 +109,7 @@ function NavScrollExample(props) {
           {
             !signedIn && (
               <a href='/login'>
-                <Button className='bg-blue-600 px-4 font-semibold text-white ml-4 mr-8 rounded-2xl'>Login or Sign Up</Button>
+                <Button className='bg-blue-600 px-4 font-semibold text-white my-10 lg:my-0 lg:mr-4 lg:ml-8 rounded-2xl'>Login or Sign Up</Button>
               </a>
             )
           }

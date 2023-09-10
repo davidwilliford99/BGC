@@ -7,13 +7,15 @@ import ProductComp from '../components/ProductComp';
 function ProductsPage() {
 
 
-        /**
+    /**
      * 
      * Fetching product list from api
      * Endpoint for all products : 
      * 
      */
     const [products, setProducts] = useState([]);
+    const [sortedProducts, setSortedProducts] = useState([]);
+    const [category, setCategory] = useState('');
 
     const getProducts = () => {
         fetch('http://54.174.140.152:8000/grafts/', {})
@@ -27,32 +29,21 @@ function ProductsPage() {
 
 
     /**
-     * Handling the dropdown menus to sort products
+     * Handling the dropdown menu to sort products
+     * via category
      */
-    const [category, setCategory] = useState('');
-    // const [regulation, setRegulation] = useState('');
-
-
     const handleCategoryChange = (e) => {
         setCategory(e.target.value);
     };
 
-    // const handleRegulationChange = (e) => {
-    //     setRegulation(e.target.value);
-    // };
-
-    
-
-
     useEffect(() => {
-        let filteredGrafts = products.filter(graft => graft.category === category );
-        setProducts(filteredGrafts);
-        console.log(filteredGrafts)
-        console.log(category)
-    }, [category]); 
+        if (category === 'All') {
+          setSortedProducts(products);
+        } else {
+          setSortedProducts(products.filter((product) => product.category === category));
+        }
+      }, [products, category]);
 
-
-    console.log(products);
     
 
     return (
@@ -74,6 +65,8 @@ function ProductsPage() {
                     <option value="4">Peptides</option> 
                     <option value="5">Proteins</option> 
                 </select>
+
+
 
                 {/* <select 
                     name="regulations" 
@@ -97,9 +90,7 @@ function ProductsPage() {
             <div className='flex flex-wrap m-0 justify-center'> 
 
                 {
-                    products.map((product) => {
-
-                        console.log("Product category: " + product.category)
+                    sortedProducts.map((product) => {
                         
                         return  <ProductComp 
                             title = {product.name}
