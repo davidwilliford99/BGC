@@ -3,19 +3,19 @@ import React from 'react'
 
 function AboutPage(){
     return(
-        <div className='about-wrapper'>
+        <div className='about-wrapper md:mx-20 lg:mx-40'>
 
            
            
             <div id="header-section" className='container flex'>
 
                 <div className='container py-5 flex flex-col justify-center'>
-                    <h1 className='text-7xl font-["Lato"] font-normal leading-snug tracking-tight'>About BGC</h1>
+                    <h1 className='text-5xl font-["Lato"] font-normal leading-snug tracking-tight'>About BGC</h1>
                     <p className='mt-4 card-text py-2 font-["Montserrat"] tracking-tight'>BGC is an important company.</p>
                 </div>
 
                 <div id='image' className='flex flex-col justify-center'>
-                    <img src='images/undraw_doctors.png' className='h-60'/>
+                    <img src='images/undraw_doctors.png' className='max-h-60'/>
                 </div>
 
             </div>

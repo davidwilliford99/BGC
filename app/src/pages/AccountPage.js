@@ -67,7 +67,7 @@ export default function AccountPage(props) {
 
     return (
 
-        <div id='container' className='flex items-center justify-center gap-5 mt-20 font-["Lato"]'>
+        <div id='container' className='flex flex-col lg:flex-row items-center justify-center gap-5 mt-20 font-["Lato"]'>
 
 
 
@@ -112,7 +112,7 @@ export default function AccountPage(props) {
 
             <div className=''>
 
-                <div id='account-options-card' className='border-1 border-black rounded-2xl p-5'>
+                <div id='account-options-card' className='mb-20 lg:mb-0 border-1 border-black rounded-2xl p-5'>
 
                     <div className='flex items-center justify-center'>
                         <img src={require('./../images/account-settings.png')} className='h-40 mb-5'/>

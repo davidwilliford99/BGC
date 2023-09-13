@@ -68,18 +68,18 @@ export default function LoginPage(props) {
 
     return (
 
-        <div id='container' className='flex fitems-center justify-center'>
+        <div id='container' className='flex items-center justify-center'>
             
 
-            <div id='login card' className='flex xl:w-1/2 my-20 rounded-xl overflow-hidden border-2'>
+            <div id='login card' className='flex items-center justify-center flex-col-reverse lg:flex-row xl:w-1/2 my-20 rounded-xl overflow-hidden lg:border-2'>
 
 
-                <div id='left-side' className='w-1/2'>
+                <div id='left-side' className='w-full lg:w-1/2'>
                     <img src='images/login-img.jpg' alt="login" className=''/>
                 </div>
 
 
-                <form id='right-side login-form' className='w-1/2 flex flex-col items-center justify-center font-["Montserrat"]'>
+                <form id='right-side login-form' className='w-full mb-20 lg:mb-0 lg:w-1/2 flex flex-col items-center justify-center font-["Montserrat"]'>
 
                     <h1 className='text-center text-7xl font-["Lato"] font-semibold leading-snug mb-7'>Login</h1>
 

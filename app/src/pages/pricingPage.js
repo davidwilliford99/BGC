@@ -46,7 +46,7 @@ export default function PricingPage() {
       { clickedPurchase && !signedIn && <h1 className='text-red-500 text-xl font-bold text-center'>Please log in or create an account before purchasing</h1> }
 
 
-      <div class="flex justify-content-center p-20" id='price-options-container'>
+      <div class="flex flex-col md:flex-row justify-content-center p-20" id='price-options-container'>
 
 
         <div class="border-1 border-black">

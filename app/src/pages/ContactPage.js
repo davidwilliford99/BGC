@@ -34,7 +34,7 @@ function ContactForm() {
                 <h1 className='text-center text-5xl mt-20 font-["Lato"] font-semibold leading-snug tracking-tight'>Contact Us</h1>
             </div>
 
-            <div className='flex gap-5 items-center justify-center py-20'>
+            <div className='flex flex-col lg:flex-row gap-5 items-center justify-center py-20'>
 
 
                 {
