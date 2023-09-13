@@ -88,18 +88,17 @@ export default function CreateAccountPage(props) {
 
 
         <div id='create-account-container' className="flex items-center justify-center">
-            <div className='flex items-center justify-center font-["Lato"] rounded-xl my-20 border-2 xl:w-2/3 overflow-hidden'>
+            <div className='flex flex-col-reverse lg:flex-row items-center justify-center font-["Lato"] rounded-xl my-20 lg:border-2 xl:w-2/3 overflow-hidden'>
 
 
-
-            <div id='left-side' className='w-1/2'>
+            <div id='left-side' className='w-full lg:w-1/2'>
                 <img src='images/swv-createaccount.jpg' className=''/>
             </div>
 
 
-            <form id='create-account-form' className='p-5 w-1/2 flex flex-col items-center' onSubmit={submitUser}>
+            <form id='create-account-form' className='lg:p-5 w-1/2 flex flex-col items-center' onSubmit={submitUser}>
 
-                <h1 className='text-center text-4xl mb-5 font-bold'>Create an Account</h1>
+                <h1 className='text-center text-2xl lg:text-4xl mb-5 font-bold'>Create an Account</h1>
 
                 {/* If account creation is succesfull */}
                 { successfulCreation && 
@@ -186,11 +185,10 @@ export default function CreateAccountPage(props) {
                 </div>
 
                 <div className='flex flex-col items-center justify-center mt-5'>
-                    <p className='text-center font-bold'>To prevent spam and security risk, your account<br/>will need to be reviewed before you can post any products</p>
                     <a>
                         <button 
                             type="submit"
-                            className='bg-blue-600 mt-4 text-white text-xl font-semibold px-5 py-2 rounded-xl'
+                            className='bg-blue-600 mb-40 lg:mt-4 text-white text-xl font-semibold px-5 py-2 rounded-xl'
                             >
                                 Create Account
                         </button>

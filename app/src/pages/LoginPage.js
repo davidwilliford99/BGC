@@ -79,7 +79,7 @@ export default function LoginPage(props) {
                 </div>
 
 
-                <form id='right-side login-form' className='w-full mb-20 lg:mb-0 lg:w-1/2 flex flex-col items-center justify-center font-["Montserrat"]'>
+                <form id='right-side login-form' className='w-full mb-40 lg:mb-0 lg:w-1/2 flex flex-col items-center justify-center font-["Montserrat"]'>
 
                     <h1 className='text-center text-7xl font-["Lato"] font-semibold leading-snug mb-7'>Login</h1>
 
