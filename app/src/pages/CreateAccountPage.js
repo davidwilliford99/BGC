@@ -88,7 +88,7 @@ export default function CreateAccountPage(props) {
 
 
         <div id='create-account-container' className="flex items-center justify-center">
-            <div className='flex flex-col-reverse lg:flex-row items-center justify-center font-["Lato"] rounded-xl my-20 lg:border-2 xl:w-2/3 overflow-hidden'>
+            <div className='flex flex-col-reverse lg:flex-row items-center justify-center font-["Lato"] rounded-xl my-20 lg:border-2 xl:w-2/3 lg:overflow-hidden'>
 
 
             <div id='left-side' className='w-full lg:w-1/2'>

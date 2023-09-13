@@ -71,7 +71,7 @@ export default function LoginPage(props) {
         <div id='container' className='flex items-center justify-center'>
             
 
-            <div id='login card' className='flex items-center justify-center flex-col-reverse lg:flex-row xl:w-1/2 my-20 rounded-xl overflow-hidden lg:border-2'>
+            <div id='login card' className='flex items-center justify-center flex-col-reverse lg:flex-row xl:w-1/2 my-20 rounded-xl lg:overflow-hidden lg:border-2'>
 
 
                 <div id='left-side' className='w-full lg:w-1/2'>
