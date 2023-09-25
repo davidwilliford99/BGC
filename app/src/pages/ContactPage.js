@@ -18,9 +18,9 @@ function ContactForm() {
 
         },
         {
-            name: "Matthew Miranda",
+            name: "Matt Miranda",
             role: "Developer",
-            email: "MattMiranda55@gmail.com",
+            email: "mattmiranda55@gmail.com",
             img: "images/developer.png"
 
         },

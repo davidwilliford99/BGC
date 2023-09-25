@@ -48,7 +48,7 @@ export default function NewGraftPage(props) {
             /**
              * API Request to return username 
              */
-            const userUrl = "http://54.174.140.152:8000/users/info/";
+            const userUrl = "http://34.201.53.67:8000/users/info/";
             const jwtToken = localStorage.getItem("jwt");
             const userRequestData = {
                 jwt: jwtToken

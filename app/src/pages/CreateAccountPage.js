@@ -45,7 +45,7 @@ export default function CreateAccountPage(props) {
         }
         else {
 
-            const userRequest = await axios.post("http://54.174.140.152:8000/users/" , {
+            const userRequest = await axios.post("http://34.201.53.67:8000/users/" , {
                 username: username,
                 email: email,
                 password: password
