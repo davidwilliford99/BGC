@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import PurchaseForm from '../components/PurchaseForm';
+import Paypal from '../components/Paypal';
 
 
 export default function PricingPage() {
@@ -58,16 +59,9 @@ export default function PricingPage() {
               <li>2 GB of storage</li>
               <li>Customer support</li>
             </ul>
-            <button 
-              type="button" 
-              class="btn btn-lg btn-block btn-outline-primary rounded-xl border-2 font-semibold mb-5"
-              onClick={() => {
-                setClickedPurchase(true);
-                setPurchaseItem("single");
-                setPrice(5000);
-              }}
-              >Purchase Today
-            </button>
+            <Paypal 
+              price={"5000"}
+              purchaseItem={"single"} />
           </div>
         </div>
 
@@ -82,17 +76,9 @@ export default function PricingPage() {
               <li>More products, more savings!!</li>
               <li>Customer support</li>
             </ul>
-            <button 
-              type="button" 
-              class="btn btn-lg btn-block btn-outline-primary rounded-xl border-2 font-semibold mb-5"
-              onClick={() => {
-                setClickedPurchase(true);
-                setPurchaseItem("multiple");
-                setPrice(25000);
-              }}
-              >
-                Purchase Today
-              </button>
+            <Paypal 
+              price={"25000"}
+              purchaseItem={"multiple"} />
           </div>
         </div>
 
@@ -107,16 +93,9 @@ export default function PricingPage() {
               <li>Best long-term deal</li>
               <li>Direct owner support</li>
             </ul>
-            <button 
-              type="button" 
-              class="btn btn-lg btn-block btn-outline-primary rounded-xl border-2 font-semibold mb-5"
-              onClick={() => {
-                setClickedPurchase(true);
-                setPurchaseItem("unlimited");
-                setPrice(35000);
-              }}
-              >
-                Purchase Today</button>
+            <Paypal 
+              price={"35000"}
+              purchaseItem={"unlimited"} />
           </div>
         </div>
       </div>
