@@ -66,7 +66,7 @@ export default function CreateAccountPage(props) {
 
         
 
-            await axios.put(`http://54.174.140.152:8000/profiles/${userRequest.data.id}`, {
+            await axios.put(`http://34.201.53.67:8000/profiles/${userRequest.data.id}`, {
                 user_id: userRequest.data.id,
                 num_credits: 0,
                 business_name: BusinessName,

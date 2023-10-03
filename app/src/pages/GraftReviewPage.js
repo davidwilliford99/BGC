@@ -52,7 +52,7 @@ export default function GraftReviewPage(props) {
      * Fetching product 
      */
     const getProducts = () => {
-        fetch('http://54.174.140.152:8000/grafts/', {})
+        fetch('http://34.201.53.67:8000/grafts/', {})
         .then((response) => response.json())
         .then((data) => setProducts(data))
     }

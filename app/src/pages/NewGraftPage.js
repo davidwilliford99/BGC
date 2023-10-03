@@ -70,7 +70,7 @@ export default function NewGraftPage(props) {
                         /**
                          * API Request to store graft 
                          */
-                        const graftUrl = "http://54.174.140.152:8000/grafts/";
+                        const graftUrl = "http://34.201.53.67:8000/grafts/";
                         const graftRequestData = {
                             name: name,
                             description: description,
@@ -102,7 +102,7 @@ export default function NewGraftPage(props) {
                                 imageFormData.append('graft_id', data.id);
                                 imageFormData.append('image', image);
 
-                                const imageResponse = await fetch('http://54.174.140.152:8000/grafts/imageupload', {
+                                const imageResponse = await fetch('http://34.201.53.67:8000/grafts/imageupload', {
                                     method: 'POST',
                                     body: imageFormData,
                                   });
@@ -120,7 +120,7 @@ export default function NewGraftPage(props) {
                                     documentFormData.append('document', documents[i]);
                                 }
 
-                                const documentResponse = await fetch('http://54.174.140.152:8000/grafts/documentupload', {
+                                const documentResponse = await fetch('http://34.201.53.67:8000/grafts/documentupload', {
                                     method: 'POST',
                                     body: documentFormData,
                                   });
@@ -137,7 +137,7 @@ export default function NewGraftPage(props) {
                         /**
                          * Fifth API call to decrease user's credits by 1
                          */
-                        const decreaseUrl = "http://54.174.140.152:8000/users/postgraft/";
+                        const decreaseUrl = "http://34.201.53.67:8000/users/postgraft/";
                         const decreaseRequestData = {
                             jwt: jwtToken
                         };

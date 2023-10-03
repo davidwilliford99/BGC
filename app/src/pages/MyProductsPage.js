@@ -42,7 +42,7 @@ export default function MyProductsPage(props) {
                     .then(async (data) => {
 
 
-                        const url = "http://54.174.140.152:8000/grafts/search/user";
+                        const url = "http://34.201.53.67:8000/grafts/search/user";
                         const graftRequestData = {
                             username: data[0].username
                         };
