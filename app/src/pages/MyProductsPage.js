@@ -67,7 +67,7 @@ export default function MyProductsPage(props) {
         )();
     }, [products])
 
-    console.log(products[0]);
+    // console.log(products[0]);
 
 
 
@@ -78,8 +78,8 @@ export default function MyProductsPage(props) {
 
     return (
         <div>
-            <h1 className='font-[Montserrat] text-5xl font-regular text-center my-10'>Your Products</h1>
-
+            <h1 className='font-[Montserrat] text-3xl md:text-5xl font-regular text-center mt-10'>Your Products</h1>
+            <p className='font-[Montserrat] text-sm font-regular text-center mx-3 my-4 text-neutral-400'>When you delete a product, you will regain the credit you used to post the product.</p>
             {
                 products.map((product) => {
                     return  <MyProductComp

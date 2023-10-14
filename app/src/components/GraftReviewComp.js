@@ -36,7 +36,7 @@ export default function GraftReviewComp(props) {
    */
   const deleteGraft = async () => {
     
-    const url = `http://54.174.140.152:8000/grafts/${id}`;
+    const url = `http://34.201.53.67:8000/grafts/${id}`;
     const jwtToken = localStorage.getItem("jwt");
     const payload = {
       jwt: jwtToken 
@@ -64,7 +64,7 @@ export default function GraftReviewComp(props) {
    */
   const approveGraft = async () => {
     
-    const url = `http://54.174.140.152:8000/grafts/validate`;
+    const url = `http://34.201.53.67:8000/grafts/validate`;
     const jwtToken = localStorage.getItem("jwt");
     const payload = {
       jwt: jwtToken,
@@ -97,7 +97,7 @@ export default function GraftReviewComp(props) {
   const [category, setCategory] = useState("");
 
     const getCategory = () => {
-        fetch(`http://54.174.140.152:8000/grafts/` + categoryId + "/cat", {})
+        fetch(`http://34.201.53.67:8000/grafts/` + categoryId + "/cat", {})
         .then((response) => response.json())
         .then((data) => setCategory(data))
     }
@@ -116,7 +116,7 @@ export default function GraftReviewComp(props) {
     const [regulation, setRegulation] = useState("");
 
     const getRegulation = () => {
-        fetch(`http://54.174.140.152:8000/grafts/` + regulationId + "/reg", {})
+        fetch(`http://34.201.53.67:8000/grafts/` + regulationId + "/reg", {})
         .then((response) => response.json())
         .then((data) => setRegulation(data))
     }
@@ -130,9 +130,9 @@ export default function GraftReviewComp(props) {
 
   return (
 
-    <div className="mx-20 my-3 rounded-xl overflow-hidden border-1 border-black">
+    <div className="mx-2 md:mx-20 my-10 md:my-3 rounded-xl overflow-hidden border-1 border-black">
 
-      <div id="product-details" className="flex justify-between items-center">
+      <div id="product-details" className="flex flex-col md-flex-row justify-between items-center">
           <img 
             src={image} 
             alt="product"
@@ -170,9 +170,9 @@ export default function GraftReviewComp(props) {
           </div>
 
 
-          <div className="flex flex-col items-center justify-center w-72">
-            <button onClick={approveGraft} className="px-3 py-1 bg-green-600 mr-10 text-white font-semibold rounded-xl transition mt-2">Approve</button>
-            <button onClick={deleteGraft} className="px-3 py-1 bg-red-500 mr-10 text-white font-semibold rounded-xl transition mt-2">Decline</button>
+          <div className="flex flex-col items-center justify-center w-72 mb-5">
+            <button onClick={approveGraft} className="px-3 py-1 bg-green-600 md:mr-10 text-white font-semibold rounded-xl transition mt-2">Approve</button>
+            <button onClick={deleteGraft} className="px-3 py-1 bg-red-500 md:mr-10 text-white font-semibold rounded-xl transition mt-2">Decline</button>
           
           </div>
           

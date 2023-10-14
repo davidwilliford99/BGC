@@ -2,6 +2,9 @@ import React from 'react'
 
 
 function AboutPage(){
+
+    const aboutText = "BGC (Bone Graft Consortium) is a non-profit repository for bone grafts. We are here to provide our customers with a non-biased repository for bone grafts, where any licensed vendors can post their products.";
+
     return(
         <div className='about-wrapper md:mx-20 lg:mx-40'>
 
@@ -10,8 +13,8 @@ function AboutPage(){
             <div id="header-section" className='container flex'>
 
                 <div className='container py-5 flex flex-col justify-center'>
-                    <h1 className='text-5xl font-["Lato"] font-normal leading-snug tracking-tight'>About BGC</h1>
-                    <p className='mt-4 card-text py-2 font-["Montserrat"] tracking-tight'>BGC is an important company.</p>
+                    <h1 className='text-3xl md:text-5xl font-["Lato"] font-normal leading-snug tracking-tight'>About BGC</h1>
+                    <p className='mt-4 card-text py-2 font-["Montserrat"] tracking-tight'>{aboutText}</p>
                 </div>
 
                 <div id='image' className='flex flex-col justify-center'>
@@ -27,13 +30,13 @@ function AboutPage(){
 
 
                 <div class="container p-5 mt-5 bg-light">
-                    <h2 className='text-4xl font-["Lato"] mb-5 tracking-tight'>Our Story</h2>
-                    <p className='py-2 font-["Montserrat"] tracking-tight'>Something about the story of BGC. Have a picture here as well.</p> 
+                    <h2 className='text-3xl md:text-4xl font-["Lato"] mb-5 tracking-tight'>Our Story</h2>
+                    <p className='py-2 font-["Montserrat"] tracking-tight'>BGC's owner and founder Michael Weddington is also the founder of Quantum Biologics. During his time in the medical field, he noticed a strong bias and financial monopoly within the bone grafting industry. He consulted colleagues and other individuals in the medical field, and came to the conclusion that hosting a non-profit repository for bone grafting could potentially help millions of patients and surgeons alike. </p> 
                 </div>
                 
 
                 <div class="container p-5 border">
-                    <h2 className='text-4xl font-["Lato"] mb-5 tracking-tight'>Our Vision</h2>
+                    <h2 className='text-3xl md:text-4xl font-["Lato"] mb-5 tracking-tight'>Our Vision</h2>
                     <p className='py-2 font-["Montserrat"] tracking-tight'> At The Bone Graft Consortium , we 
                         lift the veil of mismanaged, 
                         misrepresented, and misunderstood 
@@ -50,7 +53,7 @@ function AboutPage(){
                     
 
                 <div class="container p-5 bg-light">
-                    <h2 className='text-4xl font-["Lato"] mb-5'>Marketing Statements</h2>
+                    <h2 className='text-3xl md:text-4xl font-["Lato"] mb-5'>Marketing Statements</h2>
                     <p className='py-2 font-["Montserrat"] tracking-tight tracking-tight'>Not all bone graft is created equally, nor should it have to be. 
                         At the Bone Graft Consortium(BGC) we help to take the guess work(and marketing 
                         confusion) out of the crowded bone grafting space.</p>
@@ -58,7 +61,7 @@ function AboutPage(){
 
 
                 <div class = "container p-5 border">      
-                    <h2 className='text-4xl font-["Lato"] mb-5 tracking-tight'>Hospital Facing Statement</h2>
+                    <h2 className='text-3xl md:text-4xl font-["Lato"] mb-5 tracking-tight'>Hospital Facing Statement</h2>
                     <p className='py-2 font-["Montserrat"] tracking-tight'>The fact based information provided by the BGC allows your hospital or ASC to make 
                         an informed decision, in a reasonable amount of time, as to the most relevant bone 
                         grafts for your institution’s requirements. This not only helps the hospital, provider, 

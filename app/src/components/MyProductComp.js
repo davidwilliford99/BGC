@@ -22,7 +22,7 @@ export default function MyProductComp(props) {
   const id = props.id
 
 
-  console.log(image)
+  // console.log(image)
 
 
   /**
@@ -97,9 +97,9 @@ export default function MyProductComp(props) {
 
   return (
 
-    <div className="mx-20 my-3 rounded-xl overflow-hidden border-1 border-black">
+    <div className="m-3 md:mx-20 my-5 md:my-3 rounded-xl overflow-hidden border-1 border-black">
 
-      <div id="product-details" className="flex justify-between items-center">
+      <div id="product-details" className="flex flex-col md:flex-row justify-between items-center">
           <img 
             src={image} 
             alt="product"
@@ -115,8 +115,8 @@ export default function MyProductComp(props) {
           </div>
 
 
-          <div className="flex flex-col items-center justify-center w-72">
-            <button onClick={deleteGraft} className="px-3 py-1 bg-red-500 mr-10 text-white font-semibold rounded-xl transition mt-2">Delete</button>
+          <div className="flex flex-col items-center justify-center w-72 mb-5">
+            <button onClick={deleteGraft} className="px-3 py-1 bg-red-500 md:mr-10 text-white font-semibold rounded-xl transition mt-2">Delete</button>
           </div>
           
       </div>

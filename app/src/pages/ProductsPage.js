@@ -15,7 +15,7 @@ function ProductsPage() {
      */
     const [products, setProducts] = useState([]);
     const [sortedProducts, setSortedProducts] = useState([]);
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState('all');
 
     const getProducts = () => {
         fetch('http://34.201.53.67:8000/grafts/', {})
