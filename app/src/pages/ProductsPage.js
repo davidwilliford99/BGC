@@ -37,10 +37,11 @@ function ProductsPage() {
     };
 
     useEffect(() => {
-        if (category === 'All') {
+        console.log(category);
+        if (category === 'all') {
           setSortedProducts(products);
         } else {
-          setSortedProducts(products.filter((product) => product.category === category));
+          setSortedProducts(products.filter((product) => product.category == category));
         }
       }, [products, category]);
 
@@ -87,7 +88,7 @@ function ProductsPage() {
 
 
             {/* Display Product List */}
-            <div className='flex flex-wrap m-0 justify-center'> 
+            <div className='flex flex-col md:flex-row flex-wrap m-0 justify-center'> 
 
                 {
                     sortedProducts.map((product) => {

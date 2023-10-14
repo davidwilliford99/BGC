@@ -64,7 +64,7 @@ function ProductComp(props) {
 
   return (
 
-    <div className="mx-2 my-3 p-4 w-1/3 rounded-sm">
+    <div className="mx-2 my-3 p-4 md:w-1/4 w-full rounded-sm">
 
       <a href="">
 
