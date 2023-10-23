@@ -31,7 +31,7 @@ function ProductComp(props) {
   const [category, setCategory] = useState("");
 
     const getCategory = () => {
-        fetch(`http://44.204.149.217:8000/grafts/` + categoryId + "/cat", {})
+        fetch(`http://34.201.53.67:8000/grafts/` + categoryId + "/cat", {})
         .then((response) => response.json())
         .then((data) => setCategory(data))
     }
@@ -50,7 +50,7 @@ function ProductComp(props) {
     const [regulation, setRegulation] = useState("");
 
     const getRegulation = () => {
-        fetch(`http://44.204.149.217:8000/grafts/` + regulationId + "/reg", {})
+        fetch(`http://34.201.53.67:8000/grafts/` + regulationId + "/reg", {})
         .then((response) => response.json())
         .then((data) => setRegulation(data))
     }
