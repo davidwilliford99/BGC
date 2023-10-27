@@ -1,4 +1,5 @@
-import {React, useState} from 'react';
+import {React, useState, useEffect} from 'react';
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -6,24 +7,105 @@ export default function ChangePasswordPage(props) {
 
 
     const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
     const [newPassword, setNewPassword] = useState("");
-    const [incorrect, setIncorrect] = useState(false);
+    const [response, setResponse] = useState("");
     const [correct, setCorrect] = useState(false);
+
+    const navigate = useNavigate();
     
+
+    // getting user info
+    useEffect(() => {
+        (
+            async () => {
+                const apiUrl = "http://34.201.53.67:8000/users/info/";
+
+                // Retrieve the JWT token from localStorage
+                const jwtToken = localStorage.getItem("jwt");
+
+                // Data to be sent in the request body
+                const requestData = {
+                    jwt: jwtToken
+                };
+
+                const requestOptions = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                        body: JSON.stringify(requestData),
+                };
+
+                await fetch(apiUrl, requestOptions)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        setPassword(data[0].password);
+                        setEmail(data[0].email);
+                    })
+                    .catch((error) => console.error("Error:", error));
+            }
+        )();
+    }, [])
+
+
+
 
 
     /**
      * This is the method for sending API request to password changing endpoint 
      * 
      * 1. Make API call
-     * 2. If response is not correct, chang incorrect to true
+     * 2. If response is not correct, change incorrect to true
      * 3. If correct, set to correct 
      * 4. Redirect to account page after 2 seconds
      * 
      */
-    const changePassword = () => {
+    const changePassword = async () => {
+
+        const apiUrl = "http://34.201.53.67:8000/users/changepassword/";
+
+        // Retrieve the JWT token from localStorage
+        const jwtToken = localStorage.getItem("jwt");
+
+        // Data to be sent in the request body
+        const requestData = {
+            jwt: jwtToken,
+            email: email,
+            password: password,
+            new_password: newPassword
+        };
+
+        const requestOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+                body: JSON.stringify(requestData),
+        };
+
+        await fetch(apiUrl, requestOptions)
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                setResponse(data.message);
+            })
+            .catch((error) => console.error("Error:", error));
 
         
+         /**
+         * Sets "incorrect" and "correct"
+         * 
+         * Checks the response message when api requests are returned
+         * Re-routes to account page
+         */
+        if(response === "" || response === "Password changed successfully") {
+            setCorrect(true);
+            setTimeout(() => navigate("/myaccount"), 2000);
+        }
+        else {
+            setCorrect(false);
+        }
     }
 
     
@@ -34,11 +116,11 @@ export default function ChangePasswordPage(props) {
             <h1 className='text-center text-4xl mb-5 font-bold'>Change Password</h1>
 
 
-            { incorrect && 
+            { !correct && 
                 <h1
-                    className='p-3 mb-4 rounded-xl bg-red-500 font-semibold'
+                    className='p-3 mb-4 rounded-xl text-red-500 font-semibold'
                     >
-                        Incorrect Password
+                        {response}
                 </h1>
             }
 
