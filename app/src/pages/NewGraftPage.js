@@ -99,8 +99,14 @@ export default function NewGraftPage(props) {
                                  * Uses fromdata instead of JSON so may look different than the others 
                                  */
                                 const imageFormData = new FormData();
+
                                 imageFormData.append('graft_id', data.id);
                                 imageFormData.append('image', image);
+
+                                // logging the graft id and image url for testing
+                                console.log(data.id);
+                                console.log(data);
+                                console.log(image);
 
                                 const imageResponse = await fetch('http://34.201.53.67:8000/grafts/imageupload', {
                                     method: 'POST',
@@ -115,6 +121,9 @@ export default function NewGraftPage(props) {
                                  */
                                 const documentFormData = new FormData();
                                 documentFormData.append('graft_id', data.id)
+
+                                // logging documents fro debugging 
+                                console.log(documents);
 
                                 for(let i = 0; i < documents.length; i++) {
                                     documentFormData.append('document', documents[i]);
@@ -156,7 +165,7 @@ export default function NewGraftPage(props) {
 
                         // navigate after a few seconds to show upload success 
                         setPostedSuccesfully(true);
-                        setTimeout(() => navigate("/myaccount"), 2000);
+                        // setTimeout(() => navigate("/myaccount"), 2000);
                     }
                     else {
                         setHasEnoughCredits(false);
@@ -273,12 +282,13 @@ export default function NewGraftPage(props) {
                         value = {category}
                         onChange = {(e) => setCategory(e.target.value)}
                         >
+                            {/* The values are IDs of the categories from the db (auto generated) */}
                             <option value="placeholder">Select Category</option>
-                            <option value="1">Allograft</option>
-                            <option value="2">DBM</option>
-                            <option value="3">Synthetics</option>
-                            <option value="4">Peptides</option>
-                            <option value="5">Proteins</option>
+                            <option value="915858180849696769">Allograft</option>
+                            <option value="915858209190838273">DBM</option>
+                            <option value="915858246617530369">Synthetics</option>
+                            <option value="915858301744152577">Peptides</option>
+                            <option value="915858330792951809">Proteins</option>
                         </select>
                 </div>
 
@@ -290,10 +300,11 @@ export default function NewGraftPage(props) {
                         value = {regulation}
                         onChange = {(e) => setRegulation(e.target.value)}
                         >
+                            {/* The values are IDs of the regulation pathways from the db (auto generated) */}
                             <option value="placeholder">Select Regulation Pathway</option>
-                            <option value="1">AATB</option>
-                            <option value="2">501(k)</option>
-                            <option value="3">Drug/Device Combination</option>
+                            <option value="915858365070901249">AATB</option>
+                            <option value="915858416631250945">501(k)</option>
+                            <option value="915858457363611649">Drug/Device Combination</option>
 
                         </select>
                 </div>

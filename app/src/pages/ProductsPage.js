@@ -60,11 +60,11 @@ function ProductsPage() {
                     onChange={handleCategoryChange}
                 > 
                     <option value="all" selected="selected">All Categories</option> 
-                    <option value="1">Allograft</option> 
-                    <option value="2">DBM (demineralized bone matrix)</option> 
-                    <option value="3">Synthetics</option> 
-                    <option value="4">Peptides</option> 
-                    <option value="5">Proteins</option> 
+                    <option value="915858180849696769">Allograft</option>
+                    <option value="915858209190838273">DBM</option>
+                    <option value="915858246617530369">Synthetics</option>
+                    <option value="915858301744152577">Peptides</option>
+                    <option value="915858330792951809">Proteins</option>
                 </select>
 
 
@@ -92,6 +92,8 @@ function ProductsPage() {
 
                 {
                     sortedProducts.map((product) => {
+
+                        console.log(product.regulation)
                         
                         return  <ProductComp 
                             title = {product.name}
