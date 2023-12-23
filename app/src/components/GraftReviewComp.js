@@ -21,7 +21,7 @@ export default function GraftReviewComp(props) {
   const link = props.link;
   const price = props.price;
   const id = props.id
-  const documents = props.documents;
+  let documents = props.documents;
 
   console.log(image)
 

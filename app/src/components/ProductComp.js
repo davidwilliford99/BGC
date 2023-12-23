@@ -20,8 +20,8 @@ function ProductComp(props) {
   const link = props.link;
   const price = props.price;
 
-
-  
+  // logging for error handling
+  console.log(image);  
 
   /**
    * 
@@ -29,6 +29,7 @@ function ProductComp(props) {
    * 
    */
   const [category, setCategory] = useState("");
+  const [imageString, setImageString] = useState("");
 
     const getCategory = () => {
         fetch(`http://34.201.53.67:8000/grafts/` + categoryId + "/cat", {})
@@ -57,8 +58,6 @@ function ProductComp(props) {
     useEffect(() => {
         getRegulation();
         }, []); 
-
-
 
 
 

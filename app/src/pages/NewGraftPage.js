@@ -100,13 +100,11 @@ export default function NewGraftPage(props) {
                                  */
                                 const imageFormData = new FormData();
 
-                                imageFormData.append('graft_id', data.id);
+                                imageFormData.append('graft_name', data.name);
                                 imageFormData.append('image', image);
 
                                 // logging the graft id and image url for testing
-                                console.log(data.id);
-                                console.log(data);
-                                console.log(image);
+                                console.log(data.name);
 
                                 const imageResponse = await fetch('http://34.201.53.67:8000/grafts/imageupload', {
                                     method: 'POST',
@@ -120,7 +118,7 @@ export default function NewGraftPage(props) {
                                  * Documents are stored in an array, and you cannot send an array of files 
                                  */
                                 const documentFormData = new FormData();
-                                documentFormData.append('graft_id', data.id)
+                                documentFormData.append('graft_name', data.name)
 
                                 // logging documents fro debugging 
                                 console.log(documents);

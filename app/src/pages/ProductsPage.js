@@ -41,7 +41,7 @@ function ProductsPage() {
         if (category === 'all') {
           setSortedProducts(products);
         } else {
-          setSortedProducts(products.filter((product) => product.category == category));
+          setSortedProducts(products.filter((product) => product.category === category));
         }
       }, [products, category]);
 
@@ -59,7 +59,7 @@ function ProductsPage() {
                     value={category} 
                     onChange={handleCategoryChange}
                 > 
-                    <option value="all" selected="selected">All Categories</option> 
+                    <option value="all"  selected="selected">All Categories</option> 
                     <option value="915858180849696769">Allograft</option>
                     <option value="915858209190838273">DBM</option>
                     <option value="915858246617530369">Synthetics</option>
