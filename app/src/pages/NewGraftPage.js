@@ -18,6 +18,7 @@ export default function NewGraftPage(props) {
     const [postedSuccesfully, setPostedSuccesfully] = useState(false);
     const [notLoggedIn, setNotLoggedIn] = useState(false);
     const [hasEnoughCredits, setHasEnoughCredits] = useState(true);
+    const [duplicateName, setDuplicateName] = useState(false);
 
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
@@ -44,6 +45,11 @@ export default function NewGraftPage(props) {
         setIsLoading(true);
 
         if(isLoggedIn) {
+
+
+            // Temporary variable for duplicate names
+            let duplicateNameTemp = false;
+
 
             /**
              * API Request to return username 
@@ -93,6 +99,20 @@ export default function NewGraftPage(props) {
                             .then(async (data) => {
 
 
+
+                                /**
+                                 * Checking if graft name is duplicate 
+                                 * 
+                                 * This isn't the most specific at the moment, but due to the limitations of the form,
+                                 * It shouldnt let users send invalid form data unless there is a duplicate name
+                                 */
+                                if (data.message === "Invalid payload") {
+                                    setDuplicateName(true);
+                                    duplicateNameTemp = true;
+                                }
+
+
+
                                 /**
                                  * Third API call to store product image
                                  * 
@@ -111,6 +131,8 @@ export default function NewGraftPage(props) {
                                     body: imageFormData,
                                   });
                                 
+
+
                                 
                                 /**
                                  * Fourth API request to store product documents
@@ -131,6 +153,7 @@ export default function NewGraftPage(props) {
                                     method: 'POST',
                                     body: documentFormData,
                                   });
+
 
 
 
@@ -161,9 +184,15 @@ export default function NewGraftPage(props) {
                             .catch((error) => console.error("Error:", error));
 
 
-                        // navigate after a few seconds to show upload success 
-                        setPostedSuccesfully(true);
-                        // setTimeout(() => navigate("/myaccount"), 2000);
+                        /**
+                         * Succesfult graft submission !!!
+                         * Will automatically navigate after as well
+                         */
+                        if(!duplicateNameTemp) {
+                            setPostedSuccesfully(true);
+                            setTimeout(() => navigate("/myaccount"), 2000);
+                        }
+
                     }
                     else {
                         setHasEnoughCredits(false);
@@ -237,15 +266,14 @@ export default function NewGraftPage(props) {
                     </h1>
                 }
 
+                { duplicateName && 
+                    <h1
+                        className='p-3 mb-4 rounded-xl bg-red-300 font-semibold'
+                        >
+                            There is already a graft with this name !
+                    </h1>
+                }
 
-
-
-                {/* Conditionally Rendering Error Messages */}
-                <div id="error messages">
-                    {/* {emailTaken ? <p className="text-red-500 text-center mb-2">The email you entered is already in use</p> : null}
-                    {usernameTaken ? <p className="text-red-500 text-center mb-2">The username you entered is not available</p> : null}
-                    {!passwordMatch ? <p className="text-red-500 text-center mb-2">Passwords do not match!</p> : null} */}
-                </div>
 
 
                 <div className='flex justify-center mb-3 w-full'>

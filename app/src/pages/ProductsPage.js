@@ -41,7 +41,8 @@ function ProductsPage() {
         if (category === 'all') {
           setSortedProducts(products);
         } else {
-          setSortedProducts(products.filter((product) => product.category === category));
+          // using == vs === because of data type conflicts with backend 
+          setSortedProducts(products.filter((product) => product.category == category));
         }
       }, [products, category]);
 
