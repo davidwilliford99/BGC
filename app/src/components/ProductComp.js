@@ -17,11 +17,12 @@ function ProductComp(props) {
   const description = props.description;
   const regulationId = props.regulation;
   const image = props.image;
-  const link = props.link;
+  const link = "//" + props.link;
   const price = props.price;
 
   // logging for error handling
   console.log(image);  
+  console.log(link);
 
   /**
    * 
