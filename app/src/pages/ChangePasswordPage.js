@@ -65,6 +65,9 @@ export default function ChangePasswordPage(props) {
 
         const apiUrl = "http://34.201.53.67:8000/users/changepassword/";
 
+        // temp variable to update response in real time since useState won't
+        let tempResponse = null; 
+
         // Retrieve the JWT token from localStorage
         const jwtToken = localStorage.getItem("jwt");
 
@@ -89,6 +92,7 @@ export default function ChangePasswordPage(props) {
             .then((data) => {
                 console.log(data);
                 setResponse(data.message);
+                tempResponse = data.message
             })
             .catch((error) => console.error("Error:", error));
 
@@ -99,7 +103,7 @@ export default function ChangePasswordPage(props) {
          * Checks the response message when api requests are returned
          * Re-routes to account page
          */
-        if(response === "" || response === "Password changed successfully") {
+        if(tempResponse === "Password changed successfully") {
             setCorrect(true);
             setTimeout(() => navigate("/myaccount"), 2000);
         }
