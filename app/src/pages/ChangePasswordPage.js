@@ -9,8 +9,11 @@ export default function ChangePasswordPage(props) {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const [newPassword, setNewPassword] = useState("");
-    const [response, setResponse] = useState("");
+    const [response, setResponse] = useState(null);
     const [correct, setCorrect] = useState(false);
+    const [confirmNewPassword, setConfirmNewPassword] = useState("");
+    const [passwordMatch, setPasswordMatch] = useState(true);
+
 
     const navigate = useNavigate();
     
@@ -40,13 +43,22 @@ export default function ChangePasswordPage(props) {
                 await fetch(apiUrl, requestOptions)
                     .then((response) => response.json())
                     .then((data) => {
-                        setPassword(data[0].password);
+                        // setPassword(data[0].password);
                         setEmail(data[0].email);
                     })
                     .catch((error) => console.error("Error:", error));
             }
         )();
     }, [])
+
+
+    
+
+    // useEffect to check if passwords match
+    useEffect(() => {
+        setPasswordMatch(newPassword === confirmNewPassword)
+    }, [newPassword, confirmNewPassword]); 
+
 
 
 
@@ -63,53 +75,66 @@ export default function ChangePasswordPage(props) {
      */
     const changePassword = async () => {
 
-        const apiUrl = "http://34.201.53.67:8000/users/changepassword/";
-
-        // temp variable to update response in real time since useState won't
-        let tempResponse = null; 
-
-        // Retrieve the JWT token from localStorage
-        const jwtToken = localStorage.getItem("jwt");
-
-        // Data to be sent in the request body
-        const requestData = {
-            jwt: jwtToken,
-            email: email,
-            password: password,
-            new_password: newPassword
-        };
-
-        const requestOptions = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-                body: JSON.stringify(requestData),
-        };
-
-        await fetch(apiUrl, requestOptions)
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                setResponse(data.message);
-                tempResponse = data.message
-            })
-            .catch((error) => console.error("Error:", error));
-
-        
-         /**
-         * Sets "incorrect" and "correct"
-         * 
-         * Checks the response message when api requests are returned
-         * Re-routes to account page
-         */
-        if(tempResponse === "Password changed successfully") {
-            setCorrect(true);
-            setTimeout(() => navigate("/myaccount"), 2000);
+        if (newPassword != confirmNewPassword) 
+        {
+            // dont send request 
+            return;
         }
-        else {
-            setCorrect(false);
+
+
+        else 
+        {
+
+            const apiUrl = "http://34.201.53.67:8000/users/changepassword/";
+
+            // temp variable to update response in real time since useState won't
+            let tempResponse = null; 
+    
+            // Retrieve the JWT token from localStorage
+            const jwtToken = localStorage.getItem("jwt");
+    
+            // Data to be sent in the request body
+            const requestData = {
+                jwt: jwtToken,
+                email: email,
+                password: password,
+                new_password: newPassword
+            };
+    
+            const requestOptions = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                    body: JSON.stringify(requestData),
+            };
+    
+            await fetch(apiUrl, requestOptions)
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    setResponse(data.message);
+                    tempResponse = data.message
+                })
+                .catch((error) => console.error("Error:", error));
+    
+            
+             /**
+             * Sets "incorrect" and "correct"
+             * 
+             * Checks the response message when api requests are returned
+             * Re-routes to account page
+             */
+            if(tempResponse === "Password changed successfully") {
+                setCorrect(true);
+                setTimeout(() => navigate("/myaccount"), 2000);
+            }
+            else {
+                setCorrect(false);
+            }
+
         }
+
     }
 
     
@@ -134,6 +159,14 @@ export default function ChangePasswordPage(props) {
                     className='p-3 mb-4 rounded-xl bg-green-300 font-semibold'
                     >
                         Password Succesfully Changed! You will now be redirected to your account page
+                </h1>
+            }
+
+            { !passwordMatch && 
+                <h1
+                    className='p-3 mb-4 rounded-xl text-red-500 font-semibold'
+                    >
+                        Passwords do not match!!
                 </h1>
             }
             
@@ -161,6 +194,19 @@ export default function ChangePasswordPage(props) {
                     className='border-1 border-black rounded-md p-1 w-80'
                     value = {newPassword}
                     onChange = {(e) => setNewPassword(e.target.value)}
+                ></input>
+            </div>
+
+
+            <div className='flex  mb-7'>
+                <input 
+                    type="password" 
+                    name="password" 
+                    required 
+                    placeholder='Confirm New Password' 
+                    className='border-1 border-black rounded-md p-1 w-80'
+                    value = {confirmNewPassword}
+                    onChange = {(e) => setConfirmNewPassword(e.target.value)}
                 ></input>
             </div>
 
