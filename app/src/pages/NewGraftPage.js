@@ -379,6 +379,7 @@ export default function NewGraftPage(props) {
                     {/* Notice the difference in the function when adding multiple files to an array */}
                     <div className='flex flex-col items-center mt-5 w-full bg-blue-100 rounded-lg p-2'>
                         <p className='font-semibold'>Documents (can add multiple files):</p>
+                        
                         <input 
                             type="file" 
                             multiple 
@@ -389,6 +390,10 @@ export default function NewGraftPage(props) {
                                 const fileList = e.target.files;
                                 setDocuments(Array.from(fileList));
                             }} />
+                        
+                        <p className='font-semibold'>PLEASE INCLUDE ...</p>
+                        <p className='font-normal'>Approvals</p>
+                        <p className='font-normal pb-2'>Studies</p>
                     </div>
 
                 </div>
