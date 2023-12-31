@@ -7,19 +7,19 @@ import { useState } from 'react';
 import AppRouter from './AppRouter';
 import NavbarComp from './components/NavbarComp'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 
 
 function App() {
 
-  const [signedIn, setSignedIn] = useState(false);
-
   return (
-    <div className='App'>
-      <NavbarComp/>
-      <AppRouter/>
-    </div>
-
+    <PayPalScriptProvider options={{ 'client-id': 'AcbkjzEDKj9D_Vq9vfSZQL1c2JPxfRqyDAp4vZPf9rShfPas7AuNRPNnL32jq0_981ssAHEMmVrnxMiY' }}>
+      <div className='App'>
+        <NavbarComp/>
+        <AppRouter/>
+      </div>
+    </PayPalScriptProvider>
   );
 }
 
