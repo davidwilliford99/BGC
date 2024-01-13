@@ -1,8 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import PurchaseForm from '../components/PurchaseForm';
-import Paypal from '../components/Paypal';
 import PaypalComp from '../components/PaypalComp';
+import PayPalButton from '../components/PayPalButton';
 
 
 export default function PricingPage() {
@@ -60,7 +59,7 @@ export default function PricingPage() {
               <li>2 GB of storage</li>
               <li>Customer support</li>
             </ul>
-            <PaypalComp 
+            <PayPalButton 
               price={"5000"}
               name={"single"} />
           </div>
@@ -77,7 +76,7 @@ export default function PricingPage() {
               <li>More products, more savings!!</li>
               <li>Customer support</li>
             </ul>
-            <PaypalComp
+            <PayPalButton
               price={"25000"}
               name={"multiple"} />
           </div>
@@ -94,7 +93,7 @@ export default function PricingPage() {
               <li>Best long-term deal</li>
               <li>Direct owner support</li>
             </ul>
-            <PaypalComp 
+            <PayPalButton 
               price={"35000"}
               name={"unlimited"} />
           </div>
