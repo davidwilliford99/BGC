@@ -21,6 +21,7 @@ const PayPalButton = ({ name, price }) => {
   const onApprove = (data, actions) => {
     return actions.order.capture().then(function (details) {
       // Handle success, e.g., show a success message to the user
+      console.log('Capture Details:', details);
 
       // Send the payment details to the backend for finalization
       fetch('http://34.201.53.67:8000/create-payment/', {
