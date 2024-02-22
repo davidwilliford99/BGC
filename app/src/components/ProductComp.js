@@ -12,6 +12,7 @@ function ProductComp(props) {
 
 
   // props
+  const id = props.id;
   const title = props.title;
   const categoryId = props.category;
   const description = props.description;
@@ -61,12 +62,13 @@ function ProductComp(props) {
         }, []); 
 
 
+  console.log(id[0] + "" + id[1])
 
   return (
 
-    <div className="mx-2 my-3 p-4 md:w-1/4 w-full rounded-sm">
+    <div className="mx-2 my-3 p-4 md:w-1/4 w-full bg-white rounded-sm shadow-lg">
 
-      <a href="">
+      <a href={"/grafts/" + id[0] + "" + id[1]} >
 
         <div id="product-details" className="m-2 flex flex-col items-center">
             <img src={image} className="max-h-96" alt="product"/>
@@ -77,7 +79,7 @@ function ProductComp(props) {
 
             <div className="flex flex-col mt-5 items-center justify-between">
               <p className="font-semibold">${price}</p>
-              <a target="_blank" href={link}><button className="bg-blue-500 text-white px-3 py-1 rounded-xl hover:bg-blue-800 transition mt-2">Purchase Here</button></a>
+              <a target="_blank" href={link}><button className="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-800 transition mt-3">Purchase Here</button></a>
             </div>
             
         </div>

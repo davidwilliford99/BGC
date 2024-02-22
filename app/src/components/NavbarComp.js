@@ -68,7 +68,7 @@ function NavScrollExample(props) {
   return (
 
 
-    <Navbar expand="lg" className='border-b-2' color='white'>
+    <Navbar expand="lg" className='shadow-md' color='white'>
       <Container fluid>
         <Navbar.Brand href="/home">
           <img

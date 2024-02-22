@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ProductComp from '../components/ProductComp';
-
+import JSONbig from 'json-bigint';
 
 
 
@@ -19,8 +19,13 @@ function ProductsPage() {
 
     const getProducts = () => {
         fetch('http://34.201.53.67:8000/grafts/', {})
-        .then((response) => response.json())
-        .then((data) => setProducts(data))
+        .then((response) => response.text()) // Get the response as text
+        .then((text) => JSONbig.parse(text)) // Parse the text with JSONbig
+        .then((data) => {
+            // Process data here if necessary
+            setProducts(data);
+        })
+        .catch((error) => console.error('Error fetching products:', error));
     }
     useEffect(() => {
         getProducts();
@@ -49,14 +54,14 @@ function ProductsPage() {
     
 
     return (
-        <>
+        <div className='bg-neutral-100'>
 
             {/* SORT BY section */}
-            <div className='flex items-center justify-center gap-5 m-5'>
+            <div className='flex items-center justify-center gap-5 p-5'>
                 <select 
                     name="categories" 
                     id="categories" 
-                    className='border-2 p-2 rounded-xl font-["Lato"]'
+                    className='border-2 py-2 px-5 rounded-xl shadow-sm font-["Lato"] text-lg'
                     value={category} 
                     onChange={handleCategoryChange}
                 > 
@@ -94,9 +99,10 @@ function ProductsPage() {
                 {
                     sortedProducts.map((product) => {
 
-                        console.log(product.regulation)
+                        console.log(product.id.c)
                         
                         return  <ProductComp 
+                            id = {product.id.c}
                             title = {product.name}
                             category = {product.category}
                             description = {product.description}
@@ -113,7 +119,7 @@ function ProductsPage() {
 
             </div>
         
-        </>
+        </div>
     );
 }
 

@@ -19,6 +19,7 @@ import MyProductsPage from './pages/MyProductsPage'
 import GraftReviewPage from './pages/GraftReviewPage'
 import ChangePasswordPage from './pages/ChangePasswordPage'
 import ChangeUsernamePage from './pages/ChangeUsernamePage'
+import SingleProductPage from './pages/SingleProductPage'
 
 
 function AppRouter(){
@@ -52,6 +53,8 @@ function AppRouter(){
                 <Route path="/changepassword" element={<ChangePasswordPage/>} />
 
                 <Route path="/changeusername" element={<ChangeUsernamePage/>} />
+
+                <Route path="/grafts/:id" element={<SingleProductPage/>} />
 
             </Routes>
     )
