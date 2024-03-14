@@ -119,18 +119,18 @@ export default function NewGraftPage(props) {
                                  * Uses fromdata instead of JSON so may look different than the others 
                                  */
                                 const imageFormData = new FormData();
-
+                                
                                 imageFormData.append('graft_name', data.name);
                                 imageFormData.append('image', image);
 
                                 // logging the graft id and image url for testing
                                 console.log(data.name);
+                                console.log(image)
 
-                                const imageResponse = await fetch('http://34.201.53.67:8000/grafts/imageupload', {
+                                const imageResponse = await fetch('http://34.201.53.67:8000/grafts/imageupload/', {
                                     method: 'POST',
                                     body: imageFormData,
                                   });
-                                
 
 
                                 
@@ -149,7 +149,7 @@ export default function NewGraftPage(props) {
                                     documentFormData.append('document', documents[i]);
                                 }
 
-                                const documentResponse = await fetch('http://34.201.53.67:8000/grafts/documentupload', {
+                                const documentResponse = await fetch('http://34.201.53.67:8000/grafts/documentupload/', {
                                     method: 'POST',
                                     body: documentFormData,
                                   });
@@ -372,6 +372,7 @@ export default function NewGraftPage(props) {
                             onChange={(e) => {
                                 const image = e.target.files;
                                 setImage(image[0]);
+                                console.log(image[0])
                             }} />
                     </div>
 

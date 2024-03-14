@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-/**
- * 
- * Right now everything is hard coded. Once the API is setup,
- * we will be able to pass props. That way each product will be unique 
- * 
- */
 
 function ProductComp(props) {
 
