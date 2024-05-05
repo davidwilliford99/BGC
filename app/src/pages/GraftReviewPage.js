@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import MyProductComp from '../components/MyProductComp';
 import GraftReviewComp from '../components/GraftReviewComp';
+import JSONbig from 'json-bigint';
+
 
 /**
  * 
@@ -36,10 +38,12 @@ export default function GraftReviewPage(props) {
                 };
 
                 await fetch(apiUrl, requestOptions)
-                    .then((response) => response.json())
+                    .then((response) => response.text()) // Get response as text
                     .then((data) => {
-                        console.log(data[0]);
-                        setIsStaff(data[0].is_staff);
+                        // Parse response using JSONbig
+                        const parsedData = JSONbig.parse(data);
+                        console.log(parsedData[0]);
+                        setIsStaff(parsedData[0].is_staff);
                     })
                     .catch((error) => console.error("Error:", error));
             }
@@ -53,8 +57,13 @@ export default function GraftReviewPage(props) {
      */
     const getProducts = () => {
         fetch('http://34.201.53.67:8000/grafts/', {})
-        .then((response) => response.json())
-        .then((data) => setProducts(data))
+        .then((response) => response.text()) // Get response as text
+        .then((data) => {
+            // Parse response using JSONbig
+            const parsedData = JSONbig.parse(data);
+            setProducts(parsedData);
+        })
+        .catch((error) => console.error("Error:", error));
     }
     useEffect(() => {
         getProducts();

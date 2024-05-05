@@ -1,6 +1,8 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import MyProductComp from '../components/MyProductComp';
+import JSONbig from 'json-bigint';
+
 
 
 /**
@@ -20,28 +22,28 @@ export default function MyProductsPage(props) {
         (
             async () => {
                 const apiUrl = "http://34.201.53.67:8000/users/info/";
-
+    
                 // Retrieve the JWT token from localStorage
                 const jwtToken = localStorage.getItem("jwt");
-
+    
                 // Data to be sent in the request body
                 const requestData = {
                     jwt: jwtToken
                 };
-
+    
                 const requestOptions = {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                     },
-                        body: JSON.stringify(requestData),
+                    body: JSON.stringify(requestData),
                 };
-
+    
                 await fetch(apiUrl, requestOptions)
                     .then((response) => response.json())
                     .then(async (data) => {
-
-
+    
+    
                         const url = "http://34.201.53.67:8000/grafts/search/user";
                         const graftRequestData = {
                             username: data[0].username
@@ -51,21 +53,26 @@ export default function MyProductsPage(props) {
                             headers: {
                                 "Content-Type": "application/json",
                             },
-                                body: JSON.stringify(graftRequestData),
+                            body: JSON.stringify(graftRequestData),
                         };
-        
+    
                         await fetch(url, graftRequestOptions)
-                            .then((response) => response.json())
-                            .then((data) => setProducts(data))
+                            .then((response) => response.text()) // Get response as text
+                            .then((data) => {
+                                // Parse response using JSONbig
+                                const parsedData = JSONbig.parse(data);
+                                setProducts(parsedData);
+                            })
                             .catch((error) => console.error("Error:", error));
-
+    
                     })
                     .catch((error) => console.error("Error:", error));
-
+    
     
             }
         )();
-    }, [products])
+    }, [products]);
+    
 
     // console.log(products[0]);
 
