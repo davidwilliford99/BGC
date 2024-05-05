@@ -28,10 +28,10 @@ function ContactForm() {
 
     return (
 
-        <>
+        <div className='bg-neutral-200 min-h-screen'>
         
             <div id='title section'>
-                <h1 className='text-center text-5xl mt-20 font-["Lato"] font-semibold leading-snug tracking-tight'>Contact Us</h1>
+                <h1 className='text-center text-5xl pt-20 font-["Lato"] font-semibold leading-snug tracking-tight'>Contact Us</h1>
             </div>
 
             <div className='flex flex-col lg:flex-row gap-5 items-center justify-center py-20'>
@@ -39,7 +39,7 @@ function ContactForm() {
 
                 {
                     people.map((person) => {
-                    return  <div className='border-2 rounded-xl p-5 text-center'>
+                    return  <div className='rounded-lg p-5 text-center bg-white shadow-lg'>
                                 <h1 className='text-2xl'>{person.name}</h1>
                                 <h1 className='py-2 font-bold'>{person.role}</h1>
                                 <h1 className='text-blue-500'>{person.email}</h1>
@@ -53,7 +53,7 @@ function ContactForm() {
                 
             </div>
         
-        </>
+        </div>
 
 
 
