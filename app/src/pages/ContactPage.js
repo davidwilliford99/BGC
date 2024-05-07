@@ -28,7 +28,7 @@ function ContactForm() {
 
     return (
 
-        <div className='bg-neutral-200 min-h-screen'>
+        <div className='bg-neutral-100 min-h-screen'>
         
             <div id='title section'>
                 <h1 className='text-center text-5xl pt-20 font-["Lato"] font-semibold leading-snug tracking-tight'>Contact Us</h1>

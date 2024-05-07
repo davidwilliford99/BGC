@@ -130,7 +130,7 @@ export default function GraftReviewComp(props) {
 
   return (
 
-    <div className="mx-2 md:mx-20 my-10 md:my-3 rounded-xl overflow-hidden border-1 border-black">
+    <div className="mx-2 md:mx-20 my-10 md:my-3 rounded-lg shadow-lg overflow-hidden bg-white">
 
       <div id="product-details" className="flex flex-col md:flex-row justify-between items-center">
           <img 

@@ -73,8 +73,8 @@ export default function GraftReviewPage(props) {
 
 
         return (
-            <div>
-                <h1 className='font-[Montserrat] text-3xl md:text-5xl font-regular text-center my-14'>Accept / Deny new Grafts</h1>
+            <div className='bg-neutral-200 pb-20'>
+                <h1 className='font-[Montserrat] text-3xl md:text-5xl font-regular text-center py-14'>Accept / Deny new Grafts</h1>
     
                 {
                     products.map((product) => {

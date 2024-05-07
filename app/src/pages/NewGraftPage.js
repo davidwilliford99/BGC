@@ -232,7 +232,7 @@ export default function NewGraftPage(props) {
     return (
 
 
-        <div className='font-[Lato]'>
+        <div className='font-[Lato] bg-neutral-100'>
             
             <form id='create-account-form' className='p-5 w-full flex flex-col items-center' onSubmit={submitGraft}>
 

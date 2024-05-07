@@ -32,9 +32,9 @@ export default function PricingPage() {
 
 
   return (
-    <>
+    <div className='bg-neutral-100'>
       <div id='img-container' className='flex justify-center pt-5'>
-        <img src='images/undraw_payment.png' className='h-40'/>
+        <img src='images/undraw_payment.png' className='h-40 rounded-xl shadow-md'/>
       </div>
 
 
@@ -50,7 +50,7 @@ export default function PricingPage() {
       <div class="flex flex-col md:flex-row justify-content-center p-20" id='price-options-container'>
 
 
-        <div class="border-1 border-black">
+        <div class="border-1 border-black bg-white">
           <h4 class="my-0 font-semibold text-3xl text-center text-white bg-blue-400 px-5 py-2 font-['Lato']">Single Product</h4>
           <div class="card-body flex items-center justify-center flex-col">
             <h1 class="card-title pricing-card-title py-5 font-medium text-2xl">$5,000<small class="text-muted"> /per graft</small></h1>
@@ -67,7 +67,7 @@ export default function PricingPage() {
 
 
 
-        <div class="border-1 border-black">
+        <div class="border-1 border-black bg-white">
           <h4 class="my-0 font-semibold text-3xl text-center text-white bg-blue-600 px-5 py-2 font-['Lato']">Multiple Products</h4>
           <div class="card-body flex items-center justify-center flex-col">
             <h1 class="card-title pricing-card-title py-5 font-medium text-2xl">$25,000<small class="text-muted"> flat fee</small></h1>
@@ -84,7 +84,7 @@ export default function PricingPage() {
 
 
         
-        <div class="border-1 border-black">
+        <div class="border-1 border-black bg-white">
           <h4 class="my-0 font-semibold text-3xl text-center text-white bg-blue-800 px-5 py-2 font-['Lato']">Unlimited Products</h4>
           <div class="card-body flex items-center justify-center flex-col">
             <h1 class="card-title pricing-card-title py-5 font-medium text-2xl">$35,000<small class="text-muted"> flat fee</small></h1>
@@ -104,6 +104,6 @@ export default function PricingPage() {
       
 
 
-    </>
+    </div>
   )
 }

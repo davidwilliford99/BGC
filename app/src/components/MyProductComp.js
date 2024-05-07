@@ -97,7 +97,7 @@ export default function MyProductComp(props) {
 
   return (
 
-    <div className="m-3 md:mx-20 my-5 md:my-3 rounded-xl overflow-hidden border-1 border-black">
+    <div className="m-3 md:mx-20 my-5 md:my-3 rounded-lg bg-white shadow-lg overflow-hidden">
 
       <div id="product-details" className="flex flex-col md:flex-row justify-between items-center">
           <img 
