@@ -127,7 +127,7 @@ export default function NewGraftPage(props) {
                                 console.log(data.name);
                                 console.log(image)
 
-                                const imageResponse = await fetch('http://34.201.53.67:8000/grafts/imageupload/', {
+                                const imageResponse = await fetch('http://34.201.53.67:8000/grafts/imageupload', {
                                     method: 'POST',
                                     body: imageFormData,
                                   });
@@ -149,7 +149,7 @@ export default function NewGraftPage(props) {
                                     documentFormData.append('document', documents[i]);
                                 }
 
-                                const documentResponse = await fetch('http://34.201.53.67:8000/grafts/documentupload/', {
+                                const documentResponse = await fetch('http://34.201.53.67:8000/grafts/documentupload', {
                                     method: 'POST',
                                     body: documentFormData,
                                   });
