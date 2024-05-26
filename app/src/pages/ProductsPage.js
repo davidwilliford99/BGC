@@ -18,7 +18,7 @@ function ProductsPage() {
     const [category, setCategory] = useState('all');
 
     const getProducts = () => {
-        fetch('http://34.201.53.67:8000/grafts/', {})
+        fetch('https://34.201.53.67:8000/grafts/', {})
         .then((response) => response.text()) // Get the response as text
         .then((text) => JSONbig.parse(text)) // Parse the text with JSONbig
         .then((data) => {
