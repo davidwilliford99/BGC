@@ -45,7 +45,7 @@ export default function CreateAccountPage(props) {
         }
         else {
 
-            const userRequest = await axios.post("http://34.201.53.67:8000/users/" , {
+            const userRequest = await axios.post("https://34.201.53.67:8000/users/" , {
                 username: username,
                 email: email,
                 password: password
@@ -66,7 +66,7 @@ export default function CreateAccountPage(props) {
 
         
 
-            await axios.put(`http://34.201.53.67:8000/profiles/${userRequest.data.id}`, {
+            await axios.put(`https://34.201.53.67:8000/profiles/${userRequest.data.id}`, {
                 user_id: userRequest.data.id,
                 num_credits: 0,
                 business_name: BusinessName,

@@ -36,7 +36,7 @@ export default function GraftReviewComp(props) {
    */
   const deleteGraft = async () => {
     
-    const url = `http://34.201.53.67:8000/grafts/${id}`;
+    const url = `https://34.201.53.67:8000/grafts/${id}`;
     const jwtToken = localStorage.getItem("jwt");
     const payload = {
       jwt: jwtToken 
@@ -64,7 +64,7 @@ export default function GraftReviewComp(props) {
    */
   const approveGraft = async () => {
     
-    const url = `http://34.201.53.67:8000/grafts/validate`;
+    const url = `https://34.201.53.67:8000/grafts/validate`;
     const jwtToken = localStorage.getItem("jwt");
     const payload = {
       jwt: jwtToken,
@@ -97,7 +97,7 @@ export default function GraftReviewComp(props) {
   const [category, setCategory] = useState("");
 
     const getCategory = () => {
-        fetch(`http://34.201.53.67:8000/grafts/` + categoryId + "/cat", {})
+        fetch(`https://34.201.53.67:8000/grafts/` + categoryId + "/cat", {})
         .then((response) => response.json())
         .then((data) => setCategory(data))
     }
@@ -116,7 +116,7 @@ export default function GraftReviewComp(props) {
     const [regulation, setRegulation] = useState("");
 
     const getRegulation = () => {
-        fetch(`http://34.201.53.67:8000/grafts/` + regulationId + "/reg", {})
+        fetch(`https://34.201.53.67:8000/grafts/` + regulationId + "/reg", {})
         .then((response) => response.json())
         .then((data) => setRegulation(data))
     }

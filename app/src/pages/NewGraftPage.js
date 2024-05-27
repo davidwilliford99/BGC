@@ -54,7 +54,7 @@ export default function NewGraftPage(props) {
             /**
              * API Request to return username 
              */
-            const userUrl = "http://34.201.53.67:8000/users/info/";
+            const userUrl = "https://34.201.53.67:8000/users/info/";
             const jwtToken = localStorage.getItem("jwt");
             const userRequestData = {
                 jwt: jwtToken
@@ -76,7 +76,7 @@ export default function NewGraftPage(props) {
                         /**
                          * API Request to store graft 
                          */
-                        const graftUrl = "http://34.201.53.67:8000/grafts/";
+                        const graftUrl = "https://34.201.53.67:8000/grafts/";
                         const graftRequestData = {
                             name: name,
                             description: description,
@@ -127,7 +127,7 @@ export default function NewGraftPage(props) {
                                 console.log(data.name);
                                 console.log(image)
 
-                                const imageResponse = await fetch('http://34.201.53.67:8000/grafts/imageupload', {
+                                const imageResponse = await fetch('https://34.201.53.67:8000/grafts/imageupload', {
                                     method: 'POST',
                                     body: imageFormData,
                                   });
@@ -149,7 +149,7 @@ export default function NewGraftPage(props) {
                                     documentFormData.append('document', documents[i]);
                                 }
 
-                                const documentResponse = await fetch('http://34.201.53.67:8000/grafts/documentupload', {
+                                const documentResponse = await fetch('https://34.201.53.67:8000/grafts/documentupload', {
                                     method: 'POST',
                                     body: documentFormData,
                                   });
@@ -167,7 +167,7 @@ export default function NewGraftPage(props) {
                         /**
                          * Fifth API call to decrease user's credits by 1
                          */
-                        const decreaseUrl = "http://34.201.53.67:8000/users/postgraft/";
+                        const decreaseUrl = "https://34.201.53.67:8000/users/postgraft/";
                         const decreaseRequestData = {
                             jwt: jwtToken
                         };
