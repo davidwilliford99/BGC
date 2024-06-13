@@ -22,7 +22,7 @@ export default function AccountPage(props) {
     useEffect(() => {
         (
             async () => {
-                const apiUrl = "http://34.201.53.67:8000/users/info/";
+                const apiUrl = "https://34.201.53.67:8000/users/info/";
 
                 // Retrieve the JWT token from localStorage
                 const jwtToken = localStorage.getItem("jwt");
