@@ -39,8 +39,8 @@ export default function PricingPage() {
 
 
       <div id='title-container' className='px-20 mt-10 '>
-        <h1 className='text-5xl font-["Lato"] font-normal leading-snug tracking-tight text-center'>Pricing Options</h1>
-        <p className='py-2 font-["Montserrat"] tracking-tight text-center'>Breif reasoning on why spending your money at BGC is worth it. Explain the exact process of how they will receive a return on their investment.</p>
+        <h1 className='text-5xl font-["Lato"] font-normal leading-snug tracking-tight text-center'>Subscription Pricing for Manufacturers</h1>
+        <p className='py-2 font-["Montserrat"] tracking-tight text-center'>As the marketplace becomes increasingly crowded with new product offerings, companies MUST make the effort to delineate and substantiate the claims made regarding their bone grafting portfolio. Utilizing the BGC’s “checks and balances” system, based on board member peer review, your company can be assured fairness and visibility within our valued hospital and ASC partnerships across the United States. Once reviewed and approved as accurate by our board, and your product(s) “go live” on the site, BGC participating partners will have complete visibility of your offerings, scientific data, pricing, IFUs, FDA filings, ASPs, and marketing acumen immediately, and on demand, when time matters most.</p>
       </div>
 
 

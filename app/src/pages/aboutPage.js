@@ -3,7 +3,7 @@ import React from 'react'
 
 function AboutPage(){
 
-    const aboutText = "BGC (Bone Graft Consortium) is a non-profit repository for bone grafts. We are here to provide our customers with a non-biased repository for bone grafts, where any licensed vendors can post their products.";
+    const aboutText = "BGC (Bone Graft Consortium) is a non-profit repository for bone grafts. We exist to provide our customers with a non-biased repository for bone grafting, where all FDA and/or AATB registered companies are encouraged to list their offerings.";
 
     return(
         <div className='about-wrapper md:mx-20 lg:mx-40'>
@@ -31,7 +31,7 @@ function AboutPage(){
 
                 <div class="container p-5 mt-5 bg-light">
                     <h2 className='text-3xl md:text-4xl font-["Lato"] mb-5 tracking-tight'>Our Story</h2>
-                    <p className='py-2 font-["Montserrat"] tracking-tight'>BGC's owner and founder Michael Weddington is also the founder of Quantum Biologics. During his time in the medical field, he noticed a strong bias and financial monopoly within the bone grafting industry. He consulted colleagues and other individuals in the medical field, and came to the conclusion that hosting a non-profit repository for bone grafting could potentially help millions of patients and surgeons alike. </p> 
+                    <p className='py-2 font-["Montserrat"] tracking-tight'>BGC was established to address the bias and financial monopoly within the bone grafting industry. After consulting with various experts and stakeholders in the medical field, it was determined that creating a non-profit repository for bone grafting materials could greatly benefit millions of patients and surgeons alike. This initiative aims to make bone grafting more accessible and equitable, ultimately improving patient outcomes and supporting the medical community. </p> 
                 </div>
                 
 

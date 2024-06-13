@@ -11,11 +11,11 @@ function HomePage() {
 
 
       <div className='xl:h-screen px-10 pb-20 xl:px-40 d-flex flex-column justify-center' id='hero-section'>
-        <h1 className='text-light text-5xl py-20 font-["Lato"] font-bold leading-normal'>
+        <h1 className='text-light text-3xl lg:text-5xl py-20 font-["Lato"] font-bold leading-normal'>
           Lifting the veil of mismanaged information on Bone Grafting
         </h1>
-        <a href='/products' className='btn btn-primary btn-lg btn-get-started px-5 rounded-xl font-["Montserrat"] font-medium xl:w-1/4 text-xl'>
-          See Products
+        <a href='/products' className='btn btn-primary btn-lg btn-get-started rounded-xl font-["Montserrat"] font-medium xl:w-1/4 text-xl'>
+          Grafting Categories
         </a>
       </div>
 
@@ -57,7 +57,7 @@ function HomePage() {
             <p class="text-sm xl:text-md">
               <strong><u>Great Question!</u></strong>
               <br/>
-               The BGC platform provides a repository for bone grafts that is both non-profit and non-biased. Due to the current state of the US health care system, non-biased repositories not manipulated by financial incentive are little to none.
+               The BGC platform provides a comprehensive repository for bone grafts that is both nonprofit and non-biased, citing our mission statement from our 501(c)3 filings with the federal government.
             </p>
           </div>
 
@@ -66,7 +66,7 @@ function HomePage() {
           <div class="col-md-6 col-lg-4 mb-4 bg-blue-100 p-5 rounded-sm">
             <h6 class="mb-5 text-blue-600 text-lg xl:text-2xl">Why would spine/orthopedic or small biologic companies join the BGC?</h6>
             <p class="text-sm xl:text-md">
-              <strong><u>Yes, it is possible!</u></strong> The Bone Graft Consortium will be funded by the industry and will be a non-profit entity. Manufacturers who are not listed and reviewed by the BGC may be perceived as less relevant or unwilling to provide unbiased information, risking their acceptance by reviewing hospital/ASC committees. Hospitals will require manufacturers to join the BGC for efficiency and to keep unscrupulous vendors out of their system. The non-profit entity gives confidence and legitimacy to the bone grafting marketplace and allows for complete financial transparency.
+              <strong><u>Visibility and accountability matter</u></strong> The BGC is funded by the industry and is a registered 501(c)3 nonprofit organization. Manufacturers who are not listed and reviewed by the BGC may be perceived as less relevant or unwilling to provide unbiased information, risking their acceptance by reviewing hospital/ASC committees. Hospitals will require manufacturers to join the BGC for efficiency and to keep unscrupulous vendors out of their system. The non-profit entity gives confidence and legitimacy to the bone grafting marketplace and allows for complete financial transparency.
             </p>
           </div>
 
@@ -76,7 +76,7 @@ function HomePage() {
             <h6 class="mb-5 text-blue-600 text-lg xl:text-2xl">Who will the BGC consist of and how will it help “level the playing field”?
             </h6>
             <p class="text-sm xl:text-md">
-            The BCG will recruit board members from bone grafting companies, insurance providers, and key decision makers who will periodically review submissions. The subscription-based model will allow all manufacturers, big or small, to showcase their bone grafting options alongside others, giving them access and visibility in hospital systems and ASCs that they may not have otherwise had due to lack of representation or funding.
+            The BCG has recruited board members from bone grafting companies, insurance providers, and key decision makers who will periodically review submissions. The subscription based model allows manufacturers, regardless of size or annual revenue, to all be treated as equals alongside one another.
             </p>
           </div>
         
