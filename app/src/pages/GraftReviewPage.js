@@ -19,7 +19,7 @@ export default function GraftReviewPage(props) {
     useEffect(() => {
         (
             async () => {
-                const apiUrl = "https://34.201.53.67:8000/users/info/";
+                const apiUrl = "https://api.bonegraftconsortium.com:8000/users/info/";
 
                 // Retrieve the JWT token from localStorage
                 const jwtToken = localStorage.getItem("jwt");
@@ -56,7 +56,7 @@ export default function GraftReviewPage(props) {
      * Fetching product 
      */
     const getProducts = () => {
-        fetch('https://34.201.53.67:8000/grafts/', {})
+        fetch('https://api.bonegraftconsortium.com:8000/grafts/', {})
         .then((response) => response.text()) // Get response as text
         .then((data) => {
             // Parse response using JSONbig

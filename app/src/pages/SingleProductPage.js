@@ -27,21 +27,21 @@ export default function SingleProductPage(props) {
 
     useEffect(() => {
         const fetchGraftData = () => {
-            fetch(`https://34.201.53.67:8000/grafts/${id}`, {})
+            fetch(`https://api.bonegraftconsortium.com:8000/grafts/${id}`, {})
             .then(response => response.text()) // Get the response as text
             .then(text => JSONbig.parse(text)) // Parse the text with JSONbig
             .then(data => {
                 setGraftData(data);
 
                 const catId = data.category.c[0] + "" + data.category.c[1];
-                fetch(`https://34.201.53.67:8000/grafts/${catId}/cat`, {})
+                fetch(`https://api.bonegraftconsortium.com:8000/grafts/${catId}/cat`, {})
                 .then(response => response.text()) // Get the response as text
                 .then(data => {
                     setCategory(data.replace(/['"]+/g, ''));
                 })
 
                 const regId = data.regulation.c[0] + "" + data.regulation.c[1];
-                fetch(`https://34.201.53.67:8000/grafts/${regId}/reg`, {})
+                fetch(`https://api.bonegraftconsortium.com:8000/grafts/${regId}/reg`, {})
                 .then(response => response.text()) // Get the response as text
                 .then(data => {
                     setRegulation(data.replace(/['"]+/g, ''));

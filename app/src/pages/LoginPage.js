@@ -25,7 +25,7 @@ export default function LoginPage(props) {
         event.preventDefault();
 
 
-        const apiUrl = "https://34.201.53.67:8000/users/login/";
+        const apiUrl = "https://api.bonegraftconsortium.com:8000/users/login/";
         const loginData = {
             email: email,
             password: password,
