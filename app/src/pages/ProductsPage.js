@@ -55,7 +55,7 @@ function ProductsPage() {
     
 
     return (
-        <div className='bg-neutral-100'>
+        <div className='bg-neutral-100 min-h-screen'>
 
             {/* SORT BY section */}
             <div className='flex items-center justify-center gap-5 p-5'>
@@ -72,6 +72,7 @@ function ProductsPage() {
                     <option value="915858246617530369">Synthetics</option>
                     <option value="915858301744152577">Peptides</option>
                     <option value="915858330792951809">Proteins</option>
+                    <option value="977331099118534657">Cell Based Matrices</option>
                 </select>
 
 
