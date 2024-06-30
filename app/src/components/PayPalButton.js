@@ -24,7 +24,7 @@ const PayPalButton = ({ name, price }) => {
       console.log('Capture Details:', details);
 
       // Send the payment details to the backend for finalization
-      fetch('http://34.201.53.67:8000/create-payment/', {
+      fetch('https://api.bonegraftconsortium.com:8000/create-payment/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
