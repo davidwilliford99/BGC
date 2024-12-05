@@ -330,7 +330,7 @@ export default function NewGraftPage(props) {
                             {/* The values are IDs of the regulation pathways from the db (auto generated) */}
                             <option value="placeholder">Select Regulation Pathway</option>
                             <option value="915858365070901249">AATB</option>
-                            <option value="915858416631250945">501(k)</option>
+                            <option value="915858416631250945">510(k)</option>
                             <option value="915858457363611649">Drug/Device Combination</option>
 
                         </select>
