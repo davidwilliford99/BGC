@@ -10,12 +10,8 @@ export default function NewGraftPage(props) {
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState(0);
     const [regulation, setRegulation] = useState(0);
-    const [image, setImage] = useState([]);
-
-    const [price, setPrice] = useState({});
-    const [currentPriceKey, setCurrentPriceKey] = useState("");
-    const [currentPriceValue, setCurrentPriceValue] = useState("");
-
+    const [image, setImage] = useState();
+    const [price, setPrice] = useState();
     const [link, setLink] = useState("");
     const [documents, setDocuments] = useState([]);
 
@@ -125,12 +121,7 @@ export default function NewGraftPage(props) {
                                 const imageFormData = new FormData();
                                 
                                 imageFormData.append('graft_name', data.name);
-
-                                console.log(image);
-
-                                for(let i = 0; i < image.length; i++) {
-                                    imageFormData.append('image', image[i]);
-                                }
+                                imageFormData.append('image', image);
 
                                 // logging the graft id and image url for testing
                                 console.log(data.name);
@@ -151,6 +142,7 @@ export default function NewGraftPage(props) {
                                 const documentFormData = new FormData();
                                 documentFormData.append('graft_name', data.name)
 
+                                // logging documents fro debugging 
                                 console.log(documents);
 
                                 for(let i = 0; i < documents.length; i++) {
@@ -242,7 +234,7 @@ export default function NewGraftPage(props) {
 
         <div className='font-[Lato] bg-neutral-100'>
             
-            <form id='create-account-form' className='p-5 w-full flex flex-col items-center bg-white' onSubmit={submitGraft}>
+            <form id='create-account-form' className='p-5 w-full flex flex-col items-center' onSubmit={submitGraft}>
 
                 <h1 className='text-center text-4xl mb-5 font-bold'>Add a New Product</h1>
 
@@ -289,7 +281,7 @@ export default function NewGraftPage(props) {
                         required 
                         placeholder="Product Name"
                         type='text' 
-                        className='border-1 border-neutral-400 rounded-md p-2 w-1/3 ml-5'
+                        className='border-1 border-black rounded-md p-2 w-1/3 ml-5'
                         value = {name}
                         onChange = {(e) => setName(e.target.value)}
                         ></input>
@@ -301,7 +293,7 @@ export default function NewGraftPage(props) {
                         rows="4"
                         placeholder="Product description"
                         type='text' 
-                        className='border-1 border-neutral-400 rounded-md p-2 w-1/3 ml-5'
+                        className='border-1 border-black rounded-md p-2 w-1/3 ml-5'
                         value = {description}
                         onChange = {(e) => setDescription(e.target.value)}
                         ></textarea>
@@ -311,14 +303,13 @@ export default function NewGraftPage(props) {
                 <div className='flex justify-center mb-3 w-full'>
                     <select 
                         required 
-                        className='border-1 border-neutral-400 rounded-md p-2 w-1/3 ml-5'
+                        placeholder="Select Category"
+                        className='border-1 border-black rounded-md p-2 w-1/3 ml-5'
                         value = {category}
                         onChange = {(e) => setCategory(e.target.value)}
                         >
                             {/* The values are IDs of the categories from the db (auto generated) */}
-                            <option value="placeholder" className='text-neutral-500'>
-                                Select Category
-                            </option>
+                            <option value="placeholder">Select Category</option>
                             <option value="915858180849696769">Allograft</option>
                             <option value="915858209190838273">DBM</option>
                             <option value="915858246617530369">Synthetics</option>
@@ -331,16 +322,15 @@ export default function NewGraftPage(props) {
                 <div className='flex justify-center mb-3 w-full'>
                     <select 
                         required 
-                        className='border-1 border-neutral-400 rounded-md p-2 w-1/3 ml-5'
+                        placeholder="Select Regulation PAthway"
+                        className='border-1 border-black rounded-md p-2 w-1/3 ml-5'
                         value = {regulation}
                         onChange = {(e) => setRegulation(e.target.value)}
                         >
                             {/* The values are IDs of the regulation pathways from the db (auto generated) */}
-                            <option value="placeholder" className='text-neutral-500'>
-                                Select Regulation Pathway
-                            </option>                            
+                            <option value="placeholder">Select Regulation Pathway</option>
                             <option value="915858365070901249">AATB</option>
-                            <option value="915858416631250945">510(k)</option>
+                            <option value="915858416631250945">501(k)</option>
                             <option value="915858457363611649">Drug/Device Combination</option>
 
                         </select>
@@ -351,52 +341,22 @@ export default function NewGraftPage(props) {
                         required 
                         type='text'
                         placeholder="Link to product (where customers can buy)"
-                        className='border-1 border-neutral-400 rounded-md p-2 w-1/3 ml-5'
+                        className='border-1 border-black rounded-md p-2 w-1/3 ml-5'
                         value = {link}
                         onChange = {(e) => setLink(e.target.value)}
-                    ></input>
+                        ></input>
                 </div>
 
-                {/* Building price JSON */}
-                <div className='flex flex-col mb-3 w-full items-center ml-5'>
-                    <p className="mb-3">Pricing Options</p>
-                    <div className='flex flex-row mb-3 w-1/3 gap-2'>
-                        <input 
-                            type='text' 
-                            placeholder="Key (e.g., Large)" 
-                            className='border-1 border-neutral-400 rounded-md p-2 w-1/2'
-                            value={currentPriceKey}
-                            onChange={(e) => setCurrentPriceKey(e.target.value)}
-                        />
-                        <input 
-                            type='number' 
-                            placeholder="Value (e.g., 199.99)" 
-                            className='border-1 border-neutral-400 rounded-md p-2 w-1/2'
-                            value={currentPriceValue}
-                            onChange={(e) => setCurrentPriceValue(parseFloat(e.target.value))}
-                        />
-                        <button 
-                            type="button" 
-                            className="bg-blue-500 text-white px-4 py-2 rounded-md"
-                            onClick={() => {
-                                if (currentPriceKey && currentPriceValue) {
-                                    setPrice({ ...price, [currentPriceKey]: currentPriceValue });
-                                    setCurrentPriceKey("");
-                                    setCurrentPriceValue("");
-                                }
-                            }}
-                        >
-                            Add
-                        </button>
-                    </div>
-                    <div className='flex flex-col w-1/3'>
-                        <p className="text-center mb-2">Current Pricing Options</p>
-                        <ul className='list-disc ml-5'>
-                            {Object.entries(price).map(([key, value]) => (
-                                <li key={key}>{key}: ${value.toFixed(2)}</li>
-                            ))}
-                        </ul>
-                    </div>
+                <div className='flex justify-center mb-3 w-full items-center' >
+                    <p>$</p>
+                    <input 
+                        required 
+                        placeholder="Price (in USD)"
+                        type='number' 
+                        className='border-1 border-black rounded-md p-2 w-1/3 ml-1'
+                        value = {price}
+                        onChange = {(e) => setPrice(e.target.value)}
+                    ></input>
                 </div>
 
 
@@ -407,14 +367,13 @@ export default function NewGraftPage(props) {
                         <input 
                             type="file" 
                             accept="image/*" 
-                            multiple
                             name="image" 
                             className="my-4"
                             required
                             onChange={(e) => {
-                                const images = e.target.files;
-                                setImage(Array.from(images));
-                                console.log(images)
+                                const image = e.target.files;
+                                setImage(image[0]);
+                                console.log(image[0])
                             }} />
                     </div>
 
