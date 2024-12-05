@@ -95,14 +95,12 @@ export default function MyProductsPage(props) {
                                 category = {product.category_id}
                                 description = {product.description}
                                 regulation = {product.regulation_id}
-                                image = {product.image}
+                                image = {product.image[0]}
                                 link = {product.purchase_link}
                                 price = {product.price}
                             />
                 })
-                
             }
-
         </div>
     );
 }

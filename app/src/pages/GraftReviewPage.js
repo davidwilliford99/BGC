@@ -85,7 +85,7 @@ export default function GraftReviewPage(props) {
                             category = {product.category}
                             description = {product.description}
                             regulation = {product.regulation}
-                            image = {product.image}
+                            image = {product.image[0]}
                             link = {product.purchase_link}
                             price = {product.price}
                             documents = {product.documents}

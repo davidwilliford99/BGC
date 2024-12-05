@@ -109,8 +109,23 @@ export default function MyProductComp(props) {
             <h1 className="text-2xl my-2 font-semibold text-center">{title}</h1>
             <h1 className="text-sm text-blue-800 text-center">{category}</h1>
             <h1 className="text-sm text-blue-800 text-center">{regulation}</h1>
-            <h1 className="text-sm mt-2 mx-5 font-semibold text-center">{description}</h1>
-            <p className="font-semibold text-center text-xl my-3">${price}</p>
+            <h1 className="text-sm mt-2 mx-5 font-semibold text-center">{description.slice(0,100)}...</h1>
+
+            <div className="text-center my-5">
+                <h3 className='text-2xl mb-2'>Pricing Options</h3>
+                {
+                    price && 
+                    Object.entries(price).map(([key, value], index) => {
+                        return (
+                            <div key={index} className=''>
+                                <span>{key}: </span>
+                                <span>${value.toFixed(2)}</span>
+                            </div>
+                        )
+                    })
+                }
+            </div>
+
             <a href={link}> <p className="text-blue-500 text-center mb-3">{link}</p></a>
           </div>
 

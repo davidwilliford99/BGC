@@ -16,8 +16,9 @@ function ProductComp(props) {
   const price = props.price;
 
   // logging for error handling
-  console.log(image);  
-  console.log(link);
+  // console.log(image);  
+  console.log(price);
+
 
   /**
    * 
@@ -25,7 +26,6 @@ function ProductComp(props) {
    * 
    */
   const [category, setCategory] = useState("");
-  const [imageString, setImageString] = useState("");
 
     const getCategory = () => {
         fetch(`https://api.bonegraftconsortium.com:8000/grafts/` + categoryId + "/cat", {})
@@ -35,8 +35,6 @@ function ProductComp(props) {
     useEffect(() => {
         getCategory();
         }, []); 
-
-
 
 
     /**
@@ -56,31 +54,44 @@ function ProductComp(props) {
         }, []); 
 
 
-  console.log(id[0] + "" + id[1])
-
   return (
 
-    <div className="mx-2 my-3 p-4 md:w-1/4 w-full bg-white rounded-sm shadow-lg">
+    <div className="mx-2 my-3 p-3 md:w-1/4 w-full bg-white rounded-sm shadow-md">
 
       <a href={"/grafts/" + id[0] + "" + id[1]} >
 
-        <div id="product-details" className="m-2 flex flex-col items-center">
-            <img src={image} className="max-h-96" alt="product"/>
-            <h1 className="text-xl my-2 font-semibold text-center">{title}</h1>
-            <h1 className="text-sm text-center">{category}</h1>
-            <h1 className="text-sm text-blue-800 text-center">{regulation}</h1>
-            <h1 className="text-sm mt-2 font-semibold text-center">{description}</h1>
+        <div id="product-details" className="m-2 flex flex-col">
 
-            <div className="flex flex-col mt-5 items-center justify-between">
-              <p className="font-semibold">${price}</p>
-              <a target="_blank" href={link}><button className="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-800 transition mt-3">Purchase Here</button></a>
+            <div className="h-72 bg-blue-100 overflow-hidden">
+              {image.map((img) => {
+                  return <img src={img} className="object-cover h-full w-full" alt="product"/>
+              })}  
+            </div>
+
+            <h1 className="text-xl my-3 font-semibold">{title}</h1>
+
+            <div className="text-sm text-blue-800">
+              <h1>{category}</h1>
+              <h1>{regulation}</h1>
+            </div>
+
+            <h1 className="text-md mt-3 font-thin">{description.slice(0, 100)}...</h1>
+
+            <div className="flex flex-col mt-3">
+              {/* Pricing Options */}
+              {Object.entries(price).map(([priceKey, priceValue]) => {
+                return (
+                  <p key={priceKey} className="font-semibold flex justify-between">
+                    <p>{priceKey}:</p> 
+                    <p>${priceValue}</p>
+                  </p>
+                );
+              })}
+              <a target="_blank" href={link}><button className="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-800 transition mt-4">Visit Manufacturer</button></a>
             </div>
             
         </div>
-
       </a>
-
-
 
     </div>
     
